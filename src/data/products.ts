@@ -23,9 +23,9 @@ export const DEMO_PRODUCTS: Product[] = [
     applications: ['Residential Suites', 'Boutique Hotels', 'Executive Offices'],
     finishes: [FINISHES[0], FINISHES[1], FINISHES[2], FINISHES[4]],
     images: [
-      'https://images.unsplash.com/photo-1595844730298-b960ff98fee0?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80'
+      '/brass-door-handle.jpg',
+      '/Handle.jpg',
+      '/Handles.jpg'
     ],
     specifications: [
       { label: 'Material', value: 'Solid Forged Brass / Grade 304 Stainless' },
@@ -56,8 +56,9 @@ export const DEMO_PRODUCTS: Product[] = [
     applications: ['Modern Ensuites', 'Minimalist Residences', 'Gallery Spaces'],
     finishes: [FINISHES[0], FINISHES[1], FINISHES[3]],
     images: [
-      'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1595844730298-b960ff98fee0?auto=format&fit=crop&w=1200&q=80'
+      '/Handle.jpg',
+      '/Handles.jpg',
+      '/brass-door-handle.jpg'
     ],
     specifications: [
       { label: 'Material', value: 'Grade 304 Stainless Steel' },
@@ -86,8 +87,9 @@ export const DEMO_PRODUCTS: Product[] = [
     applications: ['Main Entrance Doors', 'Pivot Doors', 'Boardrooms'],
     finishes: [FINISHES[0], FINISHES[1], FINISHES[2]],
     images: [
-      'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1595844730298-b960ff98fee0?auto=format&fit=crop&w=1200&q=80'
+      '/Handles.jpg',
+      '/Handle.jpg',
+      '/brass-door-handle.jpg'
     ],
     specifications: [
       { label: 'Overall Length', value: '600mm (Centre-to-Centre 450mm)' },
@@ -116,8 +118,9 @@ export const DEMO_PRODUCTS: Product[] = [
     applications: ['Residential Interiors', 'Dressing Rooms', 'Study Doors'],
     finishes: [FINISHES[0], FINISHES[1], FINISHES[4]],
     images: [
-      'https://images.unsplash.com/photo-1595844730298-b960ff98fee0?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80'
+      '/Knobs.jpg',
+      '/Handles.jpg',
+      '/Handle.jpg'
     ],
     specifications: [
       { label: 'Knob Diameter', value: '55mm' },
@@ -148,8 +151,8 @@ export const DEMO_PRODUCTS: Product[] = [
     applications: ['Luxury Bedrooms', 'Quiet Living Zones', 'Hotel Guest Rooms'],
     finishes: [FINISHES[0], FINISHES[1], FINISHES[2]],
     images: [
-      'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1595844730298-b960ff98fee0?auto=format&fit=crop&w=1200&q=80'
+      '/brass-door-handle.jpg',
+      '/Handle.jpg'
     ],
     specifications: [
       { label: 'Backset', value: '50mm / 60mm options' },
@@ -178,8 +181,8 @@ export const DEMO_PRODUCTS: Product[] = [
     applications: ['Frameless Doors', 'Flush Wall Systems', 'Minimalist Interiors'],
     finishes: [FINISHES[0], FINISHES[2], FINISHES[4]],
     images: [
-      'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80'
+      '/Handle.jpg',
+      '/brass-door-handle.jpg'
     ],
     specifications: [
       { label: 'Load Capacity', value: 'Up to 80kg (pair) / 120kg (3 hinges)' },
@@ -208,7 +211,8 @@ export const DEMO_PRODUCTS: Product[] = [
     applications: ['High-Traffic Hallways', 'Elderly Accessible Homes', 'Contemporary Living'],
     finishes: [FINISHES[0], FINISHES[1], FINISHES[2], FINISHES[3]],
     images: [
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'
+      '/Knobs.jpg',
+      '/brass-door-handle.jpg'
     ],
     specifications: [
       { label: 'Floor Core Hole', value: '14mm diameter drill hole' },
@@ -237,8 +241,8 @@ export const DEMO_PRODUCTS: Product[] = [
     applications: ['Powder Rooms', 'Master Vanity Units', 'Hotel Ensuites'],
     finishes: [FINISHES[0], FINISHES[1], FINISHES[2], FINISHES[3]],
     images: [
-      'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1200&q=80'
+      '/bathroom-kit.jpg',
+      '/bathroom-accessory-kit.jpg'
     ],
     specifications: [
       { label: 'Container Volume', value: '250ml' },
@@ -267,8 +271,8 @@ export const DEMO_PRODUCTS: Product[] = [
     applications: ['Master Bathrooms', 'Guest Powder Rooms', 'Executive Washrooms'],
     finishes: [FINISHES[0], FINISHES[1], FINISHES[2]],
     images: [
-      'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'
+      '/bathroom-accessory-kit.jpg',
+      '/bathroom-kit.jpg'
     ],
     specifications: [
       { label: 'Shelf Width', value: '160mm × 100mm depth' },
@@ -296,7 +300,8 @@ export const DEMO_PRODUCTS: Product[] = [
     applications: ['Walk-in Showers', 'Wet Rooms', 'Steam Enclosures'],
     finishes: [FINISHES[0], FINISHES[1], FINISHES[2]],
     images: [
-      'https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1200&q=80'
+      '/bathroom-kit.jpg',
+      '/bathroom-accessory-kit.jpg'
     ],
     specifications: [
       { label: 'Dimensions', value: '220mm × 220mm × 45mm' },
@@ -325,8 +330,8 @@ export const DEMO_PRODUCTS: Product[] = [
     applications: ['Family Bathrooms', 'Ensuite Vanity Walls', 'Pool Houses'],
     finishes: [FINISHES[0], FINISHES[1], FINISHES[2], FINISHES[3], FINISHES[4]],
     images: [
-      'https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80'
+      '/bathroom-accessory-kit.jpg',
+      '/bathroom-kit.jpg'
     ],
     specifications: [
       { label: 'Length', value: '600mm centre-to-centre (630mm overall)' },
@@ -355,8 +360,8 @@ export const DEMO_PRODUCTS: Product[] = [
     applications: ['Master Ensuites', 'Luxury Bathrooms'],
     finishes: [FINISHES[0], FINISHES[1], FINISHES[2]],
     images: [
-      'https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'
+      '/bathroom-kit.jpg',
+      '/bathroom-accessory-kit.jpg'
     ],
     specifications: [
       { label: 'Length', value: '800mm length' },
@@ -384,7 +389,8 @@ export const DEMO_PRODUCTS: Product[] = [
     applications: ['Guest Powder Rooms', 'Near Basin Vanities'],
     finishes: [FINISHES[0], FINISHES[1], FINISHES[2], FINISHES[3]],
     images: [
-      'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80'
+      '/bathroom-accessory-kit.jpg',
+      '/bathroom-kit.jpg'
     ],
     specifications: [
       { label: 'Width', value: '200mm' },
@@ -414,8 +420,8 @@ export const DEMO_PRODUCTS: Product[] = [
     applications: ['Bathroom Walls', 'Behind Bedroom Doors', 'Walk-in Wardrobes'],
     finishes: [FINISHES[0], FINISHES[1], FINISHES[2], FINISHES[3], FINISHES[4]],
     images: [
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80'
+      '/Knobs.jpg',
+      '/bathroom-kit.jpg'
     ],
     specifications: [
       { label: 'Diameter', value: '24mm solid brass peg' },
@@ -444,7 +450,8 @@ export const DEMO_PRODUCTS: Product[] = [
     applications: ['Entryways', 'Bathrooms', 'Mudrooms'],
     finishes: [FINISHES[0], FINISHES[1], FINISHES[2]],
     images: [
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'
+      '/Knobs.jpg',
+      '/bathroom-accessory-kit.jpg'
     ],
     specifications: [
       { label: 'Dimensions', value: '75mm (H) × 65mm (W) × 50mm (D)' },
@@ -473,8 +480,9 @@ export const DEMO_PRODUCTS: Product[] = [
     applications: ['Custom Kitchens', 'Integrated Wardrobes', 'Bespoke Joinery'],
     finishes: [FINISHES[0], FINISHES[1], FINISHES[2], FINISHES[4]],
     images: [
-      'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1595844730298-b960ff98fee0?auto=format&fit=crop&w=1200&q=80'
+      '/Handles.jpg',
+      '/Handle.jpg',
+      '/Knobs.jpg'
     ],
     specifications: [
       { label: 'Length', value: '200mm (also available in 100mm, 300mm, 600mm)' },
@@ -502,7 +510,8 @@ export const DEMO_PRODUCTS: Product[] = [
     applications: ['Architectural Pivot Entrances', 'Large Commercial Doors', 'Interior Partition Walls'],
     finishes: [FINISHES[0], FINISHES[2]],
     images: [
-      'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80'
+      '/brass-door-handle.jpg',
+      '/Handles.jpg'
     ],
     specifications: [
       { label: 'Max Door Weight', value: '160kg' },
@@ -527,7 +536,7 @@ export const APPLICATION_AREAS = [
     title: 'Luxury Residential Bathrooms & Ensuites',
     subtitle: 'Where tactile precision meets daily ritual and serene moisture-resistant resilience',
     description: 'Bathroom environments demand the highest standard of metallurgy. High humidity, temperature swings, and chemical cleaning agents cause lesser hardware to pit and peel. SIDDI bathroom accessories and towel rails are engineered with multi-layer PVD plating over solid forged brass and marine grade 316 stainless steel, ensuring spotless performance across years of daily use.',
-    image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1600&q=80',
+    image: '/bathroom-kit.jpg',
     relatedCategorySlugs: ['bathroom-accessories', 'towel-rails-holders', 'hooks-utility'],
     hardwareHighlights: [
       'Concealed anti-spin towel bars rated for daily use',
@@ -541,7 +550,7 @@ export const APPLICATION_AREAS = [
     title: 'Bedrooms & Interior Passage Doors',
     subtitle: 'Whisper-quiet acoustic performance, weighted hand-feel, and flush architectural aesthetics',
     description: 'Internal doors are the primary tactile transition points in any home. SIDDI lever handles and magnetic mortise locks eliminate harsh latch clicks and vibration, creating seamless, silent acoustic transitions between bedrooms, dressing rooms, and private studies.',
-    image: 'https://images.unsplash.com/photo-1595844730298-b960ff98fee0?auto=format&fit=crop&w=1600&q=85',
+    image: '/Handles.jpg',
     relatedCategorySlugs: ['door-handles-knobs', 'door-hardware-accessories'],
     hardwareHighlights: [
       'Silent magnetic latches that engage without frame strike friction',
@@ -555,7 +564,7 @@ export const APPLICATION_AREAS = [
     title: 'Boutique Hotels & High-End Hospitality',
     subtitle: 'Cycle-tested durability calibrated to withstand rigorous guest turnover while maintaining five-star elegance',
     description: 'Hotels require hardware that combines architectural design purity with extreme mechanical longevity. From entrance pivot pulls to heavy-use robe hooks and card-key compatible mortise locksets, SIDDI hardware is tested across hundreds of thousands of cycles to exceed commercial contract standards.',
-    image: 'https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1600&q=80',
+    image: '/brass-door-handle.jpg',
     relatedCategorySlugs: ['door-handles-knobs', 'door-hardware-accessories', 'bathroom-accessories', 'towel-rails-holders'],
     hardwareHighlights: [
       'High-traffic EN 1906 Grade 4 mechanical endurance',
@@ -569,7 +578,7 @@ export const APPLICATION_AREAS = [
     title: 'Executive Offices & Commercial Workspaces',
     subtitle: 'Crisp architectural lines, ADA/accessible compliance, and robust security integration',
     description: 'Corporate headquarters and creative agency studios demand hardware that communicates professionalism and intentionality. SIDDI provides oversized entrance pulls, heavy-duty floor pivots, and minimalist cabinet hardware tailored for conference rooms, executive suites, and acoustic glass partitions.',
-    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1600&q=80',
+    image: '/Handle.jpg',
     relatedCategorySlugs: ['architectural-hardware', 'door-handles-knobs', 'door-hardware-accessories'],
     hardwareHighlights: [
       'Back-to-back pull handles for full-height architectural pivot doors',
@@ -583,7 +592,7 @@ export const APPLICATION_AREAS = [
     title: 'Architectural Renovations & Custom Millwork',
     subtitle: 'Unifying hardware finishes across custom joinery, custom vanities, and existing heritage or modern doors',
     description: 'Great renovation projects hinge on cohesive finishing touches. Designers frequently face mismatched metallic tones across suppliers. SIDDI solves this with coordinated finish suites across door handles, cabinet pulls, bathroom hooks, and accessories.',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80',
+    image: '/Knobs.jpg',
     relatedCategorySlugs: ['architectural-hardware', 'hooks-utility', 'bathroom-accessories'],
     hardwareHighlights: [
       'Identical metallic finish matching across door and joinery elements',

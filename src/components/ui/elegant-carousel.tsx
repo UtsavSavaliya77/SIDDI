@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import '../../index.css';
 
 export interface SlideData {
@@ -73,7 +74,7 @@ export function ElegantCarousel({
   const touchEndX = useRef(0);
 
   const SLIDE_DURATION = autoPlayDuration;
-  const TRANSITION_DURATION = 800;
+  const TRANSITION_DURATION = 650;
 
   const goToSlide = useCallback(
     (index: number, dir?: 'next' | 'prev') => {
@@ -81,13 +82,11 @@ export function ElegantCarousel({
       setDirection(dir || (index > currentIndex ? 'next' : 'prev'));
       setIsTransitioning(true);
       setProgress(0);
+      setCurrentIndex(index);
 
       setTimeout(() => {
-        setCurrentIndex(index);
-        setTimeout(() => {
-          setIsTransitioning(false);
-        }, 50);
-      }, TRANSITION_DURATION / 2);
+        setIsTransitioning(false);
+      }, TRANSITION_DURATION);
     },
     [isTransitioning, currentIndex]
   );
@@ -150,42 +149,47 @@ export function ElegantCarousel({
       onTouchEnd={handleTouchEnd}
     >
       <div className="carousel-inner">
-        {/* Left: Text Content */}
-        <div className="carousel-content">
+        {/* Left: Text Content with Smooth Bottom-to-Up Transition */}
+        <div className="carousel-content min-h-[340px] sm:min-h-[380px] md:min-h-[420px] flex flex-col justify-center">
           <div className="carousel-content-inner">
-            {/* Collection number */}
-            <div
-              className={`carousel-collection-num ${isTransitioning ? 'transitioning' : 'visible'}`}
-            >
-              <span className="carousel-num-line" />
-              <span className="carousel-num-text">
-                {String(currentIndex + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
-              </span>
-            </div>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`slide-text-${currentIndex}`}
+                initial={{ opacity: 0, y: 45 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -30 }}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                className="flex flex-col gap-3 sm:gap-3.5"
+              >
+                {/* Collection number */}
+                <div className="carousel-collection-num">
+                  <span className="carousel-num-line" />
+                  <span className="carousel-num-text">
+                    {String(currentIndex + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
+                  </span>
+                </div>
 
-            {/* Title */}
-            <h2
-              className={`carousel-title ${isTransitioning ? 'transitioning' : 'visible'}`}
-            >
-              {currentSlide.title}
-            </h2>
+                {/* Title */}
+                <h2 className="carousel-title">
+                  {currentSlide.title}
+                </h2>
 
-            {/* Subtitle */}
-            <p
-              className={`carousel-subtitle ${isTransitioning ? 'transitioning' : 'visible'}`}
-              style={{ color: currentSlide.accent }}
-            >
-              {currentSlide.subtitle}
-            </p>
+                {/* Subtitle */}
+                <p
+                  className="carousel-subtitle"
+                  style={{ color: currentSlide.accent }}
+                >
+                  {currentSlide.subtitle}
+                </p>
 
-            {/* Description */}
-            <p
-              className={`carousel-description ${isTransitioning ? 'transitioning' : 'visible'}`}
-            >
-              {currentSlide.description}
-            </p>
+                {/* Description */}
+                <p className="carousel-description">
+                  {currentSlide.description}
+                </p>
+              </motion.div>
+            </AnimatePresence>
 
-            {/* Navigation Arrows */}
+            {/* Navigation Arrows (Stationary & Always Clickable) */}
             <div className="carousel-nav-arrows">
               <button
                 onClick={goPrev}
@@ -209,16 +213,25 @@ export function ElegantCarousel({
           </div>
         </div>
 
-        {/* Right: Image */}
-        <div className="carousel-image-container">
-          <div
-            className={`carousel-image-frame ${isTransitioning ? 'transitioning' : 'visible'}`}
-          >
-            <img
-              src={currentSlide.imageUrl}
-              alt={currentSlide.title}
-              className="carousel-image"
-            />
+        {/* Right: Image with Smooth Top-to-Bottom Transition */}
+        <div className="carousel-image-container relative">
+          <div className="carousel-image-frame relative w-full h-full overflow-hidden rounded-[1.5rem] shadow-2xl">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`slide-image-${currentIndex}`}
+                initial={{ opacity: 0, y: -65, scale: 1.02 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 45, scale: 0.98 }}
+                transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+                className="w-full h-full"
+              >
+                <img
+                  src={currentSlide.imageUrl}
+                  alt={currentSlide.title}
+                  className="carousel-image w-full h-full object-cover"
+                />
+              </motion.div>
+            </AnimatePresence>
           </div>
 
           {/* Decorative frame corner */}

@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { Breadcrumbs } from '../components/common/Breadcrumbs';
+import { CategoryHero } from '../components/products/CategoryHero';
 import { ProductGrid } from '../components/products/ProductGrid';
 import { EnquiryCTA } from '../components/common/EnquiryCTA';
 import { CATEGORIES } from '../data/categories';
@@ -18,6 +18,11 @@ export const ProductCategoryPage: React.FC = () => {
     return <Navigate to="/products" replace />;
   }
 
+  const categoryIndex = useMemo(() => {
+    const idx = CATEGORIES.findIndex((c) => c.slug === categorySlug);
+    return idx >= 0 ? idx + 1 : 1;
+  }, [categorySlug]);
+
   const categoryProducts = useMemo(() => {
     return DEMO_PRODUCTS.filter((p) => p.categorySlug === categorySlug);
   }, [categorySlug]);
@@ -25,56 +30,16 @@ export const ProductCategoryPage: React.FC = () => {
   const otherCategories = CATEGORIES.filter((c) => c.slug !== categorySlug);
 
   return (
-    <div className="min-h-screen pt-28 md:pt-36 bg-[#FAF9F6]">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 pb-24">
-        
-        {/* Breadcrumb navigation */}
-        <Breadcrumbs
-          items={[
-            { label: 'Products', to: '/products' },
-            { label: currentCategory.title }
-          ]}
-          className="mb-8"
-        />
+    <div className="min-h-screen bg-[#FAF9F6]">
+      {/* Category Architectural Hero */}
+      <CategoryHero
+        category={currentCategory}
+        categoryIndex={categoryIndex}
+        totalProducts={categoryProducts.length}
+      />
 
-        {/* Category Editorial Hero Split */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-16 pb-12 border-b border-[#111111]/10">
-          
-          <div className="lg:col-span-7 space-y-4">
-            <div className="flex items-center gap-3">
-              <span className="w-6 h-[1.5px] bg-[#F2B705]" />
-              <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#F2B705]">
-                Hardware Collection
-              </span>
-            </div>
-            
-            <h1 className="text-3xl sm:text-5xl font-normal leading-tight text-[#111111]">
-              {currentCategory.title}
-            </h1>
-            
-            <p className="text-base sm:text-lg text-[#777777] leading-relaxed">
-              {currentCategory.description}
-            </p>
-
-            <div className="p-4 bg-white border border-[#111111]/10 text-xs text-[#777777] font-mono leading-relaxed">
-              <span className="text-black font-semibold uppercase tracking-wider block mb-1">
-                Specification Note:
-              </span>
-              {currentCategory.editorialNote}
-            </div>
-          </div>
-
-          <div className="lg:col-span-5">
-            <div className="relative aspect-[16/10] border border-[#111111]/10 overflow-hidden shadow-md">
-              <img
-                src={currentCategory.heroImage}
-                alt={currentCategory.title}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-
-        </div>
+      {/* Main Category Body */}
+      <div id="specifications-grid" className="max-w-7xl mx-auto px-6 md:px-12 pt-10 pb-24">
 
         {/* Product Grid */}
         <div className="mb-16">

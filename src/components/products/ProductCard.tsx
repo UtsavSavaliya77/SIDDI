@@ -38,9 +38,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, className = '
 
           {/* Badges Overlay */}
           <div className="pointer-events-none absolute inset-x-3 top-3 flex items-center justify-between">
-            <span className="rounded-md border border-white/20 bg-black/75 px-2.5 py-1 text-[10px] font-mono uppercase tracking-wider text-white backdrop-blur-md">
-              {product.isDemonstrationItem ? 'DEMO SPEC' : product.series}
-            </span>
+           
 
             <span className="rounded-md border border-white/15 bg-black/60 px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider text-neutral-300 backdrop-blur-md">
               {product.categorySlug.replace(/-/g, ' ')}

@@ -44,7 +44,7 @@ export const AboutPage: React.FC = () => {
           <div className="lg:col-span-5">
             <div className="relative aspect-[4/5] border border-[#111111]/10 overflow-hidden shadow-xl">
               <img
-                src="https://images.unsplash.com/photo-1595844730298-b960ff98fee0?auto=format&fit=crop&w=1200&q=80"
+                src="/brass-door-handle.jpg"
                 alt="SIDDI Architectural Hardware Design"
                 className="w-full h-full object-cover"
               />

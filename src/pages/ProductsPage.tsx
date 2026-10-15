@@ -1,34 +1,48 @@
 import React, { useState, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Breadcrumbs } from '../components/common/Breadcrumbs';
-import { SectionHeading } from '../components/common/SectionHeading';
+import { ProductsHero } from '../components/products/ProductsHero';
 import { ProductFilters } from '../components/products/ProductFilters';
 import { ProductGrid } from '../components/products/ProductGrid';
 import { EnquiryCTA } from '../components/common/EnquiryCTA';
-import { DEMO_PRODUCTS } from '../data/products';
+import { DEMO_PRODUCTS, FINISHES } from '../data/products';
+import { CATEGORIES } from '../data/categories';
+import { X } from 'lucide-react';
 
 export const ProductsPage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const categoryParam = searchParams.get('category') || 'all';
-  const finishParam = searchParams.get('finish') || 'all';
+  const categoryParam = searchParams.get('category');
+  const finishParam = searchParams.get('finish');
+  const seriesParam = searchParams.get('series');
   const queryParam = searchParams.get('q') || '';
   const sortParam = searchParams.get('sort') || 'featured';
 
   const [searchQuery, setSearchQuery] = useState(queryParam);
-  const [selectedCategory, setSelectedCategory] = useState(categoryParam);
-  const [selectedFinish, setSelectedFinish] = useState(finishParam);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>(
+    categoryParam && categoryParam !== 'all' ? categoryParam.split(',').filter(Boolean) : []
+  );
+  const [selectedFinishes, setSelectedFinishes] = useState<string[]>(
+    finishParam && finishParam !== 'all' ? finishParam.split(',').filter(Boolean) : []
+  );
+  const [selectedSeries, setSelectedSeries] = useState<string[]>(
+    seriesParam && seriesParam !== 'all' ? seriesParam.split(',').filter(Boolean) : []
+  );
   const [sortBy, setSortBy] = useState(sortParam);
 
   // Sync state to URL params when filters change
-  const handleCategoryChange = (cat: string) => {
-    setSelectedCategory(cat);
-    updateParams({ category: cat !== 'all' ? cat : null });
+  const handleCategoriesChange = (categories: string[]) => {
+    setSelectedCategories(categories);
+    updateParams({ category: categories.length > 0 ? categories.join(',') : null });
   };
 
-  const handleFinishChange = (finish: string) => {
-    setSelectedFinish(finish);
-    updateParams({ finish: finish !== 'all' ? finish : null });
+  const handleFinishesChange = (finishes: string[]) => {
+    setSelectedFinishes(finishes);
+    updateParams({ finish: finishes.length > 0 ? finishes.join(',') : null });
+  };
+
+  const handleSeriesChange = (series: string[]) => {
+    setSelectedSeries(series);
+    updateParams({ series: series.length > 0 ? series.join(',') : null });
   };
 
   const handleSearchChange = (query: string) => {
@@ -43,8 +57,9 @@ export const ProductsPage: React.FC = () => {
 
   const handleReset = () => {
     setSearchQuery('');
-    setSelectedCategory('all');
-    setSelectedFinish('all');
+    setSelectedCategories([]);
+    setSelectedFinishes([]);
+    setSelectedSeries([]);
     setSortBy('featured');
     setSearchParams({});
   };
@@ -58,17 +73,21 @@ export const ProductsPage: React.FC = () => {
     setSearchParams(params);
   };
 
-  // Filter and sort products
+  // Filter and sort products across multi-selection
   const filteredProducts = useMemo(() => {
     return DEMO_PRODUCTS.filter((product) => {
-      // Category filter
-      if (selectedCategory !== 'all' && product.categorySlug !== selectedCategory) {
+      // Category filter (match any of selected categories)
+      if (selectedCategories.length > 0 && !selectedCategories.includes(product.categorySlug)) {
         return false;
       }
-      // Finish filter
-      if (selectedFinish !== 'all') {
-        const hasFinish = product.finishes.some((f) => f.id === selectedFinish);
-        if (!hasFinish) return false;
+      // Finish filter (match any of selected finishes, e.g. 2-3 colors)
+      if (selectedFinishes.length > 0) {
+        const hasMatchingFinish = product.finishes.some((f) => selectedFinishes.includes(f.id));
+        if (!hasMatchingFinish) return false;
+      }
+      // Series filter
+      if (selectedSeries.length > 0 && !selectedSeries.includes(product.series)) {
+        return false;
       }
       // Search query
       if (searchQuery.trim() !== '') {
@@ -91,46 +110,154 @@ export const ProductsPage: React.FC = () => {
       if (!a.featured && b.featured) return 1;
       return 0;
     });
-  }, [selectedCategory, selectedFinish, searchQuery, sortBy]);
+  }, [selectedCategories, selectedFinishes, selectedSeries, searchQuery, sortBy]);
 
   return (
-    <div className="min-h-screen pt-28 md:pt-36 bg-[#FAF9F6]">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 pb-24">
+    <div className="min-h-screen bg-[#FAF9F6]">
+      {/* Architectural Hero Section */}
+      <ProductsHero
+        selectedCategory={selectedCategories.length === 1 ? selectedCategories[0] : selectedCategories.length === 0 ? 'all' : ''}
+        onSelectCategory={(slug) => handleCategoriesChange(slug === 'all' ? [] : [slug])}
+        totalCount={DEMO_PRODUCTS.length}
+      />
+
+      {/* Main Product Listing Container */}
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 pt-8 pb-24">
         
-        {/* Breadcrumbs */}
-        <Breadcrumbs items={[{ label: 'Product Catalogue' }]} className="mb-6" />
-
-        {/* Page Heading */}
-        <SectionHeading
-          eyebrow="Architectural Catalogue"
-          title="Architectural Hardware & Bathroom Fittings"
-          description="Browse our comprehensive catalogue of precision-forged door handles, security mortise systems, and luxury bathroom accessories. All models available for specification takeoffs."
-        />
-
         {/* Informative demonstration data banner */}
-        <div className="mb-8 p-4 bg-amber-500/10 border-l-4 border-[#F2B705] text-xs text-[#111111] flex items-center justify-between flex-wrap gap-2">
+        <div className="mb-8 p-4 bg-white border border-[#111111]/10 border-l-4 border-l-[#F2B705] text-xs text-[#111111] flex items-center justify-between flex-wrap gap-2 shadow-xs">
           <div>
             <span className="font-semibold text-black uppercase tracking-wider mr-2 font-mono">Specification Notice:</span>
             Demonstration catalogue items represent proposed SIDDI production specifications. To confirm current stock availability or order custom finishes, submit a schedule enquiry.
           </div>
         </div>
 
-        {/* Filter controls */}
-        <ProductFilters
-          searchQuery={searchQuery}
-          onSearchChange={handleSearchChange}
-          selectedCategory={selectedCategory}
-          onCategoryChange={handleCategoryChange}
-          selectedFinish={selectedFinish}
-          onFinishChange={handleFinishChange}
-          sortBy={sortBy}
-          onSortChange={handleSortChange}
-          onReset={handleReset}
-          totalResults={filteredProducts.length}
-        />
+        {/* Two-column layout: Left Filterbar + Right 3 Cards Grid */}
+        <div className="flex flex-col lg:flex-row items-start gap-8 xl:gap-10">
+          
+          {/* Left Side: Vertical Filterbar */}
+          <aside className="w-full lg:w-72 xl:w-80 shrink-0 lg:sticky lg:top-24 z-10">
+            <ProductFilters
+              searchQuery={searchQuery}
+              onSearchChange={handleSearchChange}
+              selectedCategories={selectedCategories}
+              onCategoriesChange={handleCategoriesChange}
+              selectedFinishes={selectedFinishes}
+              onFinishesChange={handleFinishesChange}
+              selectedSeries={selectedSeries}
+              onSeriesChange={handleSeriesChange}
+              sortBy={sortBy}
+              onSortChange={handleSortChange}
+              onReset={handleReset}
+              totalResults={filteredProducts.length}
+            />
+          </aside>
 
-        {/* Products Grid */}
-        <ProductGrid products={filteredProducts} columns={3} />
+          {/* Right Side: Results Status Bar & 3 Cards Grid */}
+          <main className="flex-1 min-w-0 w-full">
+            {/* Top Results Header Bar */}
+            <div className="bg-white border border-[#111111]/10 px-5 py-3.5 mb-6 flex items-center justify-between flex-wrap gap-3 shadow-xs">
+              <div className="flex items-center gap-3">
+                <span className="text-sm font-semibold text-[#111111] font-mono">
+                  {filteredProducts.length} {filteredProducts.length === 1 ? 'Product Specification' : 'Product Specifications'}
+                </span>
+                {(searchQuery || selectedCategories.length > 0 || selectedFinishes.length > 0 || selectedSeries.length > 0) && (
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#111111] bg-[#F2B705] px-2 py-0.5 font-bold">
+                    Filtered
+                  </span>
+                )}
+              </div>
+
+              {/* Active Filter Badges */}
+              <div className="flex items-center gap-2 flex-wrap">
+                {/* Active Category Badges */}
+                {selectedCategories.map((catSlug) => {
+                  const cat = CATEGORIES.find((c) => c.slug === catSlug);
+                  return (
+                    <span
+                      key={catSlug}
+                      className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#FAF9F6] border border-[#111111]/15 text-xs text-[#111111]"
+                    >
+                      <span>{cat?.title || catSlug}</span>
+                      <button
+                        type="button"
+                        onClick={() => handleCategoriesChange(selectedCategories.filter((id) => id !== catSlug))}
+                        className="text-[#777777] hover:text-[#111111] cursor-pointer"
+                        aria-label={`Remove ${cat?.title} filter`}
+                      >
+                        <X className="w-3 h-3" />
+                      </button>
+                    </span>
+                  );
+                })}
+
+                {/* Active Finish Badges (with color swatch dot) */}
+                {selectedFinishes.map((finishId) => {
+                  const finish = FINISHES.find((f) => f.id === finishId);
+                  return (
+                    <span
+                      key={finishId}
+                      className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#FAF9F6] border border-[#111111]/15 text-xs text-[#111111]"
+                    >
+                      {finish && (
+                        <span
+                          className="w-2.5 h-2.5 rounded-full border border-black/20 shrink-0"
+                          style={{ backgroundColor: finish.hex }}
+                        />
+                      )}
+                      <span>{finish?.name || finishId}</span>
+                      <button
+                        type="button"
+                        onClick={() => handleFinishesChange(selectedFinishes.filter((id) => id !== finishId))}
+                        className="text-[#777777] hover:text-[#111111] cursor-pointer"
+                        aria-label={`Remove ${finish?.name} filter`}
+                      >
+                        <X className="w-3 h-3" />
+                      </button>
+                    </span>
+                  );
+                })}
+
+                {/* Active Series Badges */}
+                {selectedSeries.map((seriesName) => (
+                  <span
+                    key={seriesName}
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#FAF9F6] border border-[#111111]/15 text-xs text-[#111111]"
+                  >
+                    <span>Series: {seriesName}</span>
+                    <button
+                      type="button"
+                      onClick={() => handleSeriesChange(selectedSeries.filter((s) => s !== seriesName))}
+                      className="text-[#777777] hover:text-[#111111] cursor-pointer"
+                      aria-label={`Remove ${seriesName} filter`}
+                    >
+                      <X className="w-3 h-3" />
+                    </button>
+                  </span>
+                ))}
+
+                {/* Active Search Query Badge */}
+                {searchQuery && (
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#FAF9F6] border border-[#111111]/15 text-xs text-[#111111]">
+                    <span>Search: "{searchQuery}"</span>
+                    <button
+                      type="button"
+                      onClick={() => handleSearchChange('')}
+                      className="text-[#777777] hover:text-[#111111] cursor-pointer"
+                      aria-label="Clear search"
+                    >
+                      <X className="w-3 h-3" />
+                    </button>
+                  </span>
+                )}
+              </div>
+            </div>
+
+            {/* Right Side: 3 Cards Grid */}
+            <ProductGrid products={filteredProducts} columns={3} />
+          </main>
+
+        </div>
 
       </div>
 

@@ -102,7 +102,7 @@ const waitForFonts = async (font: string): Promise<void> => {
 };
 
 export const ParticleText: React.FC<ParticleTextProps> = ({
-  text = 'React Bits',
+  text = 'SIDDI HARDWARE',
   particleSize = 2,
   density = 4,
   color = '#ffffff',
@@ -286,54 +286,80 @@ export const ParticleText: React.FC<ParticleTextProps> = ({
       if (!offCtx) return;
 
       const content = String(text || ' ');
-      const maxTextWidth = width * 0.92;
+      // Split by newline if present, or split into 2 lines on small screens (< 640px) if contains spaces
+      let lines = content.split('\n');
+      if (lines.length === 1 && content.includes(' ') && width < 640) {
+        const words = content.trim().split(/\s+/);
+        if (words.length === 2) {
+          lines = words;
+        } else if (words.length > 2) {
+          const mid = Math.ceil(words.length / 2);
+          lines = [words.slice(0, mid).join(' '), words.slice(mid).join(' ')];
+        }
+      }
+
+      const maxTextWidth = width * 0.86;
+      const maxTextHeight = height * 0.82;
+
       offCtx.font = font;
-      let metrics = offCtx.measureText(content);
-      const measuredWidth = Math.max(1, metrics.width);
-      if (measuredWidth > maxTextWidth) {
-        resolvedSize = Math.max(18, resolvedSize * (maxTextWidth / measuredWidth));
+      let widestWidth = Math.max(1, ...lines.map(line => offCtx.measureText(line).width));
+      let totalLinesHeight = resolvedSize * (1 + (lines.length - 1) * 1.25);
+
+      if (widestWidth > maxTextWidth || totalLinesHeight > maxTextHeight) {
+        const scaleW = maxTextWidth / widestWidth;
+        const scaleH = maxTextHeight / totalLinesHeight;
+        const scale = Math.min(scaleW, scaleH);
+        resolvedSize = Math.max(22, Math.floor(resolvedSize * scale));
         font = `${fontWeight} ${resolvedSize}px ${resolvedFamily}`;
         await waitForFonts(font);
         if (currentBuild !== buildId) return;
         offCtx.font = font;
-        metrics = offCtx.measureText(content);
+        widestWidth = Math.max(1, ...lines.map(line => offCtx.measureText(line).width));
       }
 
-      const left = Math.ceil(metrics.actualBoundingBoxLeft || 0);
-      const right = Math.ceil(metrics.actualBoundingBoxRight || metrics.width);
-      const ascent = Math.ceil(metrics.actualBoundingBoxAscent || resolvedSize * 0.78);
-      const descent = Math.ceil(metrics.actualBoundingBoxDescent || resolvedSize * 0.22);
-      const padding = Math.max(12, Math.ceil(resolvedSize * 0.08));
-      const textWidth = Math.max(1, left + right);
-      const textHeight = Math.max(1, ascent + descent);
+      const lineHeight = Math.round(resolvedSize * 1.25);
+      const ascent = Math.ceil(resolvedSize * 0.80);
+      const padding = Math.max(16, Math.ceil(resolvedSize * 0.12));
+      const totalWidth = Math.ceil(widestWidth);
+      const totalHeight = Math.ceil(ascent + (lines.length - 1) * lineHeight + resolvedSize * 0.25);
 
-      offscreen.width = textWidth + padding * 2;
-      offscreen.height = textHeight + padding * 2;
+      offscreen.width = Math.max(1, totalWidth + padding * 2);
+      offscreen.height = Math.max(1, totalHeight + padding * 2);
       offCtx.clearRect(0, 0, offscreen.width, offscreen.height);
       offCtx.font = font;
-      offCtx.textAlign = 'left';
+      offCtx.textAlign = 'center';
       offCtx.textBaseline = 'alphabetic';
       offCtx.fillStyle = '#ffffff';
-      offCtx.fillText(content, padding - left, padding + ascent);
+
+      const centerX = Math.floor(offscreen.width / 2);
+      lines.forEach((line, index) => {
+        const lineY = padding + ascent + index * lineHeight;
+        offCtx.fillText(line, centerX, lineY);
+      });
 
       const imageData = offCtx.getImageData(0, 0, offscreen.width, offscreen.height);
       const targets: TargetPoint[] = [];
-      const step = Math.max(2, Math.floor(density));
+      // Always enforce strict integer step (>= 2) to prevent row pitch phase misalignment
+      const step = Math.max(2, Math.round(density));
 
       for (let y = 0; y < offscreen.height; y += step) {
+        const py = Math.floor(y);
+        const rowOffset = py * offscreen.width;
         for (let x = 0; x < offscreen.width; x += step) {
-          const alpha = imageData.data[(y * offscreen.width + x) * 4 + 3];
+          const px = Math.floor(x);
+          const idx = (rowOffset + px) * 4 + 3;
+          const alpha = imageData.data[idx];
           if (alpha > 40) {
             targets.push({
-              x: width / 2 - offscreen.width / 2 + x,
-              y: height / 2 - offscreen.height / 2 + y,
+              x: width / 2 - offscreen.width / 2 + px,
+              y: height / 2 - offscreen.height / 2 + py,
               alpha: alpha / 255
             });
           }
         }
       }
 
-      const maxParticles = Math.max(900, Math.min(5200, Math.floor((width * height) / 90)));
+      const maxParticles = Math.max(1600, Math.min(5200, Math.floor((width * height) / 60)));
       const stride = Math.max(1, Math.ceil(targets.length / maxParticles));
       const baseRgb = hexToRgb(color);
       const highlightRgb = hexToRgb(highlightColor);

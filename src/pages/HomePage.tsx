@@ -22,10 +22,22 @@ export const HomePage: React.FC = () => {
       'commercial-interiors': '#8BA7B8',
       'bespoke-renovations': '#A8A9AD',
     };
+    const conciseDescriptions: Record<string, string> = {
+      'residential-bathrooms':
+        'High-humidity environments demand pure metallurgy. Solid forged brass and multi-layer PVD plating ensure spotless performance and zero corrosion.',
+      'master-suites-doors':
+        'Internal doors are primary tactile transition points. SIDDI lever handles and magnetic latches eliminate harsh clicks for whisper-quiet transitions.',
+      'hospitality-hotels':
+        'Combining architectural purity with extreme longevity. Cycle-tested across hundreds of thousands of actuations to exceed luxury contract standards.',
+      'commercial-interiors':
+        'Hardware communicating intentionality. Oversized entrance pulls, heavy-duty floor pivots, and minimalist fittings tailored for executive suites.',
+      'bespoke-renovations':
+        'Unifying finishes across bespoke joinery. Coordinated metallic palettes across door levers, cabinet hardware, and bathroom accessories.',
+    };
     return {
       title: area.title,
       subtitle: area.subtitle,
-      description: area.description,
+      description: conciseDescriptions[area.id] || area.description,
       accent: accents[area.id] || '#F2B705',
       imageUrl: area.image,
     };

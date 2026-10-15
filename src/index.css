@@ -10,6 +10,11 @@
   --color-muted: #E8E7E2;
   --color-muted-foreground: #777777;
   --color-ring: #F2B705;
+  --color-popover: #111111;
+  --color-popover-foreground: #ffffff;
+  --color-accent: #1e1e1e;
+  --color-accent-foreground: #F2B705;
+  --color-border: rgba(255, 255, 255, 0.12);
 }
 
 @layer base {
@@ -23,6 +28,16 @@
     --color-muted: #E8E7E2;
     --color-muted-foreground: #777777;
     --color-ring: #F2B705;
+    --color-dark: #131313;
+    --color-neutral-100: #f5f5f5;
+    --color-neutral-200: #e5e5e5;
+    --color-neutral-300: #d4d4d4;
+    --color-neutral-800: #262626;
+    --size-container: 1400px;
+    --container-padding: 2em;
+    --section-padding: 4em;
+    --gap: 1.5em;
+    --cubic-default: cubic-bezier(0.65, 0.05, 0, 1);
     --font-serif: 'Cormorant Garamond', Georgia, serif;
     --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
@@ -167,7 +182,7 @@
   align-items: center;
   gap: 0.75rem;
   font-family: var(--font-mono, monospace);
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.5);
@@ -175,7 +190,7 @@
 
 .carousel-num-line {
   display: inline-block;
-  width: 2rem;
+  width: 1.75rem;
   height: 1px;
   background-color: rgba(255, 255, 255, 0.3);
 }
@@ -185,40 +200,42 @@
 }
 
 .carousel-title {
-  font-size: 2.25rem;
-  line-height: 1.15;
+  font-size: 1.625rem;
+  line-height: 1.2;
   font-weight: 400;
   font-family: var(--font-serif);
   color: #ffffff;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 @media (min-width: 640px) {
   .carousel-title {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 }
 @media (min-width: 1024px) {
   .carousel-title {
-    font-size: 3.5rem;
+    font-size: 2.375rem;
   }
 }
 
 .carousel-subtitle {
-  font-size: 0.8125rem;
-  letter-spacing: 0.25em;
+  font-size: 0.725rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   font-weight: 600;
+  line-height: 1.4;
 }
 
 .carousel-description {
-  font-size: 0.875rem;
-  line-height: 1.7;
+  font-size: 0.75rem;
+  line-height: 1.6;
   color: rgba(255, 255, 255, 0.65);
-  max-width: 32rem;
+  max-width: 25rem;
+  font-weight: 300;
 }
 @media (min-width: 640px) {
   .carousel-description {
-    font-size: 1rem;
+    font-size: 0.8125rem;
   }
 }
 
@@ -403,7 +420,7 @@
               filter 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Animated Solid Border for Mobile / Tablet Architectural Cards (NO GRADIENTS) */
+/* Animated Solid Border for Architectural Pillar Cards (NO GRADIENTS) */
 @keyframes pillarBorderTrace {
   0% {
     stroke-dashoffset: 0;
@@ -413,7 +430,111 @@
   }
 }
 
-.mobile-pillar-card-border {
+.mobile-pillar-card-border,
+.pillar-card-animated-border {
   animation: pillarBorderTrace 4.5s linear infinite;
   will-change: stroke-dashoffset;
+  transition: stroke-width 0.3s ease;
 }
+
+.group:hover .pillar-card-animated-border {
+  animation-duration: 2.2s;
+  stroke-width: 4px;
+}
+
+/* ==========================================================================
+   Radix NavigationMenu & shadcn Animation Keyframes & Utilities
+   ========================================================================== */
+@keyframes enter {
+  from {
+    opacity: var(--tw-enter-opacity, 1);
+    transform: translate3d(var(--tw-enter-translate-x, 0), var(--tw-enter-translate-y, 0), 0) scale3d(var(--tw-enter-scale, 1), var(--tw-enter-scale, 1), var(--tw-enter-scale, 1)) rotate(var(--tw-enter-rotate, 0));
+  }
+}
+
+@keyframes exit {
+  to {
+    opacity: var(--tw-exit-opacity, 1);
+    transform: translate3d(var(--tw-exit-translate-x, 0), var(--tw-exit-translate-y, 0), 0) scale3d(var(--tw-exit-scale, 1), var(--tw-exit-scale, 1), var(--tw-exit-scale, 1)) rotate(var(--tw-exit-rotate, 0));
+  }
+}
+
+.animate-in,
+[data-state=open].animate-in,
+[data-motion^=from-].animate-in {
+  animation-name: enter;
+  animation-duration: 220ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  --tw-enter-opacity: 1;
+  --tw-enter-scale: 1;
+  --tw-enter-rotate: 0;
+  --tw-enter-translate-x: 0;
+  --tw-enter-translate-y: 0;
+}
+
+.animate-out,
+[data-state=closed].animate-out,
+[data-motion^=to-].animate-out {
+  animation-name: exit;
+  animation-duration: 180ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  --tw-exit-opacity: 1;
+  --tw-exit-scale: 1;
+  --tw-exit-rotate: 0;
+  --tw-exit-translate-x: 0;
+  --tw-exit-translate-y: 0;
+}
+
+.fade-in,
+.fade-in-0,
+[data-state=open].fade-in-0 {
+  --tw-enter-opacity: 0;
+}
+
+.fade-out,
+.fade-out-0,
+[data-state=closed].fade-out-0 {
+  --tw-exit-opacity: 0;
+}
+
+.zoom-in-90,
+[data-state=open].zoom-in-90 {
+  --tw-enter-scale: 0.9;
+}
+
+.zoom-in-95,
+[data-state=open].zoom-in-95 {
+  --tw-enter-scale: 0.95;
+}
+
+.zoom-out-95,
+[data-state=closed].zoom-out-95 {
+  --tw-exit-scale: 0.95;
+}
+
+.slide-in-from-top-2 {
+  --tw-enter-translate-y: -0.5rem;
+}
+
+.slide-in-from-right-52 {
+  --tw-enter-translate-x: 13rem;
+}
+
+.slide-in-from-left-52 {
+  --tw-enter-translate-x: -13rem;
+}
+
+.slide-out-to-right-52 {
+  --tw-exit-translate-x: 13rem;
+}
+
+.slide-out-to-left-52 {
+  --tw-exit-translate-x: -13rem;
+}
+
+/* Radix Viewport transitions */
+[data-slot="navigation-menu-viewport"] {
+  transition: width 280ms cubic-bezier(0.16, 1, 0.3, 1), height 280ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
