@@ -4,6 +4,7 @@ import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { ProductGallery } from '../components/products/ProductGallery';
 import { RelatedProducts } from '../components/products/RelatedProducts';
 import { EnquiryCTA } from '../components/common/EnquiryCTA';
+import { ScrollReveal } from '../components/common/ScrollReveal';
 import { DEMO_PRODUCTS } from '../data/products';
 import type { ProductFinish } from '../types';
 import {
@@ -70,7 +71,7 @@ export const ProductDetailPage: React.FC = () => {
         </div>
 
         {/* Product Overview Layout: Gallery (Left) + Technical Specifications (Right) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-14 items-start mb-20">
+        <ScrollReveal className="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-14 items-start mb-20">
           
           {/* Left Column: Premium Gallery & Blueprint Dimension Card */}
           <div className="lg:col-span-7 space-y-6">
@@ -223,49 +224,6 @@ export const ProductDetailPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Quick Architectural Specification Grid */}
-            <div className="grid grid-cols-2 gap-3">
-              <div className="p-3.5 bg-white border border-[#111111]/15">
-                <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-wider text-[#777777] mb-1">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#F2B705]" />
-                  <span>Base Metallurgy</span>
-                </div>
-                <div className="text-xs font-semibold text-[#111111]">
-                  Solid Forged Brass
-                </div>
-              </div>
-
-              <div className="p-3.5 bg-white border border-[#111111]/15">
-                <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-wider text-[#777777] mb-1">
-                  <Layers className="w-3.5 h-3.5 text-[#F2B705]" />
-                  <span>Mounting Rose</span>
-                </div>
-                <div className="text-xs font-semibold text-[#111111]">
-                  5mm Low-Profile Rose
-                </div>
-              </div>
-
-              <div className="p-3.5 bg-white border border-[#111111]/15">
-                <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-wider text-[#777777] mb-1">
-                  <Box className="w-3.5 h-3.5 text-[#F2B705]" />
-                  <span>Spring Cassette</span>
-                </div>
-                <div className="text-xs font-semibold text-[#111111]">
-                  Dual Torsion Return
-                </div>
-              </div>
-
-              <div className="p-3.5 bg-white border border-[#111111]/15">
-                <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-wider text-[#777777] mb-1">
-                  <Ruler className="w-3.5 h-3.5 text-[#F2B705]" />
-                  <span>Cycle Testing</span>
-                </div>
-                <div className="text-xs font-semibold text-[#111111]">
-                  Grade 4 / 200,000 Ops
-                </div>
-              </div>
-            </div>
-
             {/* Primary & Secondary Action CTAs */}
             <div className="space-y-3 pt-1">
               <Link
@@ -276,14 +234,6 @@ export const ProductDetailPage: React.FC = () => {
               >
                 <span>Inquire About Hardware Specification</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-
-              <Link
-                to="/resources"
-                className="w-full py-3.5 px-6 bg-white hover:bg-[#FAF9F6] border border-[#111111] text-[#111111] transition-colors text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <Download className="w-4 h-4 text-[#111111]" />
-                <span>Download Technical CAD & Data Sheets (PDF)</span>
               </Link>
             </div>
 
@@ -317,10 +267,10 @@ export const ProductDetailPage: React.FC = () => {
 
           </div>
 
-        </div>
+        </ScrollReveal>
 
         {/* Tabbed Technical Dossier Section */}
-        <div className="mb-20 bg-white border border-[#111111]/15 shadow-xs overflow-hidden">
+        <ScrollReveal className="mb-20 bg-white border border-[#111111]/15 shadow-xs overflow-hidden">
           
           {/* Tab Navigation: Desktop Horizontal Tabs + Mobile 3-Column Equal Grid */}
           <div className="border-b border-[#111111]/15 bg-[#FAF9F6] grid grid-cols-3 md:flex md:items-center">
@@ -583,13 +533,15 @@ export const ProductDetailPage: React.FC = () => {
             </div>
           )}
 
-        </div>
+        </ScrollReveal>
 
         {/* Related Complementary Hardware Section */}
-        <RelatedProducts
-          products={relatedProducts.length > 0 ? relatedProducts : DEMO_PRODUCTS}
-          currentProductId={product.id}
-        />
+        <ScrollReveal>
+          <RelatedProducts
+            products={relatedProducts.length > 0 ? relatedProducts : DEMO_PRODUCTS}
+            currentProductId={product.id}
+          />
+        </ScrollReveal>
 
       </div>
 

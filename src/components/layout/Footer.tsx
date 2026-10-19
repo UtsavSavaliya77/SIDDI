@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className="relative bg-[#FAF9F6] pt-2">
       {/* Dark Rounded Island Container with Architectural Drafting Corner Brackets */}
-      <div className="mx-auto bg-[#111111] text-white pt-12 sm:pt-16 px-6 sm:px-10 md:px-14 border border-[#222222] shadow-2xl relative overflow-hidden">
+      <div className="mx-auto bg-[#111111] text-white pt-12 sm:pt-16 px-6 sm:px-10 md:px-10 border border-[#222222] shadow-2xl relative overflow-hidden">
         {/* Precision Architectural Drafting Corner Brackets (Pure Solid Gold #F2B705) */}
         <div className="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-[#F2B705] pointer-events-none z-20" />
         <div className="absolute top-4 right-4 w-4 h-4 border-t-2 border-r-2 border-[#F2B705] pointer-events-none z-20" />
@@ -38,7 +38,7 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-5 space-y-5">
             <Link
               to="/"
-              className="flex items-center gap-3 p-1"
+              className="flex items-center gap-3"
             >
               <img
                 src="/siddi-logo.png"
@@ -55,7 +55,7 @@ export const Footer: React.FC = () => {
             {/* Newsletter Input + Solid Yellow/Gold Button */}
             <form
               onSubmit={handleSubscribe}
-              className="flex items-center gap-2 max-w-sm pt-1"
+              className="flex flex-wrap items-center gap-2 max-w-sm pt-1"
             >
               <input
                 type="email"

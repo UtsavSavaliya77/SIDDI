@@ -10,6 +10,7 @@ import { EnquiryCTA } from '../components/common/EnquiryCTA';
 import { DEMO_PRODUCTS, APPLICATION_AREAS } from '../data/products';
 import { ElegantCarousel, type SlideData } from '../components/ui/elegant-carousel';
 import { EditorialPillars } from '../components/home/EditorialPillars';
+import { ScrollReveal } from '../components/common/ScrollReveal';
 
 export const HomePage: React.FC = () => {
   const featuredProducts = DEMO_PRODUCTS.filter((p) => p.featured).slice(0, 6);
@@ -52,7 +53,7 @@ export const HomePage: React.FC = () => {
       />
 
       {/* 2. BRAND INTRODUCTION - Authentic Editorial Layout */}
-      <section className="py-20 md:py-32 bg-[#FAF9F6] border-b border-[#111111]/10">
+      <ScrollReveal as="section" className="py-20 md:py-32 bg-[#FAF9F6] border-b border-[#111111]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
@@ -120,17 +121,17 @@ export const HomePage: React.FC = () => {
 
           </div>
         </div>
-      </section>
+      </ScrollReveal>
 
       {/* 3. PRODUCT CATEGORY SHOWCASE - 3D Tilt Parallax Carousel */}
-      <section className="py-20 md:py-32 bg-[#FAF9F6] border-b border-[#111111]/10">
+      <ScrollReveal as="section" className="py-20 md:py-32 bg-[#FAF9F6] border-b border-[#111111]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <CategoryCarousel />
         </div>
-      </section>
+      </ScrollReveal>
 
       {/* 4. FEATURED PRODUCTS SECTION */}
-      <section className="py-20 md:py-32 bg-[#FAF9F6] border-y border-[#111111]/10">
+      <ScrollReveal as="section" className="py-20 md:py-32 bg-[#FAF9F6] border-y border-[#111111]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-14">
@@ -154,10 +155,10 @@ export const HomePage: React.FC = () => {
           <ProductGrid products={featuredProducts} columns={3} />
 
         </div>
-      </section>
+      </ScrollReveal>
 
       {/* 5. MATERIALS & FINISHES - Architectural Swatches */}
-      <section className="py-20 md:py-32 bg-[#0D0D0D] text-white relative overflow-hidden border-t border-white/10">
+      <ScrollReveal as="section" className="py-20 md:py-32 bg-[#0D0D0D] text-white relative overflow-hidden border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           
           <SectionHeading
@@ -180,10 +181,10 @@ export const HomePage: React.FC = () => {
           </div>
 
         </div>
-      </section>
+      </ScrollReveal>
 
       {/* 6. APPLICATIONS PREVIEW */}
-      <section className="py-20 md:py-32 bg-[#FAF9F6] border-y border-[#111111]/10">
+      <ScrollReveal as="section" className="py-20 md:py-32 bg-[#FAF9F6] border-y border-[#111111]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-14">
@@ -211,10 +212,10 @@ export const HomePage: React.FC = () => {
           <ElegantCarousel slides={environmentSlides} />
 
         </div>
-      </section>
+      </ScrollReveal>
 
       {/* 7. BRAND DIFFERENTIATORS - Architectural Pillars */}
-      <section className="py-20 md:py-28 bg-[#FAF9F6] border-y border-[#111111]/10">
+      <ScrollReveal as="section" className="py-20 md:py-28 bg-[#FAF9F6] border-y border-[#111111]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           
           <SectionHeading
@@ -227,7 +228,7 @@ export const HomePage: React.FC = () => {
           <EditorialPillars />
 
         </div>
-      </section>
+      </ScrollReveal>
 
       {/* 8. ENQUIRY SECTION */}
       <EnquiryCTA />

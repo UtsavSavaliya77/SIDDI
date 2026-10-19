@@ -7,6 +7,7 @@ import { EnquiryCTA } from '../components/common/EnquiryCTA';
 import { DEMO_PRODUCTS, FINISHES } from '../data/products';
 import { CATEGORIES } from '../data/categories';
 import { X } from 'lucide-react';
+import { ScrollReveal } from '../components/common/ScrollReveal';
 
 export const ProductsPage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -122,7 +123,7 @@ export const ProductsPage: React.FC = () => {
       />
 
       {/* Main Product Listing Container */}
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 pt-8 pb-24">
+      <ScrollReveal className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 pt-8 pb-24">
         
         {/* Informative demonstration data banner */}
         <div className="mb-8 p-4 bg-white border border-[#111111]/10 border-l-4 border-l-[#F2B705] text-xs text-[#111111] flex items-center justify-between flex-wrap gap-2 shadow-xs">
@@ -258,8 +259,7 @@ export const ProductsPage: React.FC = () => {
           </main>
 
         </div>
-
-      </div>
+      </ScrollReveal>
 
       {/* Enquiry Call to action */}
       <EnquiryCTA

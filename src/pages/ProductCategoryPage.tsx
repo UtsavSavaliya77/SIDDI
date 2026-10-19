@@ -6,6 +6,7 @@ import { EnquiryCTA } from '../components/common/EnquiryCTA';
 import { CATEGORIES } from '../data/categories';
 import { DEMO_PRODUCTS } from '../data/products';
 import { ArrowRight } from '@phosphor-icons/react';
+import { ScrollReveal } from '../components/common/ScrollReveal';
 
 export const ProductCategoryPage: React.FC = () => {
   const { category: categorySlug } = useParams<{ category: string }>();
@@ -42,7 +43,7 @@ export const ProductCategoryPage: React.FC = () => {
       <div id="specifications-grid" className="max-w-7xl mx-auto px-6 md:px-12 pt-10 pb-24">
 
         {/* Product Grid */}
-        <div className="mb-16">
+        <ScrollReveal className="mb-16">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl font-normal text-[#111111]">
               Catalogue Specifications ({categoryProducts.length})
@@ -56,10 +57,10 @@ export const ProductCategoryPage: React.FC = () => {
           </div>
 
           <ProductGrid products={categoryProducts} columns={3} />
-        </div>
+        </ScrollReveal>
 
         {/* Related Categories Navigation */}
-        <div className="pt-16 border-t border-[#111111]/10">
+        <ScrollReveal className="pt-16 border-t border-[#111111]/10">
           <h3 className="text-xl font-normal text-[#111111] mb-6">
             Explore Other Hardware Systems
           </h3>
@@ -82,7 +83,7 @@ export const ProductCategoryPage: React.FC = () => {
               </Link>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
 
       </div>
 

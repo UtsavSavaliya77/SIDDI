@@ -15,12 +15,16 @@
   --color-accent: #1e1e1e;
   --color-accent-foreground: #F2B705;
   --color-border: rgba(255, 255, 255, 0.12);
+  --color-card: #ffffff;
+  --color-card-foreground: #111111;
 }
 
 @layer base {
   :root {
     --color-background: #FAF9F6;
     --color-foreground: #111111;
+    --color-card: #ffffff;
+    --color-card-foreground: #111111;
     --color-primary: #F2B705;
     --color-primary-foreground: #111111;
     --color-secondary: #EFEFEA;

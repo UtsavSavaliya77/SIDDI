@@ -48,10 +48,6 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
 
         {/* Top Badges */}
         <div className="absolute top-4 left-4 flex items-center gap-2 pointer-events-none">
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#111111]/90 text-white text-[10px] font-mono uppercase tracking-wider backdrop-blur-sm border border-white/10">
-            <ShieldCheck className="w-3.5 h-3.5 text-[#F2B705]" />
-            <span>Solid Architectural Forging</span>
-          </span>
           {selectedFinishName && (
             <span className="hidden sm:inline-flex items-center gap-1 px-2 py-1 bg-white/95 text-[#111111] text-[10px] font-mono uppercase tracking-wider backdrop-blur-sm border border-[#111111]/15 font-semibold">
               <Sparkle className="w-3 h-3 text-[#F2B705]" />
@@ -65,10 +61,7 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
           {selectedIndex + 1} / {validImages.length}
         </div>
 
-        {/* Floating Expand Icon */}
-        <div className="absolute bottom-4 right-4 p-2.5 bg-[#111111]/85 hover:bg-[#111111] text-white backdrop-blur-sm transition-all duration-300 group-hover:scale-110 border border-white/15">
-          <ArrowsOut className="w-4 h-4 text-[#F2B705]" />
-        </div>
+  
 
         {/* Prev / Next overlay arrows on hover (if multi-image) */}
         {validImages.length > 1 && isHovered && (

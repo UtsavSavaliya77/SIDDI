@@ -1,6 +1,7 @@
 import React from 'react';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { SectionHeading } from '../components/common/SectionHeading';
+import { ScrollReveal } from '../components/common/ScrollReveal';
 import { Link } from 'react-router-dom';
 
 export const PrivacyPage: React.FC = () => {
@@ -23,7 +24,7 @@ export const PrivacyPage: React.FC = () => {
         </div>
 
         {/* Policy Content */}
-        <div className="space-y-8 text-sm text-[#777777] leading-relaxed bg-white border border-[#111111]/10 p-8 sm:p-12">
+        <ScrollReveal className="space-y-8 text-sm text-[#777777] leading-relaxed bg-white border border-[#111111]/10 p-8 sm:p-12">
           
           <section className="space-y-3">
             <h3 className="text-lg font-semibold text-[#111111]">1. Information We Collect</h3>
@@ -78,7 +79,7 @@ export const PrivacyPage: React.FC = () => {
             Document Version: 1.0 &bull; Last Revised: October 2026 &bull; SIDDI Architectural Hardware
           </div>
 
-        </div>
+        </ScrollReveal>
 
       </div>
     </div>

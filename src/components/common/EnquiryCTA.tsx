@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from '@phosphor-icons/react';
+import { ScrollReveal } from './ScrollReveal';
 
 interface EnquiryCTAProps {
   eyebrow?: string;
@@ -26,9 +27,9 @@ export const EnquiryCTA: React.FC<EnquiryCTAProps> = ({
   return (
     <section className={`py-6 sm:py-8 md:py-10 px-4 sm:px-6 md:px-8 bg-[#FAF9F6] ${className}`}>
       <div className="max-w-7xl mx-auto">
-        
-        {/* Compact Outer Inset Double-Frame Track */}
-        <div className="border border-[#111111]/12 rounded-[2rem] p-2 sm:p-2.5 bg-[#EFEFEA]/60 shadow-xs">
+        <ScrollReveal distance={28} duration={0.8}>
+          {/* Compact Outer Inset Double-Frame Track */}
+          <div className="border border-[#111111]/12 rounded-[2rem] p-2 sm:p-2.5 bg-[#EFEFEA]/60 shadow-xs">
           
           {/* Main Card Container */}
           <div className="relative bg-[#111111] rounded-[1.65rem] px-6 py-8 sm:px-10 sm:py-10 md:px-12 md:py-12 lg:px-14 lg:py-12 overflow-hidden">
@@ -166,6 +167,7 @@ export const EnquiryCTA: React.FC<EnquiryCTAProps> = ({
           </div>
 
         </div>
+      </ScrollReveal>
 
       </div>
     </section>
