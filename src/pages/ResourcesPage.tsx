@@ -7,13 +7,8 @@ import { ScrollReveal } from '../components/common/ScrollReveal';
 import { PolaroidLineCarousel, type Slide as PolaroidSlide } from '../components/ui/polaroid-line-carousel';
 import {
   ArrowRight,
-  FileCode,
-  ShieldCheck,
-  Compass,
-  Sparkle,
   FileArrowDown,
   Clock,
-  Check,
 } from '@phosphor-icons/react';
 
 const SPECIFICATION_SLIDES: PolaroidSlide[] = [
@@ -261,62 +256,51 @@ export const ResourcesPage: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Volume 01: Master Catalogue */}
-            <div className="bg-white border border-[#111111]/12 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:border-[#111111]/40 transition-all duration-300 flex flex-col justify-between group">
+            <div className="bg-white border border-[#111111]/10 rounded-2xl p-7 sm:p-8 flex flex-col justify-between hover:border-[#111111]/30 hover:shadow-xl transition-all duration-300 relative group">
               <div>
-                {/* Visual Hardcover Book Mockup */}
-                <div className="relative aspect-[4/3] bg-gradient-to-br from-[#1E1E1E] via-[#141414] to-[#0A0A0A] p-6 text-white flex flex-col justify-between overflow-hidden border-b border-[#111111]/10">
-                  {/* Subtle Book Spine & Texture */}
-                  <div className="absolute left-0 top-0 bottom-0 w-3 bg-gradient-to-r from-black/50 via-white/10 to-transparent pointer-events-none" />
-                  <div className="absolute -right-8 -bottom-8 w-32 h-32 rounded-full bg-[#F2B705]/10 blur-2xl pointer-events-none" />
-
-                  <div className="flex items-center justify-between z-10">
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-[#F2B705] font-semibold">
-                      VOL. 01 • BINDER
-                    </span>
-                    <span className="px-2 py-0.5 bg-white/10 text-white text-[9px] font-mono rounded">
-                      184 PAGES • PDF
+                {/* Card Top: Volume Tag & File Specs */}
+                <div className="flex items-center justify-between pb-4 border-b border-[#111111]/10">
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#F2B705]" />
+                    <span className="text-[11px] font-mono uppercase tracking-[0.2em] font-semibold text-[#111111]">
+                      Vol. 01 • Binder
                     </span>
                   </div>
-
-                  <div className="space-y-1 z-10 my-auto py-2">
-                    <span className="text-[9px] font-mono uppercase tracking-[0.2em] text-gray-400 block">
-                      SIDDI HARDWARE SYSTEMS
-                    </span>
-                    <h4 className="text-xl font-serif font-normal text-white leading-tight">
-                      Architectural Hardware Master Catalogue
-                    </h4>
-                  </div>
-
-                  <div className="flex items-center justify-between text-[10px] font-mono text-gray-400 border-t border-white/10 pt-2 z-10">
-                    <span>CSI DIV 08 71 00</span>
-                    <span className="text-[#F2B705]">14.2 MB</span>
-                  </div>
+                  <span className="text-[10px] font-mono text-[#777777] bg-[#FAF9F6] border border-[#111111]/10 px-2 py-0.5 rounded">
+                    184 Pages • PDF
+                  </span>
                 </div>
 
-                {/* Content Details */}
-                <div className="p-6 space-y-4">
-                  <p className="text-xs text-[#666666] font-light leading-relaxed">
-                    Complete specifier manual including dimensional technical cutouts for forged levers, silent magnetic locksets, concealed 3D hinges, and pull handles.
-                  </p>
+                {/* Title & Category */}
+                <div className="pt-5 pb-3">
+                  <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#888888] block mb-1">
+                    SIDDI Hardware Systems
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-serif font-normal text-[#111111] leading-tight">
+                    Architectural Hardware Master Catalogue
+                  </h3>
+                </div>
 
-                  <ul className="space-y-1.5 text-xs font-mono text-[#444444] pt-1">
-                    <li className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#F2B705] shrink-0" weight="bold" />
-                      <span>Full 1:1 dimensional line drawings</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#F2B705] shrink-0" weight="bold" />
-                      <span>Complete finish tone matrix</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#F2B705] shrink-0" weight="bold" />
-                      <span>Door preparation templates</span>
-                    </li>
-                  </ul>
+                {/* Synopsis */}
+                <p className="text-xs text-[#666666] font-light leading-relaxed mb-5">
+                  Complete specifier manual with 1:1 dimensional line drawings for forged levers, silent magnetic locksets, concealed 3D hinges, and pull handles.
+                </p>
+
+                {/* Key Technical Chips */}
+                <div className="flex flex-wrap gap-1.5 mb-6">
+                  {['1:1 Line Drawings', 'Finish Tone Matrix', 'CSI Div 08 71 00', '14.2 MB'].map((spec, i) => (
+                    <span
+                      key={i}
+                      className="text-[10px] font-mono px-2.5 py-1 bg-[#FAF9F6] border border-[#111111]/10 rounded text-[#444444]"
+                    >
+                      {spec}
+                    </span>
+                  ))}
                 </div>
               </div>
 
-              <div className="p-6 pt-0 space-y-2">
+              {/* Actions */}
+              <div className="space-y-2.5 pt-4 border-t border-[#111111]/10">
                 <Button
                   to="/contact?interest=Document%20Request:%20SIDDI%20Master%20Catalogue%202026"
                   variant="primary"
@@ -328,69 +312,59 @@ export const ResourcesPage: React.FC = () => {
                 </Button>
                 <Link
                   to="/contact?interest=Hardcover%20Binder%20Sample"
-                  className="block text-center text-xs font-mono uppercase tracking-wider font-semibold text-[#111111] hover:text-[#F2B705] transition-colors py-1.5"
+                  className="block text-center text-xs font-mono uppercase tracking-wider font-semibold text-[#777777] hover:text-[#111111] transition-colors py-1"
                 >
-                  Order Physical Hardcover Binder →
+                  Order Hardcover Binder (48h) →
                 </Link>
               </div>
             </div>
 
-            {/* Volume 02: PVD Metallurgy & Finish Swatchbook */}
-            <div className="bg-white border border-[#111111]/12 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:border-[#111111]/40 transition-all duration-300 flex flex-col justify-between group">
+            {/* Volume 02: Finish Specification & Swatchbook */}
+            <div className="bg-white border border-[#111111]/10 rounded-2xl p-7 sm:p-8 flex flex-col justify-between hover:border-[#111111]/30 hover:shadow-xl transition-all duration-300 relative group">
               <div>
-                {/* Visual Hardcover Book Mockup */}
-                <div className="relative aspect-[4/3] bg-gradient-to-br from-[#241D12] via-[#1A160E] to-[#0E0C08] p-6 text-white flex flex-col justify-between overflow-hidden border-b border-[#111111]/10">
-                  <div className="absolute left-0 top-0 bottom-0 w-3 bg-gradient-to-r from-black/50 via-white/10 to-transparent pointer-events-none" />
-                  <div className="absolute -right-8 -bottom-8 w-32 h-32 rounded-full bg-[#F2B705]/20 blur-2xl pointer-events-none" />
-
-                  <div className="flex items-center justify-between z-10">
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-[#F2B705] font-semibold">
-                      VOL. 02 • FINISHES
-                    </span>
-                    <span className="px-2 py-0.5 bg-white/10 text-white text-[9px] font-mono rounded">
-                      64 PAGES • COLOR
+                {/* Card Top: Volume Tag & File Specs */}
+                <div className="flex items-center justify-between pb-4 border-b border-[#111111]/10">
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#F2B705]" />
+                    <span className="text-[11px] font-mono uppercase tracking-[0.2em] font-semibold text-[#111111]">
+                      Vol. 02 • Finishes
                     </span>
                   </div>
-
-                  <div className="space-y-1 z-10 my-auto py-2">
-                    <span className="text-[9px] font-mono uppercase tracking-[0.2em] text-[#F2B705]/80 block">
-                      METALLURGY & PVD COATINGS
-                    </span>
-                    <h4 className="text-xl font-serif font-normal text-white leading-tight">
-                      Finish Specification & Spectral Swatchbook
-                    </h4>
-                  </div>
-
-                  <div className="flex items-center justify-between text-[10px] font-mono text-gray-400 border-t border-white/10 pt-2 z-10">
-                    <span>ASTM B117 CERTIFIED</span>
-                    <span className="text-[#F2B705]">3.8 MB</span>
-                  </div>
+                  <span className="text-[10px] font-mono text-[#777777] bg-[#FAF9F6] border border-[#111111]/10 px-2 py-0.5 rounded">
+                    64 Pages • Color
+                  </span>
                 </div>
 
-                {/* Content Details */}
-                <div className="p-6 space-y-4">
-                  <p className="text-xs text-[#666666] font-light leading-relaxed">
-                    Detailed spectrophotometric analysis, titanium-zirconium PVD adhesion benchmarks, coastal salinity resistance, and architectural cleaning protocols.
-                  </p>
+                {/* Title & Category */}
+                <div className="pt-5 pb-3">
+                  <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#888888] block mb-1">
+                    Metallurgy &amp; PVD Coatings
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-serif font-normal text-[#111111] leading-tight">
+                    Finish Specification &amp; Swatchbook
+                  </h3>
+                </div>
 
-                  <ul className="space-y-1.5 text-xs font-mono text-[#444444] pt-1">
-                    <li className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#F2B705] shrink-0" weight="bold" />
-                      <span>Satin Brass, Gunmetal & Matte Bronze</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#F2B705] shrink-0" weight="bold" />
-                      <span>500-hour salt spray assay data</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#F2B705] shrink-0" weight="bold" />
-                      <span>Chemical cleaning tolerance guide</span>
-                    </li>
-                  </ul>
+                {/* Synopsis */}
+                <p className="text-xs text-[#666666] font-light leading-relaxed mb-5">
+                  Detailed spectrophotometric data, titanium PVD adhesion benchmarks, coastal salinity resistance, and architectural cleaning protocols.
+                </p>
+
+                {/* Key Technical Chips */}
+                <div className="flex flex-wrap gap-1.5 mb-6">
+                  {['ASTM B117 Tested', 'PVD Gold & Gunmetal', '500h Salt Spray', '3.8 MB'].map((spec, i) => (
+                    <span
+                      key={i}
+                      className="text-[10px] font-mono px-2.5 py-1 bg-[#FAF9F6] border border-[#111111]/10 rounded text-[#444444]"
+                    >
+                      {spec}
+                    </span>
+                  ))}
                 </div>
               </div>
 
-              <div className="p-6 pt-0 space-y-2">
+              {/* Actions */}
+              <div className="space-y-2.5 pt-4 border-t border-[#111111]/10">
                 <Button
                   to="/contact?interest=Document%20Request:%20PVD%20Finish%20Specification%20Guide"
                   variant="primary"
@@ -402,7 +376,7 @@ export const ResourcesPage: React.FC = () => {
                 </Button>
                 <Link
                   to="/contact?interest=Physical%20Finish%20Sample%20Box"
-                  className="block text-center text-xs font-mono uppercase tracking-wider font-semibold text-[#111111] hover:text-[#F2B705] transition-colors py-1.5"
+                  className="block text-center text-xs font-mono uppercase tracking-wider font-semibold text-[#777777] hover:text-[#111111] transition-colors py-1"
                 >
                   Order Physical Finish Box (48h) →
                 </Link>
@@ -410,61 +384,51 @@ export const ResourcesPage: React.FC = () => {
             </div>
 
             {/* Volume 03: BIM LOD 400 Library */}
-            <div className="bg-white border border-[#111111]/12 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:border-[#111111]/40 transition-all duration-300 flex flex-col justify-between group">
+            <div className="bg-white border border-[#111111]/10 rounded-2xl p-7 sm:p-8 flex flex-col justify-between hover:border-[#111111]/30 hover:shadow-xl transition-all duration-300 relative group">
               <div>
-                {/* Visual Hardcover Book Mockup */}
-                <div className="relative aspect-[4/3] bg-gradient-to-br from-[#121B24] via-[#0E151C] to-[#080D12] p-6 text-white flex flex-col justify-between overflow-hidden border-b border-[#111111]/10">
-                  <div className="absolute left-0 top-0 bottom-0 w-3 bg-gradient-to-r from-black/50 via-white/10 to-transparent pointer-events-none" />
-                  <div className="absolute -right-8 -bottom-8 w-32 h-32 rounded-full bg-blue-500/10 blur-2xl pointer-events-none" />
-
-                  <div className="flex items-center justify-between z-10">
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-[#F2B705] font-semibold">
-                      VOL. 03 • BIM DATA
-                    </span>
-                    <span className="px-2 py-0.5 bg-white/10 text-white text-[9px] font-mono rounded">
-                      RVT • DWG • IFC
+                {/* Card Top: Volume Tag & File Specs */}
+                <div className="flex items-center justify-between pb-4 border-b border-[#111111]/10">
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#F2B705]" />
+                    <span className="text-[11px] font-mono uppercase tracking-[0.2em] font-semibold text-[#111111]">
+                      Vol. 03 • BIM Data
                     </span>
                   </div>
-
-                  <div className="space-y-1 z-10 my-auto py-2">
-                    <span className="text-[9px] font-mono uppercase tracking-[0.2em] text-gray-400 block">
-                      PARAMETRIC ARCHITECTURE
-                    </span>
-                    <h4 className="text-xl font-serif font-normal text-white leading-tight">
-                      Revit LOD 350 / 400 Family Master Package
-                    </h4>
-                  </div>
-
-                  <div className="flex items-center justify-between text-[10px] font-mono text-gray-400 border-t border-white/10 pt-2 z-10">
-                    <span>AUTODESK CERTIFIED</span>
-                    <span className="text-[#F2B705]">42.0 MB ZIP</span>
-                  </div>
+                  <span className="text-[10px] font-mono text-[#777777] bg-[#FAF9F6] border border-[#111111]/10 px-2 py-0.5 rounded">
+                    RVT • DWG • IFC
+                  </span>
                 </div>
 
-                {/* Content Details */}
-                <div className="p-6 space-y-4">
-                  <p className="text-xs text-[#666666] font-light leading-relaxed">
-                    Native Revit component families (.RVT) built with parametric clearance arcs, door host attachment geometry, and automatic schedule parameter mapping.
-                  </p>
+                {/* Title & Category */}
+                <div className="pt-5 pb-3">
+                  <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#888888] block mb-1">
+                    Parametric Architecture
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-serif font-normal text-[#111111] leading-tight">
+                    Revit LOD 350 / 400 Family Master Package
+                  </h3>
+                </div>
 
-                  <ul className="space-y-1.5 text-xs font-mono text-[#444444] pt-1">
-                    <li className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#F2B705] shrink-0" weight="bold" />
-                      <span>Revit 2022–2026 native support</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#F2B705] shrink-0" weight="bold" />
-                      <span>AutoCAD 2D block library (.DWG)</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#F2B705] shrink-0" weight="bold" />
-                      <span>CSI schedule parameter metadata</span>
-                    </li>
-                  </ul>
+                {/* Synopsis */}
+                <p className="text-xs text-[#666666] font-light leading-relaxed mb-5">
+                  Native Revit component families (.RVT) built with parametric clearance arcs, door host geometry, and automatic schedule parameter mapping.
+                </p>
+
+                {/* Key Technical Chips */}
+                <div className="flex flex-wrap gap-1.5 mb-6">
+                  {['Revit 2022–2026', 'AutoCAD 2D Library', 'Autodesk Certified', '42.0 MB ZIP'].map((spec, i) => (
+                    <span
+                      key={i}
+                      className="text-[10px] font-mono px-2.5 py-1 bg-[#FAF9F6] border border-[#111111]/10 rounded text-[#444444]"
+                    >
+                      {spec}
+                    </span>
+                  ))}
                 </div>
               </div>
 
-              <div className="p-6 pt-0 space-y-2">
+              {/* Actions */}
+              <div className="space-y-2.5 pt-4 border-t border-[#111111]/10">
                 <Button
                   to="/contact?interest=Document%20Request:%20Revit%20BIM%20Family%20Master%20Library"
                   variant="primary"
@@ -476,7 +440,7 @@ export const ResourcesPage: React.FC = () => {
                 </Button>
                 <Link
                   to="/contact?interest=Custom%20CAD%20Consultation"
-                  className="block text-center text-xs font-mono uppercase tracking-wider font-semibold text-[#111111] hover:text-[#F2B705] transition-colors py-1.5"
+                  className="block text-center text-xs font-mono uppercase tracking-wider font-semibold text-[#777777] hover:text-[#111111] transition-colors py-1"
                 >
                   Inquire Bespoke Revit Family →
                 </Link>

@@ -14,7 +14,6 @@ import {
   Ruler,
   ShieldCheck,
   Box,
-  Layers,
   ArrowRight,
   Sparkles,
   Info
@@ -27,22 +26,23 @@ export const ProductDetailPage: React.FC = () => {
     return DEMO_PRODUCTS.find((p) => p.slug === slug);
   }, [slug]);
 
-  if (!product) {
-    return <Navigate to="/products" replace />;
-  }
-
   // State for interactive finish selection
-  const [selectedFinish, setSelectedFinish] = useState<ProductFinish>(
-    product.finishes[0] || { id: 'matte-black', name: 'Matte Black', hex: '#1E1E1E' }
-  );
+  const [selectedFinish, setSelectedFinish] = useState<ProductFinish>(() => {
+    return product?.finishes[0] || { id: 'matte-black', name: 'Matte Black', hex: '#1E1E1E' };
+  });
 
   // State for active tab in technical dossier (3 tabs)
   const [activeTab, setActiveTab] = useState<'specs' | 'installation' | 'takeoff'>('specs');
 
   // Related products from same category or general collection
   const relatedProducts = useMemo(() => {
+    if (!product) return [];
     return DEMO_PRODUCTS.filter((p) => p.categorySlug === product.categorySlug && p.id !== product.id);
   }, [product]);
+
+  if (!product) {
+    return <Navigate to="/products" replace />;
+  }
 
   return (
     <div className="min-h-screen pt-28 md:pt-36 bg-[#FAF9F6] text-[#111111]">

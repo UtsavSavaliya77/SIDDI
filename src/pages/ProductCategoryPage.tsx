@@ -15,10 +15,6 @@ export const ProductCategoryPage: React.FC = () => {
     return CATEGORIES.find((c) => c.slug === categorySlug);
   }, [categorySlug]);
 
-  if (!currentCategory) {
-    return <Navigate to="/products" replace />;
-  }
-
   const categoryIndex = useMemo(() => {
     const idx = CATEGORIES.findIndex((c) => c.slug === categorySlug);
     return idx >= 0 ? idx + 1 : 1;
@@ -28,7 +24,13 @@ export const ProductCategoryPage: React.FC = () => {
     return DEMO_PRODUCTS.filter((p) => p.categorySlug === categorySlug);
   }, [categorySlug]);
 
-  const otherCategories = CATEGORIES.filter((c) => c.slug !== categorySlug);
+  const otherCategories = useMemo(() => {
+    return CATEGORIES.filter((c) => c.slug !== categorySlug);
+  }, [categorySlug]);
+
+  if (!currentCategory) {
+    return <Navigate to="/products" replace />;
+  }
 
   return (
     <div className="min-h-screen bg-[#FAF9F6]">

@@ -13,10 +13,8 @@ import {
   FileText,
   EnvelopeSimple,
   Phone,
-  Sparkle,
   UploadSimple,
   ArrowRight,
-  Check
 } from '@phosphor-icons/react';
 import { BouncyAccordion, type BouncyAccordionItem } from '../components/ui/be-ui-bouncy-accordion';
 import {
@@ -287,68 +285,40 @@ export const ContactPage: React.FC = () => {
         </div>
       </ScrollReveal>
 
-      {/* 3. MAIN INTERACTIVE INTAKE & TRADE DESK SECTION */}
-      <ScrollReveal className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+      {/* 3. MAIN INTAKE & TRADE DESK SECTION */}
+      <ScrollReveal className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
 
-          {/* Left Column: Architectural Intake Atelier */}
-          <div className="lg:col-span-7 bg-white border border-[#111111]/10 rounded-2xl p-6 sm:p-10 shadow-sm relative overflow-hidden">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#111111] via-[#F2B705] to-[#111111]" />
-
+          {/* Left Column: Proper Clean Form */}
+          <div className="lg:col-span-8 bg-white border border-[#111111]/10 rounded-2xl p-6 sm:p-10 shadow-xs">
             {submissionStatus === 'backend-required' ? (
-              <div className="py-8 space-y-6">
-                <div className="w-16 h-16 rounded-xl bg-[#111111] text-[#F2B705] flex items-center justify-center shadow-md">
-                  <CheckCircle className="w-9 h-9" weight="fill" />
+              <div className="py-6 space-y-5">
+                <div className="w-12 h-12 rounded-full bg-[#111111] text-[#F2B705] flex items-center justify-center">
+                  <CheckCircle className="w-6 h-6" weight="fill" />
                 </div>
 
                 <div>
-                  <div className="text-xs font-mono uppercase tracking-[0.2em] text-[#F2B705] font-semibold mb-1">
-                    Takeoff Registered
-                  </div>
-                  <h3 className="text-2xl sm:text-3xl font-serif font-normal text-[#111111]">
-                    Enquiry Form Validated Successfully
+                  <h3 className="text-2xl font-serif font-normal text-[#111111]">
+                    Inquiry Received
                   </h3>
+                  <p className="text-sm text-[#666666] mt-1 font-light">
+                    Thank you, <strong className="font-medium text-[#111111]">{formData.fullName}</strong>. We have received your project details and will be in touch shortly.
+                  </p>
                 </div>
 
-                <p className="text-sm text-[#555555] leading-relaxed">
-                  Thank you, <strong className="text-[#111111]">{formData.fullName}</strong>. Your project specification details for{' '}
-                  <strong className="text-[#111111]">{formData.company || 'your practice'}</strong> have passed client-side validation and schema checks.
-                </p>
-
-                {/* Honest backend disclosure */}
-                <div className="p-4 bg-amber-500/10 border-l-4 border-[#F2B705] rounded-r-lg text-xs text-[#111111] space-y-1.5">
-                  <div className="font-semibold uppercase tracking-wider font-mono flex items-center gap-1.5">
-                    <Sparkle className="w-4 h-4 text-[#F2B705]" weight="fill" />
-                    System Architecture Note:
-                  </div>
-                  <div className="leading-relaxed text-[#333333]">
-                    This frontend form is equipped with complete schema sanitization and typed payloads. To route customer enquiries directly to your live CRM or mailbox, bind your preferred API endpoint (e.g., Resend, SendGrid, or custom Node/Express webhook).
-                  </div>
-                </div>
-
-                <div className="p-5 bg-[#FAF9F6] border border-[#111111]/10 rounded-xl text-xs font-mono text-[#555555] space-y-2">
-                  <div className="flex justify-between border-b border-[#111111]/10 pb-1.5">
-                    <span className="text-[#888888]">Contact:</span>
+                <div className="p-4 bg-[#FAF9F6] border border-[#111111]/10 rounded-xl text-xs space-y-2">
+                  <div className="flex justify-between border-b border-[#111111]/10 pb-2">
+                    <span className="text-[#777777]">Contact</span>
                     <span className="font-medium text-[#111111]">{formData.fullName} ({formData.email})</span>
                   </div>
-                  <div className="flex justify-between border-b border-[#111111]/10 pb-1.5">
-                    <span className="text-[#888888]">Practice:</span>
-                    <span className="font-medium text-[#111111]">{formData.company || 'Private Practice'}</span>
+                  <div className="flex justify-between border-b border-[#111111]/10 pb-2">
+                    <span className="text-[#777777]">Typology</span>
+                    <span className="font-medium text-[#111111] uppercase font-mono text-[11px]">{formData.enquiryType}</span>
                   </div>
-                  <div className="flex justify-between border-b border-[#111111]/10 pb-1.5">
-                    <span className="text-[#888888]">Typology:</span>
-                    <span className="font-medium text-[#111111] uppercase">{formData.enquiryType}</span>
-                  </div>
-                  {formData.interestedProduct && (
-                    <div className="flex justify-between border-b border-[#111111]/10 pb-1.5">
-                      <span className="text-[#888888]">Target Series:</span>
-                      <span className="font-medium text-[#111111]">{formData.interestedProduct}</span>
-                    </div>
-                  )}
                   {attachedFileName && (
                     <div className="flex justify-between pt-0.5">
-                      <span className="text-[#888888]">Schedule Attachment:</span>
-                      <span className="font-medium text-[#F2B705]">{attachedFileName} ({attachedFileSize})</span>
+                      <span className="text-[#777777]">Attachment</span>
+                      <span className="font-medium text-[#111111]">{attachedFileName}</span>
                     </div>
                   )}
                 </div>
@@ -372,35 +342,36 @@ export const ContactPage: React.FC = () => {
                     variant="outline"
                     size="sm"
                   >
-                    Submit Another Project Enquiry
+                    Submit Another Inquiry
                   </Button>
                 </div>
               </div>
             ) : (
               <form onSubmit={handleSubmit} noValidate className="space-y-6">
+                {/* Form Header */}
                 <div>
                   <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#F2B705] font-semibold block mb-1">
-                    Direct Takeoff Submission
+                    Specification Intake
                   </span>
-                  <h2 className="text-2xl font-serif font-normal text-[#111111]">
-                    Hardware Intake &amp; Takeoff Form
+                  <h2 className="text-2xl sm:text-3xl font-serif font-normal text-[#111111] tracking-tight">
+                    Project Takeoff &amp; Consultation
                   </h2>
-                  <p className="text-xs text-[#777777] mt-1">
-                    Select your enquiry typology below or attach your door schedule for comprehensive ironmongery takeoff.
+                  <p className="text-xs text-[#777777] mt-1 font-light">
+                    Select your scope below or upload a door schedule for ironmongery estimation.
                   </p>
                 </div>
 
-                {/* Typology Pill Switcher */}
+                {/* Typology Switcher */}
                 <div>
-                  <label className="block text-[11px] uppercase tracking-wider font-semibold text-[#111111] mb-2.5">
-                    Enquiry Typology <span className="text-[#F2B705]">*</span>
+                  <label className="block text-xs font-semibold text-[#111111] uppercase tracking-wider mb-2">
+                    Inquiry Type <span className="text-[#F2B705]">*</span>
                   </label>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                     {[
                       { id: 'trade-specification', label: 'Door Takeoff' },
                       { id: 'sample-request', label: 'Sample Box' },
                       { id: 'contract-dealer', label: 'Contract Supply' },
-                      { id: 'custom-milling', label: 'Bespoke Milling' },
+                      { id: 'custom-milling', label: 'Custom Milling' },
                     ].map((tab) => {
                       const isActive = formData.enquiryType === tab.id;
                       return (
@@ -408,7 +379,7 @@ export const ContactPage: React.FC = () => {
                           key={tab.id}
                           type="button"
                           onClick={() => selectEnquiryType(tab.id)}
-                          className={`px-3 py-2.5 text-xs font-medium rounded-lg border transition-all text-center cursor-pointer ${
+                          className={`py-2.5 px-3 text-xs font-medium rounded-lg border text-center transition-all cursor-pointer ${
                             isActive
                               ? 'bg-[#111111] text-white border-[#111111] shadow-xs'
                               : 'bg-[#FAF9F6] text-[#666666] border-[#111111]/15 hover:border-[#111111] hover:text-[#111111]'
@@ -421,47 +392,30 @@ export const ContactPage: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Name & Practice Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div>
-                    <label htmlFor="fullName" className="block text-xs uppercase tracking-wider font-semibold text-[#111111] mb-1.5">
-                      Full Name <span className="text-[#F2B705]">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="fullName"
-                      name="fullName"
-                      value={formData.fullName}
-                      onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      placeholder="e.g. David Sterling"
-                      className={`w-full px-4 py-3 bg-[#FAF9F6] border rounded-lg text-sm text-[#111111] focus:outline-none transition-colors ${
-                        errors.fullName ? 'border-red-500 ring-1 ring-red-500' : 'border-[#111111]/20 focus:border-[#111111] focus:ring-1 focus:ring-[#F2B705]/40'
-                      }`}
-                    />
-                    {errors.fullName && <p className="text-[11px] text-red-500 mt-1">{errors.fullName}</p>}
-                  </div>
-
-                  <div>
-                    <label htmlFor="company" className="block text-xs uppercase tracking-wider font-semibold text-[#111111] mb-1.5">
-                      Practice / Studio / Firm
-                    </label>
-                    <input
-                      type="text"
-                      id="company"
-                      name="company"
-                      value={formData.company}
-                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      placeholder="e.g. Sterling Architecture Ltd"
-                      className="w-full px-4 py-3 bg-[#FAF9F6] border border-[#111111]/20 rounded-lg text-sm text-[#111111] focus:outline-none focus:border-[#111111] focus:ring-1 focus:ring-[#F2B705]/40 transition-colors"
-                    />
-                  </div>
+                {/* Full Name */}
+                <div>
+                  <label htmlFor="fullName" className="block text-xs font-medium text-[#222222] mb-1.5">
+                    Full Name <span className="text-[#F2B705]">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                    placeholder="e.g. David Sterling"
+                    className={`w-full px-3.5 py-2.5 bg-[#FAF9F6] border rounded-lg text-sm text-[#111111] placeholder:text-[#999999] focus:outline-none transition-colors ${
+                      errors.fullName ? 'border-red-500 ring-1 ring-red-500' : 'border-[#111111]/15 focus:border-[#111111] focus:ring-1 focus:ring-[#111111]'
+                    }`}
+                  />
+                  {errors.fullName && <p className="text-[11px] text-red-500 mt-1">{errors.fullName}</p>}
                 </div>
 
-                {/* Email & Phone Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                {/* Email & Phone */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="email" className="block text-xs uppercase tracking-wider font-semibold text-[#111111] mb-1.5">
-                      Corporate Email <span className="text-[#F2B705]">*</span>
+                    <label htmlFor="email" className="block text-xs font-medium text-[#222222] mb-1.5">
+                      Work Email <span className="text-[#F2B705]">*</span>
                     </label>
                     <input
                       type="email"
@@ -470,15 +424,15 @@ export const ContactPage: React.FC = () => {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="david@sterling-arch.com"
-                      className={`w-full px-4 py-3 bg-[#FAF9F6] border rounded-lg text-sm text-[#111111] focus:outline-none transition-colors ${
-                        errors.email ? 'border-red-500 ring-1 ring-red-500' : 'border-[#111111]/20 focus:border-[#111111] focus:ring-1 focus:ring-[#F2B705]/40'
+                      className={`w-full px-3.5 py-2.5 bg-[#FAF9F6] border rounded-lg text-sm text-[#111111] placeholder:text-[#999999] focus:outline-none transition-colors ${
+                        errors.email ? 'border-red-500 ring-1 ring-red-500' : 'border-[#111111]/15 focus:border-[#111111] focus:ring-1 focus:ring-[#111111]'
                       }`}
                     />
                     {errors.email && <p className="text-[11px] text-red-500 mt-1">{errors.email}</p>}
                   </div>
 
                   <div>
-                    <label htmlFor="phone" className="block text-xs uppercase tracking-wider font-semibold text-[#111111] mb-1.5">
+                    <label htmlFor="phone" className="block text-xs font-medium text-[#222222] mb-1.5">
                       Phone Number <span className="text-[#F2B705]">*</span>
                     </label>
                     <input
@@ -487,19 +441,19 @@ export const ContactPage: React.FC = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="+91 98200 12345 / +44 20 7946 0912"
-                      className={`w-full px-4 py-3 bg-[#FAF9F6] border rounded-lg text-sm text-[#111111] focus:outline-none transition-colors ${
-                        errors.phone ? 'border-red-500 ring-1 ring-red-500' : 'border-[#111111]/20 focus:border-[#111111] focus:ring-1 focus:ring-[#F2B705]/40'
+                      placeholder="+91 98200 12345"
+                      className={`w-full px-3.5 py-2.5 bg-[#FAF9F6] border rounded-lg text-sm text-[#111111] placeholder:text-[#999999] focus:outline-none transition-colors ${
+                        errors.phone ? 'border-red-500 ring-1 ring-red-500' : 'border-[#111111]/15 focus:border-[#111111] focus:ring-1 focus:ring-[#111111]'
                       }`}
                     />
                     {errors.phone && <p className="text-[11px] text-red-500 mt-1">{errors.phone}</p>}
                   </div>
                 </div>
 
-                {/* Target Product / Collection */}
+                {/* Target Hardware Series */}
                 <div>
-                  <label htmlFor="interestedProduct" className="block text-xs uppercase tracking-wider font-semibold text-[#111111] mb-1.5">
-                    Target Hardware Series / Product Focus
+                  <label htmlFor="interestedProduct" className="block text-xs font-medium text-[#222222] mb-1.5">
+                    Hardware Series / Product Focus <span className="text-[#888888] font-normal text-[11px]">(Optional)</span>
                   </label>
                   <input
                     type="text"
@@ -507,35 +461,39 @@ export const ContactPage: React.FC = () => {
                     name="interestedProduct"
                     value={formData.interestedProduct}
                     onChange={(e) => setFormData({ ...formData, interestedProduct: e.target.value })}
-                    placeholder="e.g. Verona Lever Handle, Magnetic Mortise Locks, or Complete Master Schedule"
-                    className="w-full px-4 py-3 bg-[#FAF9F6] border border-[#111111]/20 rounded-lg text-sm text-[#111111] focus:outline-none focus:border-[#111111] focus:ring-1 focus:ring-[#F2B705]/40 transition-colors"
+                    placeholder="e.g. Verona Lever Handle, Magnetic Mortise Locks, or Full Schedule"
+                    className="w-full px-3.5 py-2.5 bg-[#FAF9F6] border border-[#111111]/15 rounded-lg text-sm text-[#111111] placeholder:text-[#999999] focus:outline-none focus:border-[#111111] focus:ring-1 focus:ring-[#111111] transition-colors"
                   />
                 </div>
 
-                {/* Message / Scope */}
+                {/* Project Scope / Message */}
                 <div>
-                  <label htmlFor="message" className="block text-xs uppercase tracking-wider font-semibold text-[#111111] mb-1.5">
-                    Project Scope &amp; Hardware Requirements <span className="text-[#F2B705]">*</span>
+                  <label htmlFor="message" className="block text-xs font-medium text-[#222222] mb-1.5">
+                    Project Scope &amp; Notes <span className="text-[#F2B705]">*</span>
                   </label>
                   <textarea
                     id="message"
                     name="message"
-                    rows={4}
+                    rows={3}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Please specify door quantities, required PVD finishes, door thicknesses or specific questions..."
-                    className={`w-full px-4 py-3 bg-[#FAF9F6] border rounded-lg text-sm text-[#111111] focus:outline-none transition-colors ${
-                      errors.message ? 'border-red-500 ring-1 ring-red-500' : 'border-[#111111]/20 focus:border-[#111111] focus:ring-1 focus:ring-[#F2B705]/40'
+                    placeholder="Door counts, finishes (PVD Gold, Matte Black, etc.), door leaf thicknesses, or custom specifications..."
+                    className={`w-full px-3.5 py-2.5 bg-[#FAF9F6] border rounded-lg text-sm text-[#111111] placeholder:text-[#999999] focus:outline-none transition-colors ${
+                      errors.message ? 'border-red-500 ring-1 ring-red-500' : 'border-[#111111]/15 focus:border-[#111111] focus:ring-1 focus:ring-[#111111]'
                     }`}
                   />
                   {errors.message && <p className="text-[11px] text-red-500 mt-1">{errors.message}</p>}
                 </div>
 
-                {/* Optional Schedule Upload Drop Area */}
+                {/* Compact Door Schedule Dropzone */}
                 <div>
-                  <label className="block text-xs uppercase tracking-wider font-semibold text-[#111111] mb-1.5">
-                    Attach Door Schedule or Architectural Drawings
-                  </label>
+                  <div className="flex items-center justify-between mb-1.5">
+                    <label className="text-xs font-medium text-[#222222]">
+                      Attach Door Schedule / Plans
+                    </label>
+                    <span className="text-[10px] text-[#888888] font-mono">PDF, DWG, XLSX (Up to 25MB)</span>
+                  </div>
+
                   <input
                     type="file"
                     ref={fileInputRef}
@@ -546,20 +504,16 @@ export const ContactPage: React.FC = () => {
                   />
 
                   {attachedFileName ? (
-                    <div className="flex items-center justify-between p-3.5 bg-[#FAF9F6] border border-[#111111]/15 rounded-lg">
+                    <div className="flex items-center justify-between p-3 bg-[#FAF9F6] border border-[#111111]/15 rounded-lg">
                       <div className="flex items-center gap-2.5 truncate">
-                        <FileText className="w-5 h-5 text-[#F2B705] shrink-0" weight="duotone" />
-                        <span className="text-xs font-mono font-medium text-[#111111] truncate">
-                          {attachedFileName}
-                        </span>
-                        <span className="text-[10px] font-mono px-2 py-0.5 bg-black/5 text-[#666666] rounded">
-                          {attachedFileSize}
-                        </span>
+                        <FileText className="w-4 h-4 text-[#F2B705] shrink-0" weight="duotone" />
+                        <span className="text-xs font-medium text-[#111111] truncate">{attachedFileName}</span>
+                        <span className="text-[10px] text-[#888888] font-mono">({attachedFileSize})</span>
                       </div>
                       <button
                         type="button"
                         onClick={removeAttachedFile}
-                        className="text-xs text-red-600 hover:text-red-800 underline font-mono shrink-0 ml-3 cursor-pointer"
+                        className="text-xs text-red-600 hover:text-red-800 font-medium shrink-0 ml-3 cursor-pointer"
                       >
                         Remove
                       </button>
@@ -567,52 +521,42 @@ export const ContactPage: React.FC = () => {
                   ) : (
                     <label
                       htmlFor="fileUpload"
-                      className="border-2 border-dashed border-[#111111]/15 hover:border-[#111111]/40 bg-[#FAF9F6]/50 hover:bg-[#FAF9F6] p-4 rounded-lg flex flex-col sm:flex-row items-center justify-between gap-3 cursor-pointer transition-colors"
+                      className="border border-dashed border-[#111111]/20 hover:border-[#111111] bg-[#FAF9F6] hover:bg-white p-3.5 rounded-lg flex items-center justify-between gap-3 cursor-pointer transition-colors group"
                     >
-                      <div className="flex items-center gap-3 text-center sm:text-left">
-                        <div className="w-8 h-8 rounded-full bg-[#111111]/5 flex items-center justify-center text-[#111111] shrink-0">
-                          <UploadSimple className="w-4 h-4" />
-                        </div>
-                        <div>
-                          <div className="text-xs font-medium text-[#111111]">
-                            Upload Door Schedule / Plan (.pdf, .dwg, .xlsx)
-                          </div>
-                          <div className="text-[11px] text-[#777777]">
-                            Files up to 25MB accepted for engineering takeoff
-                          </div>
-                        </div>
+                      <div className="flex items-center gap-2.5">
+                        <UploadSimple className="w-4 h-4 text-[#777777] group-hover:text-[#111111] transition-colors" />
+                        <span className="text-xs text-[#555555] group-hover:text-[#111111] transition-colors">
+                          Click to attach architectural drawings or door schedule
+                        </span>
                       </div>
-                      <span className="px-3 py-1.5 bg-white border border-[#111111]/20 text-[11px] uppercase tracking-wider font-semibold text-[#111111] rounded shadow-2xs hover:bg-[#111111] hover:text-white transition-colors">
-                        Browse Files
+                      <span className="shrink-0 px-2.5 py-1 bg-white group-hover:bg-[#111111] group-hover:text-white border border-[#111111]/15 text-[11px] font-medium text-[#111111] rounded transition-colors shadow-2xs">
+                        Browse
                       </span>
                     </label>
                   )}
                 </div>
 
-                {/* Consent Checkbox */}
-                <div className="pt-1">
-                  <label className="flex items-start gap-3 cursor-pointer select-none">
+                {/* Consent & Submit */}
+                <div className="pt-2 border-t border-[#111111]/10 space-y-4">
+                  <label className="flex items-start gap-2.5 cursor-pointer select-none">
                     <input
                       type="checkbox"
                       checked={formData.consent}
                       onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
-                      className="mt-0.5 h-4 w-4 rounded border-[#111111]/30 text-[#111111] focus:ring-[#F2B705] cursor-pointer"
+                      className="mt-0.5 h-3.5 w-3.5 rounded border-[#111111]/30 text-[#111111] focus:ring-[#F2B705] cursor-pointer"
                     />
                     <span className="text-xs text-[#666666] leading-relaxed">
-                      I confirm that the details provided are accurate and consent to SIDDI contacting our practice regarding this architectural specification in accordance with data privacy guidelines.
+                      I confirm these project details and consent to SIDDI contacting our studio regarding this specification.
                     </span>
                   </label>
-                  {errors.consent && <p className="text-[11px] text-red-500 mt-1">{errors.consent}</p>}
-                </div>
+                  {errors.consent && <p className="text-[11px] text-red-500">{errors.consent}</p>}
 
-                {/* Submit button */}
-                <div className="pt-2">
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-9 py-4 bg-[#111111] hover:bg-[#F2B705] hover:text-[#111111] text-white text-xs font-semibold uppercase tracking-widest rounded-lg transition-all duration-300 shadow-md cursor-pointer disabled:opacity-50"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#111111] hover:bg-[#F2B705] hover:text-[#111111] text-white text-xs font-semibold uppercase tracking-wider rounded-lg transition-colors cursor-pointer disabled:opacity-50"
                   >
-                    <span>{isSubmitting ? 'Validating Takeoff...' : 'Transmit Hardware Enquiry'}</span>
+                    <span>{isSubmitting ? 'Validating...' : 'Submit Inquiry'}</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
@@ -620,43 +564,26 @@ export const ContactPage: React.FC = () => {
             )}
           </div>
 
-          {/* Right Column: Direct Trade Desk & Physical Sample Box Showcase */}
-          <div className="lg:col-span-5 space-y-6">
+          {/* Right Column: Clean, Low-Text Information Cards */}
+          <div className="lg:col-span-4 space-y-5">
 
-            {/* Curated Physical Sample Box Showcase */}
-            <div className="p-8 bg-[#111111] text-white rounded-2xl relative overflow-hidden shadow-lg border border-white/10">
-              <div className="absolute top-0 right-0 w-36 h-36 bg-[#F2B705]/10 rounded-full blur-2xl pointer-events-none" />
-
+            {/* Curated Sample Box (Minimal Text) */}
+            <div className="p-6 bg-[#111111] text-white rounded-2xl relative overflow-hidden shadow-sm">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-[11px] uppercase tracking-[0.22em] text-[#F2B705] font-semibold font-mono">
-                  Atelier Specifier Box
+                <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#F2B705] font-semibold">
+                  Sample Box
                 </span>
-                <span className="text-[10px] font-mono px-2 py-0.5 bg-white/10 text-white/90 rounded border border-white/15">
-                  Courier In 48h
+                <span className="text-[10px] font-mono px-2 py-0.5 bg-white/10 rounded text-gray-300">
+                  48h Dispatch
                 </span>
               </div>
 
-              <h3 className="text-2xl font-serif font-normal text-white mb-2">
-                Curated Finish &amp; Lever Box
+              <h3 className="text-xl font-serif font-normal text-white mb-1.5">
+                Physical Finish Box
               </h3>
-
-              <p className="text-xs text-gray-300 leading-relaxed mb-5">
-                Qualified architectural practices and interior studios working on live projects can request a curated physical sample set delivered straight to your studio library.
+              <p className="text-xs text-gray-400 font-light mb-4">
+                Curated solid brass finish coupons &amp; sample lever for qualified studios.
               </p>
-
-              <div className="space-y-2.5 border-t border-white/10 pt-4 mb-6">
-                {[
-                  '6 Solid Brass Finish Coupons (Satin, Bronze, PVD Gold, Gunmetal, Black, Chrome)',
-                  '1:1 Tactile Knurled Lever Handle Section with Return Spring',
-                  '184-Page Hardcover Master Architectural Specification Binder',
-                  'Pre-paid return courier slip for sustainable sample recycling',
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-2.5 text-xs text-gray-300">
-                    <Check className="w-4 h-4 text-[#F2B705] shrink-0 mt-0.5" weight="bold" />
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
 
               <button
                 type="button"
@@ -664,35 +591,33 @@ export const ContactPage: React.FC = () => {
                   selectEnquiryType('sample-request');
                   window.scrollTo({ top: 350, behavior: 'smooth' });
                 }}
-                className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 bg-white/10 hover:bg-[#F2B705] hover:text-[#111111] text-white border border-white/15 rounded-lg text-xs uppercase tracking-wider font-semibold transition-all cursor-pointer"
+                className="w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-3 bg-white/10 hover:bg-[#F2B705] hover:text-[#111111] text-white rounded-lg text-xs font-medium transition-colors cursor-pointer"
               >
-                <span>Request Sample Box in Form</span>
+                <span>Request Sample Set</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
 
-            {/* Direct Engineering Desk Card */}
-            <div className="p-7 bg-white border border-[#111111]/10 rounded-2xl space-y-4 shadow-xs">
-              <div className="flex items-center gap-2">
-                <Buildings className="w-5 h-5 text-[#F2B705]" weight="duotone" />
-                <h4 className="font-semibold text-xs text-[#111111] uppercase tracking-wider">
-                  Direct Engineering Desk
-                </h4>
+            {/* Direct Contact (Ultra Compact) */}
+            <div className="p-6 bg-white border border-[#111111]/10 rounded-2xl space-y-3 shadow-2xs">
+              <div className="flex items-center justify-between pb-2 border-b border-[#111111]/10">
+                <span className="text-xs font-semibold uppercase tracking-wider text-[#111111]">
+                  Direct Desk
+                </span>
+                <span className="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">
+                  Mon–Fri • 09:00–18:30
+                </span>
               </div>
 
-              <p className="text-xs text-[#666666] leading-relaxed">
-                Connect directly with our ironmongery consultants for tender inquiries, rapid door takeoff estimates, and masterkey schedules:
-              </p>
-
-              <div className="space-y-3 pt-2 text-xs">
+              <div className="space-y-2 text-xs">
                 <a
                   href="mailto:trade@siddi-hardware.com"
-                  className="flex items-center gap-3 p-3 bg-[#FAF9F6] border border-[#111111]/10 rounded-lg hover:border-[#111111] transition-colors group"
+                  className="flex items-center gap-2.5 p-2.5 bg-[#FAF9F6] border border-[#111111]/10 rounded-lg hover:border-[#111111] transition-colors group"
                 >
                   <EnvelopeSimple className="w-4 h-4 text-[#F2B705] shrink-0" />
                   <div className="truncate">
-                    <div className="text-[10px] text-[#777777] uppercase font-mono">Specification Takeoffs</div>
-                    <div className="font-medium text-[#111111] group-hover:text-[#F2B705] transition-colors">
+                    <div className="text-[10px] text-[#777777] font-mono uppercase">Takeoffs</div>
+                    <div className="font-medium text-[#111111] group-hover:text-[#F2B705] transition-colors truncate">
                       trade@siddi-hardware.com
                     </div>
                   </div>
@@ -700,38 +625,27 @@ export const ContactPage: React.FC = () => {
 
                 <a
                   href="tel:+912245891200"
-                  className="flex items-center gap-3 p-3 bg-[#FAF9F6] border border-[#111111]/10 rounded-lg hover:border-[#111111] transition-colors group"
+                  className="flex items-center gap-2.5 p-2.5 bg-[#FAF9F6] border border-[#111111]/10 rounded-lg hover:border-[#111111] transition-colors group"
                 >
                   <Phone className="w-4 h-4 text-[#F2B705] shrink-0" />
                   <div>
-                    <div className="text-[10px] text-[#777777] uppercase font-mono">Technical Phone Support</div>
+                    <div className="text-[10px] text-[#777777] font-mono uppercase">Phone</div>
                     <div className="font-medium text-[#111111] group-hover:text-[#F2B705] transition-colors">
                       +91 (0) 22 4589 1200
                     </div>
                   </div>
                 </a>
-
-                <div className="p-3 bg-[#FAF9F6] border border-[#111111]/10 rounded-lg">
-                  <div className="text-[10px] text-[#777777] uppercase font-mono">BIM &amp; CAD Direct Link</div>
-                  <div className="font-medium text-[#111111] mt-0.5">
-                    bim@siddi-hardware.com
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-2 text-[11px] font-mono text-[#777777] border-t border-[#111111]/10">
-                Studio Hours: Monday – Friday, 09:00 – 18:30 IST
               </div>
             </div>
 
-            {/* Production Atelier & Confidentiality Notice */}
-            <div className="p-5 bg-white border border-dashed border-[#111111]/20 rounded-2xl text-[11px] text-[#666666] leading-relaxed">
-              <span className="font-semibold text-[#111111] uppercase tracking-wider block mb-1">
-                Foundry &amp; Manufacturing Atelier:
-              </span>
-              SIDDI Precision Hardware, Plot No. 42, GIDC Industrial Estate, Shapar (Veraval), Rajkot, Gujarat 360024, India.
-              <div className="mt-2 text-[#777777]">
-                Official client visits and factory walkthroughs are scheduled upon confirmed project appointment.
+            {/* Atelier Location (Compact 2 Lines) */}
+            <div className="p-4 bg-white border border-[#111111]/10 rounded-xl text-xs text-[#666666] flex items-start gap-2.5">
+              <Buildings className="w-4 h-4 text-[#F2B705] shrink-0 mt-0.5" />
+              <div>
+                <div className="font-semibold text-[#111111]">Foundry &amp; Manufacturing Atelier</div>
+                <div className="text-[11px] text-[#777777] mt-0.5 font-light">
+                  Plot 42, GIDC Shapar, Rajkot, Gujarat 360024
+                </div>
               </div>
             </div>
 
@@ -739,6 +653,7 @@ export const ContactPage: React.FC = () => {
 
         </div>
       </ScrollReveal>
+
 
       {/* 4. SPECIFICATION JOURNEY: 3-STEP ARCHITECTURAL PROCESS */}
       <ScrollReveal as="section" className="bg-white border-y border-[#111111]/10 py-16 md:py-20">
