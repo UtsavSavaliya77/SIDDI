@@ -19,12 +19,12 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   ...props
 }) => {
-  const baseStyles = 'inline-flex items-center justify-center font-medium tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none cursor-pointer';
+  const baseStyles = 'inline-flex items-center justify-center font-medium tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none cursor-pointer rounded-[11px] px-6 py-3.5';
 
   const sizeStyles = {
-    sm: 'text-xs uppercase tracking-wider px-4 py-2 gap-1.5',
+    sm: 'text-xs uppercase tracking-wider px-6 py-3.5 gap-1.5',
     md: 'text-sm uppercase tracking-wider px-6 py-3.5 gap-2',
-    lg: 'text-sm font-semibold tracking-widest px-8 py-4 gap-2.5',
+    lg: 'text-sm font-semibold tracking-widest px-6 py-3.5 gap-2.5',
   };
 
   const variantStyles = {

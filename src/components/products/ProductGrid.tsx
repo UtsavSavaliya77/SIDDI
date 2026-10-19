@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Product } from '../../types';
 import { ProductCard } from './ProductCard';
+import { ScrollRevealStagger, ScrollRevealItem } from '../common/ScrollReveal';
 
 interface ProductGridProps {
   products: Product[];
@@ -35,10 +36,16 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
   }[columns];
 
   return (
-    <div className={`grid ${gridColsClass} gap-6 md:gap-8 ${className}`}>
+    <ScrollRevealStagger
+      className={`grid ${gridColsClass} gap-6 md:gap-8 ${className}`}
+      staggerDelay={0.08}
+      once={true}
+    >
       {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
+        <ScrollRevealItem key={product.id} distance={24} duration={0.6}>
+          <ProductCard product={product} />
+        </ScrollRevealItem>
       ))}
-    </div>
+    </ScrollRevealStagger>
   );
 };

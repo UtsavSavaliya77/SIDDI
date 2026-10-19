@@ -16,7 +16,7 @@ export const EnquiryCTA: React.FC<EnquiryCTAProps> = ({
   eyebrow = "Specification & Trade Consultation",
   title = "Built for those who craft signature spaces.",
   description = "Schedule takeoffs, finish samples, and custom specifications tailored to your architectural plans.",
-  buttonText = "Discuss Your Requirement",
+  buttonText = "Discuss Requirement",
   categoryInterest,
   className = ""
 }) => {
@@ -62,7 +62,7 @@ export const EnquiryCTA: React.FC<EnquiryCTAProps> = ({
                 <div className="mt-6 sm:mt-7 flex items-center">
                   <Link
                     to={targetUrl}
-                    className="inline-flex items-center gap-2.5 px-6 py-3 sm:px-7 sm:py-3.5 rounded-full bg-white text-[#111111] font-semibold text-xs sm:text-sm tracking-wide hover:bg-[#F2B705] hover:text-[#111111] transition-all duration-300 shadow-md group cursor-pointer"
+                    className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-[11px] bg-white text-[#111111] font-semibold text-xs sm:text-sm tracking-wide hover:bg-[#F2B705] hover:text-[#111111] transition-all duration-300 shadow-md group cursor-pointer"
                   >
                     <span>{buttonText}</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" weight="bold" />

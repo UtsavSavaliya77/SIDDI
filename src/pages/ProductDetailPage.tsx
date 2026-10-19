@@ -4,7 +4,7 @@ import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { ProductGallery } from '../components/products/ProductGallery';
 import { RelatedProducts } from '../components/products/RelatedProducts';
 import { EnquiryCTA } from '../components/common/EnquiryCTA';
-import { ScrollReveal } from '../components/common/ScrollReveal';
+import { ScrollReveal, TextReveal } from '../components/common/ScrollReveal';
 import { DEMO_PRODUCTS } from '../data/products';
 import type { ProductFinish } from '../types';
 import {
@@ -162,9 +162,11 @@ export const ProductDetailPage: React.FC = () => {
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-4xl font-serif font-normal text-[#111111] tracking-tight leading-tight mb-4">
-                {product.name}
-              </h1>
+              <TextReveal
+                as="h1"
+                text={product.name}
+                className="text-3xl sm:text-4xl lg:text-4xl font-serif font-normal text-[#111111] tracking-tight leading-tight mb-4"
+              />
 
               <p className="text-xs sm:text-sm text-[#555555] leading-relaxed">
                 {product.description}
@@ -195,7 +197,7 @@ export const ProductDetailPage: React.FC = () => {
                       key={finish.id}
                       type="button"
                       onClick={() => setSelectedFinish(finish)}
-                      className={`flex items-center justify-between p-3 border transition-all text-left cursor-pointer ${
+                      className={`flex items-center justify-between p-3 rounded-[11px] border transition-all text-left cursor-pointer ${
                         isSelected
                           ? 'border-[#111111] bg-[#111111] text-white shadow-xs'
                           : 'border-[#111111]/15 bg-[#FAF9F6] text-[#333333] hover:border-[#111111]/50 hover:bg-white'
@@ -230,7 +232,7 @@ export const ProductDetailPage: React.FC = () => {
                 to={`/contact?product=${encodeURIComponent(product.name)}&series=${encodeURIComponent(
                   product.series
                 )}&finish=${encodeURIComponent(selectedFinish.name)}`}
-                className="w-full py-4 px-6 bg-[#111111] hover:bg-[#F2B705] text-white hover:text-[#111111] transition-all text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-3 shadow-md cursor-pointer group"
+                className="w-full px-6 py-3.5 rounded-[11px] bg-[#111111] hover:bg-[#F2B705] text-white hover:text-[#111111] transition-all text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-3 shadow-md cursor-pointer group"
               >
                 <span>Inquire About Hardware Specification</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

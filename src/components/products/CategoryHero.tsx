@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Breadcrumbs } from '../common/Breadcrumbs';
+import { TextReveal } from '../common/ScrollReveal';
 import type { ProductCategory } from '../../types';
 
 interface CategoryHeroProps {
@@ -56,9 +57,11 @@ export const CategoryHero: React.FC<CategoryHeroProps> = ({
                 Collection 0{categoryIndex}
               </span>
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-white tracking-tight mb-2">
-              {category.title}
-            </h1>
+            <TextReveal
+              as="h1"
+              text={category.title}
+              className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-white tracking-tight mb-2"
+            />
             <p className="text-xs sm:text-sm text-gray-300 font-sans leading-relaxed max-w-xl">
               {category.subtitle}
             </p>

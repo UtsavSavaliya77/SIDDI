@@ -179,7 +179,7 @@ export const CategoryCarousel: React.FC = () => {
             onClick={() => scroll("left")}
             disabled={!canScrollLeft}
             aria-label="Previous collection"
-            className={`w-12 h-12 rounded-full border border-[#111111]/15 flex items-center justify-center transition-all duration-200 cursor-pointer ${
+            className={`w-12 h-12 rounded-[11px] border border-[#111111]/15 flex items-center justify-center transition-all duration-200 cursor-pointer ${
               canScrollLeft
                 ? "bg-white hover:bg-[#111111] text-[#111111] hover:text-white hover:scale-105 shadow-sm"
                 : "bg-white/40 text-gray-300 border-gray-200 cursor-not-allowed"
@@ -193,7 +193,7 @@ export const CategoryCarousel: React.FC = () => {
             onClick={() => scroll("right")}
             disabled={!canScrollRight}
             aria-label="Next collection"
-            className={`w-12 h-12 rounded-full border border-[#111111]/15 flex items-center justify-center transition-all duration-200 cursor-pointer ${
+            className={`w-12 h-12 rounded-[11px] border border-[#111111]/15 flex items-center justify-center transition-all duration-200 cursor-pointer ${
               canScrollRight
                 ? "bg-white hover:bg-[#111111] text-[#111111] hover:text-white hover:scale-105 shadow-sm"
                 : "bg-white/40 text-gray-300 border-gray-200 cursor-not-allowed"

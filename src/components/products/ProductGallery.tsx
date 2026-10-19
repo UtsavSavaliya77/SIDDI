@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowsOut, X, CaretLeft, CaretRight, ShieldCheck, Sparkle } from '@phosphor-icons/react';
+import { X, CaretLeft, CaretRight, Sparkle } from '@phosphor-icons/react';
 
 interface ProductGalleryProps {
   images: string[];

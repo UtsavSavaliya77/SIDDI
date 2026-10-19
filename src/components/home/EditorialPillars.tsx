@@ -6,9 +6,9 @@ import {
   ShieldCheck, 
   Stack, 
   Compass, 
-  Sliders,
-  Sparkle
+  Sliders
 } from '@phosphor-icons/react';
+import { ScrollRevealStagger, ScrollRevealItem } from '../common/ScrollReveal';
 
 interface Pillar {
   id: string;
@@ -38,7 +38,7 @@ const PILLARS: Pillar[] = [
     description:
       'Forged exclusively from pure solid brass and austenitic marine-grade 316 stainless steel. Engineered for authentic tactile heft, acoustic density, and zero deflection.',
     image:
-      'https://images.unsplash.com/photo-1595844730298-b960ff98fee0?auto=format&fit=crop&w=1200&q=85',
+      '/brass-door-handle.jpg',
     icon: Stack,
     highlights: [
       'Lead-Free Virgin Alloy',
@@ -59,7 +59,7 @@ const PILLARS: Pillar[] = [
     description:
       'Physical Vapor Deposition bonds titanium atoms directly into the metal lattice in a high-vacuum chamber. Impervious to coastal salt air, humidity, and antimicrobial solvents.',
     image:
-      'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=85',
+      '/Handles.jpg',
     icon: ShieldCheck,
     highlights: [
       '2,400 HV Vickers Hardness',
@@ -80,7 +80,7 @@ const PILLARS: Pillar[] = [
     description:
       'Engineered for flush architectural integration. Signature 4mm low-profile rose sits virtually flat against timber or marble doors with 3D multi-axis micro-alignment.',
     image:
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85',
+      '/Knobs.jpg',
     icon: Compass,
     highlights: [
       'Concealed Sub-Rose Fixings',
@@ -101,7 +101,7 @@ const PILLARS: Pillar[] = [
     description:
       'We partner with architectural studios from concept to handover. Automated door schedules, 48-hour finish sample boxes, and parametric LOD 400 Revit BIM assets.',
     image:
-      'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=85',
+      '/bathroom-kit.jpg',
     icon: Sliders,
     highlights: [
       '48h Curated Finish Samples',
@@ -120,15 +120,15 @@ export const EditorialPillars: React.FC = () => {
       {/* =========================================================================
           4-CARD ARCHITECTURAL GRID (All 4 Visible Simultaneously — Zero Tabs)
           ========================================================================= */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
+      <ScrollRevealStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch" staggerDelay={0.1} once={false}>
         {PILLARS.map((pillar, idx) => {
           const Icon = pillar.icon;
 
           return (
-            <div
-              key={pillar.id}
-              className="bg-white border border-[#111111]/12 rounded-3xl overflow-hidden flex flex-col justify-between shadow-xs transition-all duration-300 hover:border-[#111111]/30 hover:shadow-md hover:-translate-y-1 group relative"
-            >
+            <ScrollRevealItem key={pillar.id} distance={20} duration={0.65} className="h-full flex flex-col">
+              <div
+                className="bg-white border border-[#111111]/12 rounded-3xl overflow-hidden flex flex-col justify-between shadow-xs transition-all duration-300 hover:border-[#111111]/30 hover:shadow-md hover:-translate-y-1 group relative h-full"
+              >
               {/* Animated Solid Border Trace (NO GRADIENTS) */}
               <svg
                 className="absolute inset-0 w-full h-full pointer-events-none rounded-3xl z-20"
@@ -236,32 +236,10 @@ export const EditorialPillars: React.FC = () => {
                 </div>
               </div>
             </div>
-          );
+          </ScrollRevealItem>
+        );
         })}
-      </div>
-
-      {/* =========================================================================
-          TRADE REASSURANCE SUB-BAR
-          ========================================================================= */}
-      <div className="p-4 bg-white border border-[#111111]/10 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3 text-xs shadow-2xs">
-        <div className="flex items-center gap-3">
-          <Sparkle className="w-4 h-4 text-[#F2B705]" weight="fill" />
-          <span className="font-semibold uppercase tracking-wider text-[#111111]">
-            15-Year Commercial Mechanical Warranty
-          </span>
-          <span className="hidden md:inline text-[#888888] font-mono">
-            • ISO 9001 Metallurgy Certified • Revit LOD 400 BIM Ready
-          </span>
-        </div>
-
-        <Link
-          to="/contact"
-          className="text-xs font-semibold uppercase tracking-wider text-[#111111] hover:text-[#F2B705] transition-colors flex items-center gap-1.5 self-end sm:self-auto"
-        >
-          <span>Request Trade Kit</span>
-          <ArrowUpRight className="w-3.5 h-3.5 text-[#F2B705]" />
-        </Link>
-      </div>
+      </ScrollRevealStagger>
 
     </div>
   );

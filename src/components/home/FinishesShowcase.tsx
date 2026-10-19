@@ -34,7 +34,7 @@ export const ARCHITECTURAL_FINISHES: ArchitecturalFinish[] = [
     metallicBackground: '#1C160B',
     gradientOverlay: 'transparent',
     puckGradient: '#D4AF37',
-    specimenImage: 'https://images.unsplash.com/photo-1595844730298-b960ff98fee0?auto=format&fit=crop&w=1400&q=85',
+    specimenImage: '/brass-door-handle.jpg',
     hardwareTitle: 'Verona Architectural Leverset',
     alloy: 'Solid Forged Brass C37700',
     treatment: 'Zirconium PVD Layering',
@@ -52,7 +52,7 @@ export const ARCHITECTURAL_FINISHES: ArchitecturalFinish[] = [
     metallicBackground: '#111111',
     gradientOverlay: 'transparent',
     puckGradient: '#181818',
-    specimenImage: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1400&q=85',
+    specimenImage: '/Matte Black Faucet.jpg',
     hardwareTitle: 'Kyoto Cylindrical Passage Set',
     alloy: 'Austenitic Grade 304 Steel',
     treatment: 'Carbon-Nitride PVD Matrix',
@@ -70,7 +70,7 @@ export const ARCHITECTURAL_FINISHES: ArchitecturalFinish[] = [
     metallicBackground: '#14161A',
     gradientOverlay: 'transparent',
     puckGradient: '#A8A9AD',
-    specimenImage: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=85',
+    specimenImage: '/Handles.jpg',
     hardwareTitle: 'Astrid Knurled Mortise Knob',
     alloy: 'Marine Grade AISI 316 Stainless',
     treatment: '320-Grit Directional Micro-Honing',
@@ -88,7 +88,7 @@ export const ARCHITECTURAL_FINISHES: ArchitecturalFinish[] = [
     metallicBackground: '#16191E',
     gradientOverlay: 'transparent',
     puckGradient: '#E5E7EB',
-    specimenImage: 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1400&q=85',
+    specimenImage: '/Brushed Gold Basin Faucet.jpg',
     hardwareTitle: 'Nordic Minimal Wall Fitting',
     alloy: 'Forged Dezincification Brass',
     treatment: 'Duplex Nickel + Hard Chrome',
@@ -106,7 +106,7 @@ export const ARCHITECTURAL_FINISHES: ArchitecturalFinish[] = [
     metallicBackground: '#121418',
     gradientOverlay: 'transparent',
     puckGradient: '#3E424B',
-    specimenImage: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1400&q=85',
+    specimenImage: '/Handle.jpg',
     hardwareTitle: 'Titanium Linear Corridor Pull',
     alloy: 'Structural Grade 304 Stainless',
     treatment: 'Cathodic Magnetron Sputter',
@@ -124,7 +124,7 @@ export const ARCHITECTURAL_FINISHES: ArchitecturalFinish[] = [
     metallicBackground: '#18120C',
     gradientOverlay: 'transparent',
     puckGradient: '#614E3C',
-    specimenImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85',
+    specimenImage: '/Knobs.jpg',
     hardwareTitle: 'Heritage Heavyweight Lockset',
     alloy: 'Architectural Cast Bronze Alloy',
     treatment: 'Hand-Relieved Patina + Wax Seal',
@@ -545,7 +545,7 @@ export const FinishesShowcase: React.FC = () => {
                     to={`/products?finish=${finish.id}`}
                     className="w-full py-2.5 px-4 rounded-full bg-[#F2B705] text-[#111111] font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2"
                   >
-                    <span>View All {finish.name} Products</span>
+                    <span>View All</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>

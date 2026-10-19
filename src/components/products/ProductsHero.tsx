@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Breadcrumbs } from '../common/Breadcrumbs';
+import { TextReveal } from '../common/ScrollReveal';
 
 interface ProductsHeroProps {
   selectedCategory?: string;
@@ -39,9 +40,11 @@ export const ProductsHero: React.FC<ProductsHeroProps> = ({
                 Hardware Catalogue
               </span>
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-white tracking-tight mb-2">
-              Product Catalogue
-            </h1>
+            <TextReveal
+              as="h1"
+              text="Product Catalogue"
+              className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-white tracking-tight mb-2"
+            />
             <p className="text-xs sm:text-sm text-gray-300 font-sans leading-relaxed">
               Precision door furniture, security locks, and luxury bathroom fittings forged in solid brass and 304 stainless steel.
             </p>

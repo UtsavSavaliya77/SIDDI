@@ -10,7 +10,7 @@ import { EnquiryCTA } from '../components/common/EnquiryCTA';
 import { DEMO_PRODUCTS, APPLICATION_AREAS } from '../data/products';
 import { ElegantCarousel, type SlideData } from '../components/ui/elegant-carousel';
 import { EditorialPillars } from '../components/home/EditorialPillars';
-import { ScrollReveal } from '../components/common/ScrollReveal';
+import { ScrollReveal, TextReveal, ScrollRevealStagger, ScrollRevealItem } from '../components/common/ScrollReveal';
 
 export const HomePage: React.FC = () => {
   const featuredProducts = DEMO_PRODUCTS.filter((p) => p.featured).slice(0, 6);
@@ -48,7 +48,7 @@ export const HomePage: React.FC = () => {
     <div className="min-h-screen">
             {/* HERO SECTION - Auto Zoom Full-Screen Animation on Site Load */}
       <HeroAutoExpand
-        src="https://images.unsplash.com/photo-1595844730298-b960ff98fee0?auto=format&fit=crop&w=2400&q=85"
+        src="/brass-door-handle.jpg"
         alt="SIDDI Architectural Hardware Masterpiece"
       />
 
@@ -66,7 +66,7 @@ export const HomePage: React.FC = () => {
                 {/* Main Organic Fluid Pebble Curve Image Container */}
                 <div className="organic-pebble-frame relative aspect-4/5 sm:aspect-square lg:aspect-4/5 shadow-2xl border border-[#111111]/15 bg-[#111111]">
                   <img
-                    src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1400&q=85"
+                    src="/bathroom-accessory-kit.jpg"
                     alt="SIDDI Architectural Bathroom Hardware"
                     className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-108"
                   />
@@ -84,32 +84,34 @@ export const HomePage: React.FC = () => {
                 </span>
               </div>
 
-              <h2 className="text-3xl md:text-5xl font-normal leading-tight text-[#111111]">
-                Hardware is the first tactile touchpoint of every interior space.
-              </h2>
+              <TextReveal
+                as="h2"
+                text="Hardware is the first tactile touchpoint of every interior space."
+                className="text-3xl md:text-5xl font-normal leading-tight text-[#111111]"
+              />
 
               <p className="text-base md:text-lg text-[#777777] leading-relaxed">
                 Before you observe the proportions of a room or experience the daylight streaming through a window, your hand touches the hardware. At SIDDI, we design and produce architectural hardware and bathroom accessories that make this micro-interaction feel deliberate, weighted, and effortless.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
-                <div className="p-5 bg-white border border-[#111111]/10">
+              <ScrollRevealStagger className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4" staggerDelay={0.12} once={true}>
+                <ScrollRevealItem className="p-5 bg-white border border-[#111111]/10">
                   <h4 className="text-sm font-semibold text-[#111111] uppercase tracking-wider mb-2">
                     Architectural Proportions
                   </h4>
                   <p className="text-xs text-[#777777] leading-relaxed">
                     Every bevel angle, rosette thickness, and tube diameter is proportioned to align with contemporary interior millwork.
                   </p>
-                </div>
-                <div className="p-5 bg-white border border-[#111111]/10">
+                </ScrollRevealItem>
+                <ScrollRevealItem className="p-5 bg-white border border-[#111111]/10">
                   <h4 className="text-sm font-semibold text-[#111111] uppercase tracking-wider mb-2">
                     Coordinated Finishes
                   </h4>
                   <p className="text-xs text-[#777777] leading-relaxed">
                     Achieve uniform metallic harmony across door handles, towel rails, hooks, and cabinet accessories.
                   </p>
-                </div>
-              </div>
+                </ScrollRevealItem>
+              </ScrollRevealStagger>
 
               <div className="pt-2">
                 <Button to="/about" variant="outline" size="md" withArrow>
@@ -142,9 +144,11 @@ export const HomePage: React.FC = () => {
                   Representative Portfolio
                 </span>
               </div>
-              <h2 className="text-3xl md:text-5xl font-normal text-[#111111]">
-                Featured Hardware Specifications
-              </h2>
+              <TextReveal
+                as="h2"
+                text="Featured Hardware Specifications"
+                className="text-3xl md:text-5xl font-normal text-[#111111]"
+              />
             </div>
 
             <Button to="/products" variant="outline" size="sm" withArrow className="mt-4 md:mt-0">
@@ -195,9 +199,11 @@ export const HomePage: React.FC = () => {
                   Architectural Environments
                 </span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-normal text-[#111111]">
-                Engineered for Diverse Spatial Contexts
-              </h2>
+              <TextReveal
+                as="h2"
+                text="Engineered for Diverse Spatial Contexts"
+                className="text-3xl sm:text-5xl font-normal text-[#111111]"
+              />
               <p className="text-base sm:text-lg text-[#777777] max-w-2xl leading-relaxed mt-4 font-light">
                 From master bathroom ensuites to five-star hotel corridors and private corporate suites, explore how SIDDI hardware elevates every project.
               </p>

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Check } from '@phosphor-icons/react';
+import { ArrowRight } from '@phosphor-icons/react';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
-import { SectionHeading } from '../components/common/SectionHeading';
 import { Button } from '../components/common/Button';
 import { EnquiryCTA } from '../components/common/EnquiryCTA';
-import { ScrollReveal } from '../components/common/ScrollReveal';
+import { ScrollReveal, TextReveal, ScrollRevealStagger, ScrollRevealItem } from '../components/common/ScrollReveal';
 import { WaterRippleCarousel, type Slide } from '../components/ui/water-ripple-carousel';
+import { FluidExpandingGrid, type GalleryItem } from '../components/ui/fluid-expanding-grid';
+import { ArchitecturalPartnershipPipeline } from '../components/ui/architectural-partnership-pipeline';
+import { OfficialCertificatesVault } from '../components/ui/official-certificates-vault';
 
 const MANIFESTO_SLIDES: Slide[] = [
   {
@@ -32,6 +34,45 @@ const MANIFESTO_SLIDES: Slide[] = [
     title: 'Monolithic Turn Knobs',
     caption: 'CNC lathed from single virgin brass billet stock.',
     alt: 'SIDDI Precision Turned Brass Knobs',
+  },
+];
+
+const MANUFACTURING_TENETS: GalleryItem[] = [
+  {
+    id: "metallurgy",
+    title: "Solid Metallurgy",
+    subtitle: "Hot-forged at 750°C from solid virgin brass billets. 8.5 g/cm³ zero-porosity core eliminates hollow resonances.",
+    image: "/brass-door-handle.jpg",
+    color: "#F2B705",
+    tag: "Metallurgy // Solid Billet",
+    spec: "CuZn39Pb3 Virgin Alloy • +63% Heft",
+  },
+  {
+    id: "mechanics",
+    title: "Silent Mechanics",
+    subtitle: "Neodymium magnetic mortise latches & self-lubricating PTFE bushings deliver whisper-quiet < 18 dB acoustic action.",
+    image: "/Handles.jpg",
+    color: "#10b981",
+    tag: "Mechanics // Silent Action",
+    spec: "1,000N Load • Magnetic Detent",
+  },
+  {
+    id: "surfaces",
+    title: "PVD Spectral Match",
+    subtitle: "Multi-axis high-vacuum PVD chambers calibrate ΔE < 0.5 tonal harmony across handles, locks & sanitary hardware.",
+    image: "/bathroom-accessory-kit.jpg",
+    color: "#C5A880",
+    tag: "Surfaces // PVD Spectral",
+    spec: "2,500 HV Hardness • ΔE < 0.5",
+  },
+  {
+    id: "endurance",
+    title: "Contract Endurance",
+    subtitle: "200,000+ cycle testing and 500+ hour ASTM B117 salt spray fog certification ensure decades of commercial reliability.",
+    image: "/Knobs.jpg",
+    color: "#38bdf8",
+    tag: "Endurance // Contract Tier",
+    spec: "EN 1906 Gr 4 • 15-Yr Warranty",
   },
 ];
 
@@ -67,9 +108,11 @@ export const AboutPage: React.FC = () => {
                   Foundry Heritage & Metallurgy
                 </span>
               </div>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-white tracking-tight mb-2">
-                About SIDDI Hardware
-              </h1>
+              <TextReveal
+                as="h1"
+                text="About SIDDI Hardware"
+                className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-white tracking-tight mb-2"
+              />
               <p className="text-xs sm:text-sm text-gray-300 font-sans leading-relaxed">
                 Conceived at the intersection of metallurgy and interior serenity. We engineer structural touchpoints that articulate the enduring quality of an entire interior.
               </p>
@@ -110,9 +153,11 @@ export const AboutPage: React.FC = () => {
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-serif font-normal leading-[1.14] text-[#111111] tracking-tight">
-              Architectural hardware conceived at the intersection of metallurgy and interior serenity.
-            </h2>
+            <TextReveal
+              as="h2"
+              text="Architectural hardware conceived at the intersection of metallurgy and interior serenity."
+              className="text-3xl sm:text-5xl lg:text-[3.25rem] font-serif font-normal leading-[1.14] text-[#111111] tracking-tight"
+            />
 
             <p className="text-base sm:text-lg text-[#555555] font-light leading-relaxed">
               At SIDDI, we treat hardware not as decorative afterthoughts, but as structural contact points that articulate the quality of an entire interior. Before you observe the proportions of a room or experience daylight streaming through a window, your hand touches the hardware.
@@ -190,160 +235,40 @@ export const AboutPage: React.FC = () => {
           </div>
         </ScrollReveal>
 
-        {/* SECTION 2: 4 CORE ENGINEERING PILLARS */}
+        {/* SECTION 2: FLUID EXPANDING ARCHITECTURAL GRID */}
         <ScrollReveal className="mb-28">
-          <SectionHeading
-            align="split"
-            eyebrow="Core Tenets"
-            title="The Principles That Guide Our Manufacturing"
-            description="Our engineering decisions are grounded in acoustic density, tactile feedback, and unified metallic tones across all interior typologies."
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-            {/* Pillar 01 */}
-            <div className="bg-white border border-[#111111]/12 rounded-2xl p-6 sm:p-7 flex flex-col justify-between shadow-xs hover:border-[#111111]/30 hover:shadow-md transition-all duration-300 group">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between pb-3 border-b border-[#111111]/10">
-                  <span className="text-xl font-mono font-bold text-[#F2B705]">01</span>
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#777777]">
-                    Metallurgy
-                  </span>
-                </div>
-
-                <div className="space-y-1">
-                  <h3 className="text-xl font-serif font-normal text-[#111111]">
-                    Acoustic & Tactile Weight
-                  </h3>
-                  <span className="block font-mono text-[10px] uppercase tracking-wider text-[#F2B705] font-semibold">
-                    100% Solid Billet Core
-                  </span>
-                </div>
-
-                <p className="text-xs text-[#666666] leading-relaxed font-light">
-                  Hardware must feel substantial. We reject hollow pressings in favor of solid forged brass billets, high-density alloys, and thick-walled stainless steel.
-                </p>
-
-                <ul className="space-y-2 pt-2 border-t border-[#111111]/5 text-xs text-[#444444]">
-                  <li className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#F2B705] shrink-0" weight="bold" />
-                    <span>Zero hollow zinc stampings</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#F2B705] shrink-0" weight="bold" />
-                    <span>Weighted palm ergonomics</span>
-                  </li>
-                </ul>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 pb-6 border-b border-[#111111]/10">
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="w-2 h-2 rounded-full bg-[#F2B705] animate-pulse" />
+                <span className="text-[11px] font-mono uppercase tracking-[0.25em] font-semibold text-[#F2B705]">
+                  Kinetic Architectural Grid // Core Tenets
+                </span>
               </div>
+              <TextReveal
+                as="h2"
+                text="The Principles That Guide Our Manufacturing"
+                className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#111111] tracking-tight"
+              />
+              <p className="text-xs sm:text-sm text-[#666666] font-light mt-2 max-w-2xl leading-relaxed">
+                Four non-negotiable engineering disciplines governing every lever, latch, and architectural fitting we produce. Click any card to expand details.
+              </p>
             </div>
 
-            {/* Pillar 02 */}
-            <div className="bg-white border border-[#111111]/12 rounded-2xl p-6 sm:p-7 flex flex-col justify-between shadow-xs hover:border-[#111111]/30 hover:shadow-md transition-all duration-300 group">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between pb-3 border-b border-[#111111]/10">
-                  <span className="text-xl font-mono font-bold text-[#F2B705]">02</span>
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#777777]">
-                    Mechanics
-                  </span>
-                </div>
-
-                <div className="space-y-1">
-                  <h3 className="text-xl font-serif font-normal text-[#111111]">
-                    Silent Mechanical Action
-                  </h3>
-                  <span className="block font-mono text-[10px] uppercase tracking-wider text-[#F2B705] font-semibold">
-                    Silent Magnetic Detent
-                  </span>
-                </div>
-
-                <p className="text-xs text-[#666666] leading-relaxed font-light">
-                  Silent magnetic mortise latches, self-lubricating PTFE bushings, and dual torsion springs eliminate latch strike friction and mechanical vibration.
-                </p>
-
-                <ul className="space-y-2 pt-2 border-t border-[#111111]/5 text-xs text-[#444444]">
-                  <li className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#F2B705] shrink-0" weight="bold" />
-                    <span>No metal strike-plate click</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#F2B705] shrink-0" weight="bold" />
-                    <span>Zero lever sag alignment</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Pillar 03 */}
-            <div className="bg-white border border-[#111111]/12 rounded-2xl p-6 sm:p-7 flex flex-col justify-between shadow-xs hover:border-[#111111]/30 hover:shadow-md transition-all duration-300 group">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between pb-3 border-b border-[#111111]/10">
-                  <span className="text-xl font-mono font-bold text-[#F2B705]">03</span>
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#777777]">
-                    Surfaces
-                  </span>
-                </div>
-
-                <div className="space-y-1">
-                  <h3 className="text-xl font-serif font-normal text-[#111111]">
-                    Systemic Finish Matching
-                  </h3>
-                  <span className="block font-mono text-[10px] uppercase tracking-wider text-[#F2B705] font-semibold">
-                    100% Spectral Harmony
-                  </span>
-                </div>
-
-                <p className="text-xs text-[#666666] leading-relaxed font-light">
-                  A lever handle, shower towel rail, flush bolt, and cabinet pull must harmonize in tone. We maintain strict PVD spectral calibration across all lines.
-                </p>
-
-                <ul className="space-y-2 pt-2 border-t border-[#111111]/5 text-xs text-[#444444]">
-                  <li className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#F2B705] shrink-0" weight="bold" />
-                    <span>Synchronized PVD chambers</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#F2B705] shrink-0" weight="bold" />
-                    <span>Zero multi-vendor mismatch</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Pillar 04 */}
-            <div className="bg-white border border-[#111111]/12 rounded-2xl p-6 sm:p-7 flex flex-col justify-between shadow-xs hover:border-[#111111]/30 hover:shadow-md transition-all duration-300 group">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between pb-3 border-b border-[#111111]/10">
-                  <span className="text-xl font-mono font-bold text-[#F2B705]">04</span>
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#777777]">
-                    Endurance
-                  </span>
-                </div>
-
-                <div className="space-y-1">
-                  <h3 className="text-xl font-serif font-normal text-[#111111]">
-                    Contract Specification
-                  </h3>
-                  <span className="block font-mono text-[10px] uppercase tracking-wider text-[#F2B705] font-semibold">
-                    EN 1906 Grade 4 Tested
-                  </span>
-                </div>
-
-                <p className="text-xs text-[#666666] leading-relaxed font-light">
-                  Cycle-tested across 200,000+ operations to exceed European contract standards, resisting coastal salt air, humidity, and high-frequency hotel traffic.
-                </p>
-
-                <ul className="space-y-2 pt-2 border-t border-[#111111]/5 text-xs text-[#444444]">
-                  <li className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#F2B705] shrink-0" weight="bold" />
-                    <span>High-humidity corrosion pass</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#F2B705] shrink-0" weight="bold" />
-                    <span>15-Year mechanical warranty</span>
-                  </li>
-                </ul>
-              </div>
+            <div className="hidden lg:flex items-center gap-3 text-xs font-mono text-[#777777]">
+              <span>SPECIFICATION STANDARD:</span>
+              <span className="text-[#111111] font-semibold bg-white border border-[#111111]/15 px-3 py-1 rounded-full shadow-2xs">
+                CSI DIV 08 71 00
+              </span>
             </div>
           </div>
+
+          {/* Fluid Expanding Grid Component */}
+          <FluidExpandingGrid
+            items={MANUFACTURING_TENETS}
+            containerClassName="max-w-7xl px-0"
+            className="py-0"
+          />
         </ScrollReveal>
 
         {/* SECTION 3: METALLURGY LABORATORY & MATERIAL TRANSPARENCY DOSSIER */}
@@ -377,21 +302,21 @@ export const AboutPage: React.FC = () => {
                     Materials & Laboratory Certification
                   </span>
                 </div>
-                <h2 className="text-3xl sm:text-5xl font-serif font-normal text-white leading-tight">
-                  Authentic Specifications Without Exaggeration
-                </h2>
+                <TextReveal
+                  as="h2"
+                  text="Authentic Specifications Without Exaggeration"
+                  className="text-3xl sm:text-5xl font-serif font-normal text-white leading-tight"
+                />
                 <p className="text-sm text-gray-300 font-light leading-relaxed">
                   We believe in straightforward, transparent engineering. Rather than claiming unverifiable histories or fabricated accolades, we invite architects and specifiers to inspect our raw material assays, salt spray test reports, and physical sample boxes directly.
                 </p>
               </div>
 
               <div className="shrink-0 flex flex-col sm:flex-row gap-3">
-                <Button to="/contact?interest=Metallurgy%20Specs" variant="secondary" size="md">
-                  Request Metallurgy Data Sheets
-                </Button>
+               
                 <Link
                   to="/contact?interest=Finish%20Samples"
-                  className="px-4 py-2.5 bg-white/5 hover:bg-white/10 border border-white/20 text-white rounded-lg text-xs font-mono uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors"
+                  className="px-6 py-3.5 bg-white/5 hover:bg-white/10 border border-white/20 text-white rounded-[11px] text-xs font-mono uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors"
                 >
                   <span>Request Finish Box</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#F2B705]" />
@@ -400,8 +325,8 @@ export const AboutPage: React.FC = () => {
             </div>
 
             {/* 4 Laboratory Metric Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="p-5 bg-white/[0.03] border border-white/10 rounded-xl space-y-2">
+            <ScrollRevealStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" staggerDelay={0.08} once={true}>
+              <ScrollRevealItem className="p-5 bg-white/[0.03] border border-white/10 rounded-xl space-y-2">
                 <span className="block font-mono text-[10px] uppercase tracking-wider text-[#F2B705] font-semibold">
                   Alloy Grade
                 </span>
@@ -411,9 +336,9 @@ export const AboutPage: React.FC = () => {
                 <p className="text-xs text-gray-400 font-light leading-relaxed">
                   CuZn39Pb3 virgin alloy hot-forged under 750-ton mechanical presses for dense acoustic heft.
                 </p>
-              </div>
+              </ScrollRevealItem>
 
-              <div className="p-5 bg-white/[0.03] border border-white/10 rounded-xl space-y-2">
+              <ScrollRevealItem className="p-5 bg-white/[0.03] border border-white/10 rounded-xl space-y-2">
                 <span className="block font-mono text-[10px] uppercase tracking-wider text-[#F2B705] font-semibold">
                   Stainless Standard
                 </span>
@@ -423,9 +348,9 @@ export const AboutPage: React.FC = () => {
                 <p className="text-xs text-gray-400 font-light leading-relaxed">
                   Austenitic stainless steel enriched with molybdenum to eliminate pitting in coastal saline air.
                 </p>
-              </div>
+              </ScrollRevealItem>
 
-              <div className="p-5 bg-white/[0.03] border border-white/10 rounded-xl space-y-2">
+              <ScrollRevealItem className="p-5 bg-white/[0.03] border border-white/10 rounded-xl space-y-2">
                 <span className="block font-mono text-[10px] uppercase tracking-wider text-[#F2B705] font-semibold">
                   Surface Treatment
                 </span>
@@ -435,9 +360,9 @@ export const AboutPage: React.FC = () => {
                 <p className="text-xs text-gray-400 font-light leading-relaxed">
                   Titanium nitride molecular lattice achieving 2,400 HV Vickers hardness for scratch protection.
                 </p>
-              </div>
+              </ScrollRevealItem>
 
-              <div className="p-5 bg-white/[0.03] border border-white/10 rounded-xl space-y-2">
+              <ScrollRevealItem className="p-5 bg-white/[0.03] border border-white/10 rounded-xl space-y-2">
                 <span className="block font-mono text-[10px] uppercase tracking-wider text-[#F2B705] font-semibold">
                   Mechanical Endurance
                 </span>
@@ -447,64 +372,19 @@ export const AboutPage: React.FC = () => {
                 <p className="text-xs text-gray-400 font-light leading-relaxed">
                   Cycle-tested across 200,000 actuations under continuous maximum leaf load with zero spring sag.
                 </p>
-              </div>
-            </div>
+              </ScrollRevealItem>
+            </ScrollRevealStagger>
           </div>
         </ScrollReveal>
 
-        {/* SECTION 4: ARCHITECTURAL PARTNERSHIP TIMELINE */}
-        <ScrollReveal className="p-8 sm:p-12 bg-white border border-[#111111]/12 rounded-2xl shadow-xs">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-8 mb-8 border-b border-[#111111]/10">
-            <div>
-              <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#F2B705] font-semibold block mb-1">
-                Studio Collaboration
-              </span>
-              <h3 className="text-2xl sm:text-3xl font-serif font-normal text-[#111111]">
-                How We Partner With Architectural Practices
-              </h3>
-            </div>
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider font-semibold text-[#111111] hover:text-[#F2B705] transition-colors"
-            >
-              <span>Initiate Studio Partnership</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#F2B705]" />
-            </Link>
-          </div>
+        {/* SECTION: 2026-2027 OFFICIAL LABORATORY CERTIFICATE & ACCREDITATION VAULT */}
+        <ScrollReveal>
+          <OfficialCertificatesVault />
+        </ScrollReveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="space-y-2">
-              <span className="text-xs font-mono font-bold text-[#F2B705] block">PHASE 01</span>
-              <h4 className="text-base font-semibold text-[#111111]">Specification Schedule</h4>
-              <p className="text-xs text-[#666666] font-light leading-relaxed">
-                Send floor plans or door schedules. Our team produces door-by-door master hardware takeoffs.
-              </p>
-            </div>
-
-            <div className="space-y-2">
-              <span className="text-xs font-mono font-bold text-[#F2B705] block">PHASE 02</span>
-              <h4 className="text-base font-semibold text-[#111111]">48h Sample Kit</h4>
-              <p className="text-xs text-[#666666] font-light leading-relaxed">
-                Curated solid metal finish blocks dispatched directly to your studio for client presentation boards.
-              </p>
-            </div>
-
-            <div className="space-y-2">
-              <span className="text-xs font-mono font-bold text-[#F2B705] block">PHASE 03</span>
-              <h4 className="text-base font-semibold text-[#111111]">CAD & LOD 400 BIM</h4>
-              <p className="text-xs text-[#666666] font-light leading-relaxed">
-                Download parametric Revit families, mortise cutouts, and installation rebate drawings.
-              </p>
-            </div>
-
-            <div className="space-y-2">
-              <span className="text-xs font-mono font-bold text-[#F2B705] block">PHASE 04</span>
-              <h4 className="text-base font-semibold text-[#111111]">15-Yr Site Warranty</h4>
-              <p className="text-xs text-[#666666] font-light leading-relaxed">
-                Comprehensive commercial mechanical warranty issued upon site handover for complete peace of mind.
-              </p>
-            </div>
-          </div>
+        {/* SECTION 4: 2026-2027 ARCHITECTURAL BLUEPRINT SPECIFICATION PIPELINE */}
+        <ScrollReveal>
+          <ArchitecturalPartnershipPipeline />
         </ScrollReveal>
 
       </div>

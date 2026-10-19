@@ -8,6 +8,7 @@ import {
   Check,
 } from "@phosphor-icons/react";
 import { ParticleText } from "../ui/ParticleText";
+import { ScrollRevealStagger, ScrollRevealItem } from "../common/ScrollReveal";
 
 export const Footer: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -33,9 +34,9 @@ export const Footer: React.FC = () => {
         <div className="absolute bottom-4 right-4 w-4 h-4 border-b-2 border-r-2 border-[#F2B705] pointer-events-none z-20" />
 
         {/* Top Navigation & Brand Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-12 border-b border-white/10 relative z-10">
+        <ScrollRevealStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-12 border-b border-white/10 relative z-10" staggerDelay={0.08} once={true}>
           {/* Brand & Newsletter Column (Top Left) */}
-          <div className="lg:col-span-5 space-y-5">
+          <ScrollRevealItem className="lg:col-span-5 space-y-5">
             <Link
               to="/"
               className="flex items-center gap-3"
@@ -63,11 +64,11 @@ export const Footer: React.FC = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="trade@architect.com"
                 required
-                className="bg-[#1A1A1A] border border-white/15 px-3.5 py-2.5 rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#F2B705] flex-1 transition-colors"
+                className="bg-[#1A1A1A] border border-white/15 px-4 py-3 rounded-[11px] text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#F2B705] flex-1 transition-colors"
               />
               <button
                 type="submit"
-                className="bg-[#F2B705] hover:bg-[#dfa703] text-[#111111] font-semibold text-xs px-4 py-2.5 rounded-lg transition-colors shrink-0 flex items-center gap-1.5 cursor-pointer"
+                className="bg-[#F2B705] hover:bg-[#dfa703] text-[#111111] font-semibold text-xs px-6 py-3.5 rounded-[11px] transition-colors shrink-0 flex items-center gap-1.5 cursor-pointer"
               >
                 {subscribed ? (
                   <>
@@ -108,10 +109,10 @@ export const Footer: React.FC = () => {
                 <EnvelopeSimple className="w-4 h-4" />
               </Link>
             </div>
-          </div>
+          </ScrollRevealItem>
 
           {/* Product Categories Column */}
-          <div className="lg:col-span-3 space-y-3.5">
+          <ScrollRevealItem className="lg:col-span-3 space-y-3.5">
             <h4 className="text-xs uppercase tracking-[0.25em] text-[#F2B705] font-semibold">
               Product Categories
             </h4>
@@ -127,10 +128,10 @@ export const Footer: React.FC = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </ScrollRevealItem>
 
           {/* Architectural Information Column */}
-          <div className="lg:col-span-2 space-y-3.5">
+          <ScrollRevealItem className="lg:col-span-2 space-y-3.5">
             <h4 className="text-xs uppercase tracking-[0.25em] text-[#F2B705] font-semibold">
               Information
             </h4>
@@ -168,10 +169,10 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
             </ul>
-          </div>
+          </ScrollRevealItem>
 
           {/* Company & Support Column */}
-          <div className="lg:col-span-2 space-y-3.5">
+          <ScrollRevealItem className="lg:col-span-2 space-y-3.5">
             <h4 className="text-xs uppercase tracking-[0.25em] text-[#F2B705] font-semibold">
               Company
             </h4>
@@ -201,8 +202,8 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
             </ul>
-          </div>
-        </div>
+          </ScrollRevealItem>
+        </ScrollRevealStagger>
 
         {/* Interactive ParticleText Company Typography with Architectural CAD Schematics & Drafting Accents */}
         <div className="w-full pt-6 sm:pt-8 pb-4 sm:pb-6 border-t border-white/10 select-none relative overflow-hidden">
@@ -274,30 +275,17 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Sub-bar: Copyright & Assurance (Positioned after Company Big Text) */}
-        <div className="pt-6 pb-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-[11px] font-mono text-gray-500 gap-3 relative z-10">
+        <div className="pt-6 pb-6 border-t border-white/10 flex flex-col md:flex-row justify-between text-[11px] font-mono text-gray-500 gap-3 relative z-10">
           <div>
             &copy; {new Date().getFullYear()} SIDDI Architectural Hardware. All
             rights reserved.
           </div>
-          <div className="flex items-center gap-4">
-            <Link
-              to="/privacy"
-              className="hover:text-gray-300 transition-colors"
-            >
-              Privacy Policy
-            </Link>
-            <span>&bull;</span>
-            <Link
-              to="/contact"
-              className="hover:text-gray-300 transition-colors"
-            >
-              Trade Enquiries
-            </Link>
-            <span>&bull;</span>
+         
+           
             <span className="text-gray-400">
-              Manufactured for Architectural Excellence
+              Designed & Developed by <a href="https://digi-trend.com/" target="_blank" className="text-[#F2B705] underline">digi-tremd.com</a>
             </span>
-          </div>
+         
         </div>
       </div>
     </footer>

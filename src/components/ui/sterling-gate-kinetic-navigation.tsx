@@ -301,7 +301,7 @@ export function Component({ logoSrc = "/siddi-logo.png", onNavigate }: KineticNa
                 <button 
                   type="button" 
                   onClick={toggleMenu} 
-                  className="w-11 h-11 rounded-xl bg-white/5 border border-white/12 text-white hover:text-[#F2B705] hover:border-[#F2B705]/40 transition-colors flex items-center justify-center cursor-pointer shadow-xs"
+                  className="w-11 h-11 rounded-[11px] bg-white/5 border border-white/12 text-white hover:text-[#F2B705] hover:border-[#F2B705]/40 transition-colors flex items-center justify-center cursor-pointer shadow-xs"
                   aria-label="Open navigation menu"
                 >
                   <svg
@@ -579,7 +579,7 @@ export function Component({ logoSrc = "/siddi-logo.png", onNavigate }: KineticNa
                   <button
                     type="button"
                     onClick={closeMenu}
-                    className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#F2B705] hover:text-[#111111] text-white flex items-center justify-center transition-colors border border-white/15 cursor-pointer shadow-xs"
+                    className="w-10 h-10 rounded-[11px] bg-white/10 hover:bg-[#F2B705] hover:text-[#111111] text-white flex items-center justify-center transition-colors border border-white/15 cursor-pointer shadow-xs"
                     aria-label="Close menu"
                   >
                     <X className="w-5 h-5" weight="bold" />

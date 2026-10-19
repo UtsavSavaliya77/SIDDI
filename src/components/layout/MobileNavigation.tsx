@@ -36,7 +36,7 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({ isOpen, onCl
           </Link>
           <button
             onClick={onClose}
-            className="p-2 text-gray-400 hover:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#F2B705]"
+            className="p-2 text-gray-400 hover:text-white rounded-[11px] focus:outline-none focus:ring-2 focus:ring-[#F2B705]"
             aria-label="Close menu"
           >
             <X className="w-6 h-6" />

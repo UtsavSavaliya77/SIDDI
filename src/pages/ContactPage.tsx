@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { EnquiryCTA } from '../components/common/EnquiryCTA';
-import { ScrollReveal } from '../components/common/ScrollReveal';
+import { ScrollReveal, TextReveal, ScrollRevealStagger, ScrollRevealItem } from '../components/common/ScrollReveal';
 import { Button } from '../components/common/Button';
 import {
   CheckCircle,
@@ -189,9 +189,11 @@ export const ContactPage: React.FC = () => {
                   Engineering Concierge & Takeoff Desk
                 </span>
               </div>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-white tracking-tight mb-2">
-                Consultation & Specification
-              </h1>
+              <TextReveal
+                as="h1"
+                text="Consultation & Specification"
+                className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-white tracking-tight mb-2"
+              />
               <p className="text-xs sm:text-sm text-gray-300 font-sans leading-relaxed">
                 Direct engineering collaboration for architects, interior design practices, developers, and wholesale dealers. Submit your door schedules, request bespoke physical sample boxes, or arrange project consultation.
               </p>
@@ -225,8 +227,8 @@ export const ContactPage: React.FC = () => {
       {/* 2. ARCHITECTURAL COMMITMENT & STANDARDS HUD BAR */}
       <ScrollReveal as="section" className="bg-white border-b border-[#111111]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
-            <div className="flex items-start gap-3.5">
+          <ScrollRevealStagger className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8" staggerDelay={0.08} once={true}>
+            <ScrollRevealItem className="flex items-start gap-3.5">
               <div className="w-9 h-9 rounded-lg bg-[#FAF9F6] border border-[#111111]/10 flex items-center justify-center shrink-0 text-[#F2B705]">
                 <Clock className="w-5 h-5" weight="duotone" />
               </div>
@@ -238,9 +240,9 @@ export const ContactPage: React.FC = () => {
                   Fast ironmongery takeoff review
                 </div>
               </div>
-            </div>
+            </ScrollRevealItem>
 
-            <div className="flex items-start gap-3.5">
+            <ScrollRevealItem className="flex items-start gap-3.5">
               <div className="w-9 h-9 rounded-lg bg-[#FAF9F6] border border-[#111111]/10 flex items-center justify-center shrink-0 text-[#F2B705]">
                 <FileText className="w-5 h-5" weight="duotone" />
               </div>
@@ -252,9 +254,9 @@ export const ContactPage: React.FC = () => {
                   PDF, Excel, &amp; AutoCAD DWG
                 </div>
               </div>
-            </div>
+            </ScrollRevealItem>
 
-            <div className="flex items-start gap-3.5">
+            <ScrollRevealItem className="flex items-start gap-3.5">
               <div className="w-9 h-9 rounded-lg bg-[#FAF9F6] border border-[#111111]/10 flex items-center justify-center shrink-0 text-[#F2B705]">
                 <Package className="w-5 h-5" weight="duotone" />
               </div>
@@ -266,9 +268,9 @@ export const ContactPage: React.FC = () => {
                   Solid brass finish coupons
                 </div>
               </div>
-            </div>
+            </ScrollRevealItem>
 
-            <div className="flex items-start gap-3.5">
+            <ScrollRevealItem className="flex items-start gap-3.5">
               <div className="w-9 h-9 rounded-lg bg-[#FAF9F6] border border-[#111111]/10 flex items-center justify-center shrink-0 text-[#F2B705]">
                 <ShieldCheck className="w-5 h-5" weight="duotone" />
               </div>
@@ -280,8 +282,8 @@ export const ContactPage: React.FC = () => {
                   Strict tender privacy protected
                 </div>
               </div>
-            </div>
-          </div>
+            </ScrollRevealItem>
+          </ScrollRevealStagger>
         </div>
       </ScrollReveal>
 
@@ -554,7 +556,7 @@ export const ContactPage: React.FC = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#111111] hover:bg-[#F2B705] hover:text-[#111111] text-white text-xs font-semibold uppercase tracking-wider rounded-lg transition-colors cursor-pointer disabled:opacity-50"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#111111] hover:bg-[#F2B705] hover:text-[#111111] text-white text-xs font-semibold uppercase tracking-wider rounded-[11px] transition-colors cursor-pointer disabled:opacity-50"
                   >
                     <span>{isSubmitting ? 'Validating...' : 'Submit Inquiry'}</span>
                     <ArrowRight className="w-4 h-4" />
@@ -591,7 +593,7 @@ export const ContactPage: React.FC = () => {
                   selectEnquiryType('sample-request');
                   window.scrollTo({ top: 350, behavior: 'smooth' });
                 }}
-                className="w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-3 bg-white/10 hover:bg-[#F2B705] hover:text-[#111111] text-white rounded-lg text-xs font-medium transition-colors cursor-pointer"
+                className="w-full inline-flex items-center justify-center gap-1.5 py-3.5 px-6 bg-white/10 hover:bg-[#F2B705] hover:text-[#111111] text-white rounded-[11px] text-xs font-medium transition-colors cursor-pointer"
               >
                 <span>Request Sample Set</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -662,16 +664,18 @@ export const ContactPage: React.FC = () => {
             <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#F2B705] font-semibold block mb-2">
               Workflow Standard
             </span>
-            <h2 className="text-3xl md:text-4xl font-serif font-normal text-[#111111]">
-              The Architectural Ironmongery Process
-            </h2>
+            <TextReveal
+              as="h2"
+              text="The Architectural Ironmongery Process"
+              className="text-3xl md:text-4xl font-serif font-normal text-[#111111]"
+            />
             <p className="text-xs sm:text-sm text-[#777777] mt-2">
               How our engineering team partners with your studio from initial schematic drawing to certified on-site hardware delivery.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-8 bg-[#FAF9F6] border border-[#111111]/10 rounded-2xl relative">
+          <ScrollRevealStagger className="grid grid-cols-1 md:grid-cols-3 gap-8" staggerDelay={0.1} once={true}>
+            <ScrollRevealItem className="p-8 bg-[#FAF9F6] border border-[#111111]/10 rounded-2xl relative">
               <div className="text-3xl font-serif text-[#F2B705] mb-4">01</div>
               <h3 className="text-lg font-serif font-normal text-[#111111] mb-2">
                 Schedule Takeoff &amp; Gap Analysis
@@ -679,9 +683,9 @@ export const ContactPage: React.FC = () => {
               <p className="text-xs text-[#666666] leading-relaxed">
                 Submit door schedules or floor plans. Our ironmongers verify fire ratings, mortise depth clearances, backset compatibility, and door swing dynamics.
               </p>
-            </div>
+            </ScrollRevealItem>
 
-            <div className="p-8 bg-[#FAF9F6] border border-[#111111]/10 rounded-2xl relative">
+            <ScrollRevealItem className="p-8 bg-[#FAF9F6] border border-[#111111]/10 rounded-2xl relative">
               <div className="text-3xl font-serif text-[#F2B705] mb-4">02</div>
               <h3 className="text-lg font-serif font-normal text-[#111111] mb-2">
                 Physical Sample Verification
@@ -689,9 +693,9 @@ export const ContactPage: React.FC = () => {
               <p className="text-xs text-[#666666] leading-relaxed">
                 We courier physical brass finish swatches, test handles, and 1:1 rose mockups directly to your project studio for tactile client sign-off.
               </p>
-            </div>
+            </ScrollRevealItem>
 
-            <div className="p-8 bg-[#FAF9F6] border border-[#111111]/10 rounded-2xl relative">
+            <ScrollRevealItem className="p-8 bg-[#FAF9F6] border border-[#111111]/10 rounded-2xl relative">
               <div className="text-3xl font-serif text-[#F2B705] mb-4">03</div>
               <h3 className="text-lg font-serif font-normal text-[#111111] mb-2">
                 Door-by-Door Labeled Delivery
@@ -699,8 +703,8 @@ export const ContactPage: React.FC = () => {
               <p className="text-xs text-[#666666] leading-relaxed">
                 Hardware arrives sorted and custom-bagged per opening (Door ID / Level / Unit), drastically cutting on-site installation confusion and delays.
               </p>
-            </div>
-          </div>
+            </ScrollRevealItem>
+          </ScrollRevealStagger>
         </div>
       </ScrollReveal>
 
@@ -711,9 +715,11 @@ export const ContactPage: React.FC = () => {
             <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#F2B705] font-semibold block mb-2">
               Trade Clarifications
             </span>
-            <h2 className="text-3xl md:text-4xl font-serif font-normal text-[#111111]">
-              Frequently Asked Specification Questions
-            </h2>
+            <TextReveal
+              as="h2"
+              text="Frequently Asked Specification Questions"
+              className="text-3xl md:text-4xl font-serif font-normal text-[#111111]"
+            />
             <p className="text-xs sm:text-sm text-[#777777] mt-2">
               Key engineering and procurement considerations for architects, developers, and quantity surveyors.
             </p>

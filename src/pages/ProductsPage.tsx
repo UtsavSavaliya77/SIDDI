@@ -7,7 +7,6 @@ import { EnquiryCTA } from '../components/common/EnquiryCTA';
 import { DEMO_PRODUCTS, FINISHES } from '../data/products';
 import { CATEGORIES } from '../data/categories';
 import { X } from 'lucide-react';
-import { ScrollReveal } from '../components/common/ScrollReveal';
 
 export const ProductsPage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -123,7 +122,7 @@ export const ProductsPage: React.FC = () => {
       />
 
       {/* Main Product Listing Container */}
-      <ScrollReveal className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 pt-8 pb-24">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 pt-8 pb-24">
         
         {/* Informative demonstration data banner */}
         <div className="mb-8 p-4 bg-white border border-[#111111]/10 border-l-4 border-l-[#F2B705] text-xs text-[#111111] flex items-center justify-between flex-wrap gap-2 shadow-xs">
@@ -133,133 +132,129 @@ export const ProductsPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Two-column layout: Left Filterbar + Right 3 Cards Grid */}
-        <div className="flex flex-col lg:flex-row items-start gap-8 xl:gap-10">
-          
-          {/* Left Side: Vertical Filterbar */}
-          <aside className="w-full lg:w-72 xl:w-80 shrink-0 lg:sticky lg:top-24 z-10">
-            <ProductFilters
-              searchQuery={searchQuery}
-              onSearchChange={handleSearchChange}
-              selectedCategories={selectedCategories}
-              onCategoriesChange={handleCategoriesChange}
-              selectedFinishes={selectedFinishes}
-              onFinishesChange={handleFinishesChange}
-              selectedSeries={selectedSeries}
-              onSeriesChange={handleSeriesChange}
-              sortBy={sortBy}
-              onSortChange={handleSortChange}
-              onReset={handleReset}
-              totalResults={filteredProducts.length}
-            />
-          </aside>
+        {/* 1. FILTERBAR FIRST (TOP FULL-WIDTH) */}
+        <div className="mb-6 relative z-30">
+          <ProductFilters
+            searchQuery={searchQuery}
+            onSearchChange={handleSearchChange}
+            selectedCategories={selectedCategories}
+            onCategoriesChange={handleCategoriesChange}
+            selectedFinishes={selectedFinishes}
+            onFinishesChange={handleFinishesChange}
+            selectedSeries={selectedSeries}
+            onSeriesChange={handleSeriesChange}
+            sortBy={sortBy}
+            onSortChange={handleSortChange}
+            onReset={handleReset}
+            totalResults={filteredProducts.length}
+          />
+        </div>
 
-          {/* Right Side: Results Status Bar & 3 Cards Grid */}
-          <main className="flex-1 min-w-0 w-full">
-            {/* Top Results Header Bar */}
-            <div className="bg-white border border-[#111111]/10 px-5 py-3.5 mb-6 flex items-center justify-between flex-wrap gap-3 shadow-xs">
-              <div className="flex items-center gap-3">
-                <span className="text-sm font-semibold text-[#111111] font-mono">
-                  {filteredProducts.length} {filteredProducts.length === 1 ? 'Product Specification' : 'Product Specifications'}
-                </span>
-                {(searchQuery || selectedCategories.length > 0 || selectedFinishes.length > 0 || selectedSeries.length > 0) && (
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#111111] bg-[#F2B705] px-2 py-0.5 font-bold">
-                    Filtered
-                  </span>
-                )}
-              </div>
+        {/* Active Filter Badges Bar (when filters are active) */}
+        {(searchQuery || selectedCategories.length > 0 || selectedFinishes.length > 0 || selectedSeries.length > 0) && (
+          <div className="bg-white border border-[#111111]/10 px-5 py-3.5 mb-8 rounded-[11px] flex items-center justify-between flex-wrap gap-3 shadow-xs">
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="text-[11px] font-mono uppercase tracking-wider text-[#777777] mr-1 font-semibold">
+                Active Filters:
+              </span>
 
-              {/* Active Filter Badges */}
-              <div className="flex items-center gap-2 flex-wrap">
-                {/* Active Category Badges */}
-                {selectedCategories.map((catSlug) => {
-                  const cat = CATEGORIES.find((c) => c.slug === catSlug);
-                  return (
-                    <span
-                      key={catSlug}
-                      className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#FAF9F6] border border-[#111111]/15 text-xs text-[#111111]"
-                    >
-                      <span>{cat?.title || catSlug}</span>
-                      <button
-                        type="button"
-                        onClick={() => handleCategoriesChange(selectedCategories.filter((id) => id !== catSlug))}
-                        className="text-[#777777] hover:text-[#111111] cursor-pointer"
-                        aria-label={`Remove ${cat?.title} filter`}
-                      >
-                        <X className="w-3 h-3" />
-                      </button>
-                    </span>
-                  );
-                })}
-
-                {/* Active Finish Badges (with color swatch dot) */}
-                {selectedFinishes.map((finishId) => {
-                  const finish = FINISHES.find((f) => f.id === finishId);
-                  return (
-                    <span
-                      key={finishId}
-                      className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#FAF9F6] border border-[#111111]/15 text-xs text-[#111111]"
-                    >
-                      {finish && (
-                        <span
-                          className="w-2.5 h-2.5 rounded-full border border-black/20 shrink-0"
-                          style={{ backgroundColor: finish.hex }}
-                        />
-                      )}
-                      <span>{finish?.name || finishId}</span>
-                      <button
-                        type="button"
-                        onClick={() => handleFinishesChange(selectedFinishes.filter((id) => id !== finishId))}
-                        className="text-[#777777] hover:text-[#111111] cursor-pointer"
-                        aria-label={`Remove ${finish?.name} filter`}
-                      >
-                        <X className="w-3 h-3" />
-                      </button>
-                    </span>
-                  );
-                })}
-
-                {/* Active Series Badges */}
-                {selectedSeries.map((seriesName) => (
+              {/* Active Category Badges */}
+              {selectedCategories.map((catSlug) => {
+                const cat = CATEGORIES.find((c) => c.slug === catSlug);
+                return (
                   <span
-                    key={seriesName}
-                    className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#FAF9F6] border border-[#111111]/15 text-xs text-[#111111]"
+                    key={catSlug}
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#FAF9F6] border border-[#111111]/15 text-xs text-[#111111] rounded-[11px]"
                   >
-                    <span>Series: {seriesName}</span>
+                    <span>{cat?.title || catSlug}</span>
                     <button
                       type="button"
-                      onClick={() => handleSeriesChange(selectedSeries.filter((s) => s !== seriesName))}
+                      onClick={() => handleCategoriesChange(selectedCategories.filter((id) => id !== catSlug))}
                       className="text-[#777777] hover:text-[#111111] cursor-pointer"
-                      aria-label={`Remove ${seriesName} filter`}
+                      aria-label={`Remove ${cat?.title} filter`}
                     >
                       <X className="w-3 h-3" />
                     </button>
                   </span>
-                ))}
+                );
+              })}
 
-                {/* Active Search Query Badge */}
-                {searchQuery && (
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#FAF9F6] border border-[#111111]/15 text-xs text-[#111111]">
-                    <span>Search: "{searchQuery}"</span>
+              {/* Active Finish Badges */}
+              {selectedFinishes.map((finishId) => {
+                const finish = FINISHES.find((f) => f.id === finishId);
+                return (
+                  <span
+                    key={finishId}
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#FAF9F6] border border-[#111111]/15 text-xs text-[#111111] rounded-[11px]"
+                  >
+                    {finish && (
+                      <span
+                        className="w-2.5 h-2.5 rounded-full border border-black/20 shrink-0"
+                        style={{ backgroundColor: finish.hex }}
+                      />
+                    )}
+                    <span>{finish?.name || finishId}</span>
                     <button
                       type="button"
-                      onClick={() => handleSearchChange('')}
+                      onClick={() => handleFinishesChange(selectedFinishes.filter((id) => id !== finishId))}
                       className="text-[#777777] hover:text-[#111111] cursor-pointer"
-                      aria-label="Clear search"
+                      aria-label={`Remove ${finish?.name} filter`}
                     >
                       <X className="w-3 h-3" />
                     </button>
                   </span>
-                )}
-              </div>
+                );
+              })}
+
+              {/* Active Series Badges */}
+              {selectedSeries.map((seriesName) => (
+                <span
+                  key={seriesName}
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#FAF9F6] border border-[#111111]/15 text-xs text-[#111111] rounded-[11px]"
+                >
+                  <span>Series: {seriesName}</span>
+                  <button
+                    type="button"
+                    onClick={() => handleSeriesChange(selectedSeries.filter((s) => s !== seriesName))}
+                    className="text-[#777777] hover:text-[#111111] cursor-pointer"
+                    aria-label={`Remove ${seriesName} filter`}
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
+                </span>
+              ))}
+
+              {/* Active Search Query Badge */}
+              {searchQuery && (
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#FAF9F6] border border-[#111111]/15 text-xs text-[#111111] rounded-[11px]">
+                  <span>Search: "{searchQuery}"</span>
+                  <button
+                    type="button"
+                    onClick={() => handleSearchChange('')}
+                    className="text-[#777777] hover:text-[#111111] cursor-pointer"
+                    aria-label="Clear search"
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
+                </span>
+              )}
             </div>
 
-            {/* Right Side: 3 Cards Grid */}
-            <ProductGrid products={filteredProducts} columns={3} />
-          </main>
+            <button
+              type="button"
+              onClick={handleReset}
+              className="text-[11px] font-mono font-semibold uppercase tracking-wider text-[#777777] hover:text-[#111111] transition-colors cursor-pointer"
+            >
+              Clear All
+            </button>
+          </div>
+        )}
 
-        </div>
-      </ScrollReveal>
+        {/* 2. BELOW: PRODUCT SPECIFICATION DISPLAY CARDS */}
+        <main className="w-full">
+          <ProductGrid products={filteredProducts} columns={3} />
+        </main>
+      </div>
 
       {/* Enquiry Call to action */}
       <EnquiryCTA

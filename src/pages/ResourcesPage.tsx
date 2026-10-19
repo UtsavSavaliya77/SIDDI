@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { Button } from '../components/common/Button';
 import { EnquiryCTA } from '../components/common/EnquiryCTA';
-import { ScrollReveal } from '../components/common/ScrollReveal';
+import { ScrollReveal, TextReveal, ScrollRevealStagger, ScrollRevealItem } from '../components/common/ScrollReveal';
 import { PolaroidLineCarousel, type Slide as PolaroidSlide } from '../components/ui/polaroid-line-carousel';
 import {
   ArrowRight,
@@ -37,19 +37,19 @@ const SPECIFICATION_SLIDES: PolaroidSlide[] = [
     alt: 'Sanitary Accessories AISI 316 Marine Stainless Detail',
   },
   {
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop',
+    image: '/Brushed Gold Basin Faucet.jpg',
     title: 'Residential Lookbook',
     caption: 'High-resolution photo editorial documenting custom brass and PVD applications across private residences.',
     alt: 'Luxury Residential Hardware Lookbook',
   },
   {
-    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200&auto=format&fit=crop',
+    image: '/Matte Black Faucet.jpg',
     title: 'Revit BIM Families',
     caption: 'LOD 350 / 400 parametric component families with door swing clearances and scheduling parameters.',
     alt: 'Parametric Revit BIM Family Master Library',
   },
   {
-    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1200&auto=format&fit=crop',
+    image: '/Flush Button.jpg',
     title: 'PVD Finish Guide',
     caption: 'Spectral analysis, salt spray testing data, and care guidelines for Satin Gold, Gunmetal, and Bronze.',
     alt: 'Physical Vapor Deposition Finish Specification Guide',
@@ -196,9 +196,11 @@ export const ResourcesPage: React.FC = () => {
                   Technical Repository & CAD Portal
                 </span>
               </div>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-white tracking-tight mb-2">
-                Architectural Resources
-              </h1>
+              <TextReveal
+                as="h1"
+                text="Architectural Resources"
+                className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-white tracking-tight mb-2"
+              />
               <p className="text-xs sm:text-sm text-gray-300 font-sans leading-relaxed">
                 Direct access to 2D CAD cutouts, BIM Revit families, master catalogues, and certified metallurgical test assays for architectural practices.
               </p>
@@ -242,9 +244,11 @@ export const ResourcesPage: React.FC = () => {
           </div>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
             <div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#111111] tracking-tight">
-                Architectural Specifier Volumes
-              </h2>
+              <TextReveal
+                as="h2"
+                text="Architectural Specifier Volumes"
+                className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#111111] tracking-tight"
+              />
               <p className="text-xs sm:text-sm text-[#666666] font-light mt-1 max-w-xl">
                 Official bound catalogues, materials assay binders, and digital BIM packages engineered for architectural studios.
               </p>
@@ -254,199 +258,136 @@ export const ResourcesPage: React.FC = () => {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <ScrollRevealStagger className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8" staggerDelay={0.1} once={true}>
             {/* Volume 01: Master Catalogue */}
-            <div className="bg-white border border-[#111111]/10 rounded-2xl p-7 sm:p-8 flex flex-col justify-between hover:border-[#111111]/30 hover:shadow-xl transition-all duration-300 relative group">
+            <ScrollRevealItem className="bg-white border border-[#111111]/12 rounded-2xl overflow-hidden hover:border-[#111111]/30 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
               <div>
-                {/* Card Top: Volume Tag & File Specs */}
-                <div className="flex items-center justify-between pb-4 border-b border-[#111111]/10">
-                  <div className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#F2B705]" />
-                    <span className="text-[11px] font-mono uppercase tracking-[0.2em] font-semibold text-[#111111]">
-                      Vol. 01 • Binder
-                    </span>
-                  </div>
-                  <span className="text-[10px] font-mono text-[#777777] bg-[#FAF9F6] border border-[#111111]/10 px-2 py-0.5 rounded">
-                    184 Pages • PDF
+                {/* Real Hardware Photography Header */}
+                <div className="relative aspect-[16/10] bg-[#FAF9F6] overflow-hidden border-b border-[#111111]/10">
+                  <img
+                    src="/brass-door-handle.jpg"
+                    alt="SIDDI Architectural Master Catalogue"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  {/* Floating Minimal Glass Pills */}
+                  <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full border border-black/5 text-[10px] font-mono uppercase tracking-wider text-[#111111] font-medium shadow-2xs">
+                    Vol. 01 • Master Catalogue
                   </span>
                 </div>
 
-                {/* Title & Category */}
-                <div className="pt-5 pb-3">
-                  <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#888888] block mb-1">
-                    SIDDI Hardware Systems
-                  </span>
-                  <h3 className="text-xl sm:text-2xl font-serif font-normal text-[#111111] leading-tight">
+                {/* Content */}
+                <div className="p-6 space-y-3">
+                  <h3 className="text-xl font-serif font-normal text-[#111111] leading-snug group-hover:text-[#F2B705] transition-colors">
                     Architectural Hardware Master Catalogue
                   </h3>
-                </div>
-
-                {/* Synopsis */}
-                <p className="text-xs text-[#666666] font-light leading-relaxed mb-5">
-                  Complete specifier manual with 1:1 dimensional line drawings for forged levers, silent magnetic locksets, concealed 3D hinges, and pull handles.
-                </p>
-
-                {/* Key Technical Chips */}
-                <div className="flex flex-wrap gap-1.5 mb-6">
-                  {['1:1 Line Drawings', 'Finish Tone Matrix', 'CSI Div 08 71 00', '14.2 MB'].map((spec, i) => (
-                    <span
-                      key={i}
-                      className="text-[10px] font-mono px-2.5 py-1 bg-[#FAF9F6] border border-[#111111]/10 rounded text-[#444444]"
-                    >
-                      {spec}
-                    </span>
-                  ))}
+                  <p className="text-xs text-[#666666] font-light leading-relaxed">
+                    1:1 dimensional line drawings, rosette specifications, and preparation cutouts for specifiers.
+                  </p>
+                  <div className="flex items-center justify-between text-[10px] font-mono text-[#888888] pt-2 border-t border-[#111111]/10">
+                    <span>CSI DIV 08 71 00</span>
+                    <span className="text-[#111111] font-medium">14.2 MB PDF</span>
+                  </div>
                 </div>
               </div>
 
               {/* Actions */}
-              <div className="space-y-2.5 pt-4 border-t border-[#111111]/10">
-                <Button
-                  to="/contact?interest=Document%20Request:%20SIDDI%20Master%20Catalogue%202026"
-                  variant="primary"
-                  size="sm"
-                  className="w-full justify-center"
-                  withArrow
-                >
-                  Request Master PDF
-                </Button>
+              <div className="p-6 pt-0 space-y-2">
                 <Link
-                  to="/contact?interest=Hardcover%20Binder%20Sample"
-                  className="block text-center text-xs font-mono uppercase tracking-wider font-semibold text-[#777777] hover:text-[#111111] transition-colors py-1"
+                  to="/contact?interest=Document%20Request:%20SIDDI%20Master%20Catalogue%202026"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-5 bg-[#111111] hover:bg-[#F2B705] hover:text-[#111111] text-white text-xs font-semibold tracking-wider uppercase rounded-full transition-all duration-200 shadow-2xs group/btn cursor-pointer"
                 >
-                  Order Hardcover Binder (48h) →
+                  <span>Request Catalogue</span>
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-1" />
                 </Link>
               </div>
-            </div>
+            </ScrollRevealItem>
 
-            {/* Volume 02: Finish Specification & Swatchbook */}
-            <div className="bg-white border border-[#111111]/10 rounded-2xl p-7 sm:p-8 flex flex-col justify-between hover:border-[#111111]/30 hover:shadow-xl transition-all duration-300 relative group">
+            {/* Volume 02: PVD Metallurgy & Finish Swatchbook */}
+            <ScrollRevealItem className="bg-white border border-[#111111]/12 rounded-2xl overflow-hidden hover:border-[#111111]/30 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
               <div>
-                {/* Card Top: Volume Tag & File Specs */}
-                <div className="flex items-center justify-between pb-4 border-b border-[#111111]/10">
-                  <div className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#F2B705]" />
-                    <span className="text-[11px] font-mono uppercase tracking-[0.2em] font-semibold text-[#111111]">
-                      Vol. 02 • Finishes
-                    </span>
-                  </div>
-                  <span className="text-[10px] font-mono text-[#777777] bg-[#FAF9F6] border border-[#111111]/10 px-2 py-0.5 rounded">
-                    64 Pages • Color
+                {/* Real Hardware Photography Header */}
+                <div className="relative aspect-[16/10] bg-[#FAF9F6] overflow-hidden border-b border-[#111111]/10">
+                  <img
+                    src="/bathroom-accessory-kit.jpg"
+                    alt="SIDDI Finish Specification & Swatchbook"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  {/* Floating Minimal Glass Pills */}
+                  <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full border border-black/5 text-[10px] font-mono uppercase tracking-wider text-[#111111] font-medium shadow-2xs">
+                    Vol. 02 • Finish Guide
                   </span>
                 </div>
 
-                {/* Title & Category */}
-                <div className="pt-5 pb-3">
-                  <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#888888] block mb-1">
-                    Metallurgy &amp; PVD Coatings
-                  </span>
-                  <h3 className="text-xl sm:text-2xl font-serif font-normal text-[#111111] leading-tight">
+                {/* Content */}
+                <div className="p-6 space-y-3">
+                  <h3 className="text-xl font-serif font-normal text-[#111111] leading-snug group-hover:text-[#F2B705] transition-colors">
                     Finish Specification &amp; Swatchbook
                   </h3>
-                </div>
-
-                {/* Synopsis */}
-                <p className="text-xs text-[#666666] font-light leading-relaxed mb-5">
-                  Detailed spectrophotometric data, titanium PVD adhesion benchmarks, coastal salinity resistance, and architectural cleaning protocols.
-                </p>
-
-                {/* Key Technical Chips */}
-                <div className="flex flex-wrap gap-1.5 mb-6">
-                  {['ASTM B117 Tested', 'PVD Gold & Gunmetal', '500h Salt Spray', '3.8 MB'].map((spec, i) => (
-                    <span
-                      key={i}
-                      className="text-[10px] font-mono px-2.5 py-1 bg-[#FAF9F6] border border-[#111111]/10 rounded text-[#444444]"
-                    >
-                      {spec}
-                    </span>
-                  ))}
+                  <p className="text-xs text-[#666666] font-light leading-relaxed">
+                    Spectral PVD assay data, ASTM B117 salt spray tests, and chemical cleaning tolerances.
+                  </p>
+                  <div className="flex items-center justify-between text-[10px] font-mono text-[#888888] pt-2 border-t border-[#111111]/10">
+                    <span>ASTM B117 ASSAY</span>
+                    <span className="text-[#111111] font-medium">3.8 MB PDF</span>
+                  </div>
                 </div>
               </div>
 
               {/* Actions */}
-              <div className="space-y-2.5 pt-4 border-t border-[#111111]/10">
-                <Button
-                  to="/contact?interest=Document%20Request:%20PVD%20Finish%20Specification%20Guide"
-                  variant="primary"
-                  size="sm"
-                  className="w-full justify-center"
-                  withArrow
-                >
-                  Request Finishes Guide
-                </Button>
+              <div className="p-6 pt-0 space-y-2">
                 <Link
-                  to="/contact?interest=Physical%20Finish%20Sample%20Box"
-                  className="block text-center text-xs font-mono uppercase tracking-wider font-semibold text-[#777777] hover:text-[#111111] transition-colors py-1"
+                  to="/contact?interest=Document%20Request:%20PVD%20Finish%20Specification%20Guide"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-5 bg-[#111111] hover:bg-[#F2B705] hover:text-[#111111] text-white text-xs font-semibold tracking-wider uppercase rounded-full transition-all duration-200 shadow-2xs group/btn cursor-pointer"
                 >
-                  Order Physical Finish Box (48h) →
+                  <span>Request Catalouge</span>
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-1" />
                 </Link>
               </div>
-            </div>
+            </ScrollRevealItem>
 
             {/* Volume 03: BIM LOD 400 Library */}
-            <div className="bg-white border border-[#111111]/10 rounded-2xl p-7 sm:p-8 flex flex-col justify-between hover:border-[#111111]/30 hover:shadow-xl transition-all duration-300 relative group">
+            <ScrollRevealItem className="bg-white border border-[#111111]/12 rounded-2xl overflow-hidden hover:border-[#111111]/30 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
               <div>
-                {/* Card Top: Volume Tag & File Specs */}
-                <div className="flex items-center justify-between pb-4 border-b border-[#111111]/10">
-                  <div className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#F2B705]" />
-                    <span className="text-[11px] font-mono uppercase tracking-[0.2em] font-semibold text-[#111111]">
-                      Vol. 03 • BIM Data
-                    </span>
-                  </div>
-                  <span className="text-[10px] font-mono text-[#777777] bg-[#FAF9F6] border border-[#111111]/10 px-2 py-0.5 rounded">
-                    RVT • DWG • IFC
+                {/* Real Hardware Photography Header */}
+                <div className="relative aspect-[16/10] bg-[#FAF9F6] overflow-hidden border-b border-[#111111]/10">
+                  <img
+                    src="/Handles.jpg"
+                    alt="SIDDI Revit BIM Family Master Library"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  {/* Floating Minimal Glass Pills */}
+                  <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full border border-black/5 text-[10px] font-mono uppercase tracking-wider text-[#111111] font-medium shadow-2xs">
+                    Vol. 03 • BIM Library
                   </span>
                 </div>
 
-                {/* Title & Category */}
-                <div className="pt-5 pb-3">
-                  <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#888888] block mb-1">
-                    Parametric Architecture
-                  </span>
-                  <h3 className="text-xl sm:text-2xl font-serif font-normal text-[#111111] leading-tight">
-                    Revit LOD 350 / 400 Family Master Package
+                {/* Content */}
+                <div className="p-6 space-y-3">
+                  <h3 className="text-xl font-serif font-normal text-[#111111] leading-snug group-hover:text-[#F2B705] transition-colors">
+                    Revit LOD 350 / 400 Master Library
                   </h3>
-                </div>
-
-                {/* Synopsis */}
-                <p className="text-xs text-[#666666] font-light leading-relaxed mb-5">
-                  Native Revit component families (.RVT) built with parametric clearance arcs, door host geometry, and automatic schedule parameter mapping.
-                </p>
-
-                {/* Key Technical Chips */}
-                <div className="flex flex-wrap gap-1.5 mb-6">
-                  {['Revit 2022–2026', 'AutoCAD 2D Library', 'Autodesk Certified', '42.0 MB ZIP'].map((spec, i) => (
-                    <span
-                      key={i}
-                      className="text-[10px] font-mono px-2.5 py-1 bg-[#FAF9F6] border border-[#111111]/10 rounded text-[#444444]"
-                    >
-                      {spec}
-                    </span>
-                  ))}
+                  <p className="text-xs text-[#666666] font-light leading-relaxed">
+                    Native Revit component families built with parametric clearance arcs and door scheduling parameters.
+                  </p>
+                  <div className="flex items-center justify-between text-[10px] font-mono text-[#888888] pt-2 border-t border-[#111111]/10">
+                    <span>AUTODESK CERTIFIED</span>
+                    <span className="text-[#111111] font-medium">42.0 MB ZIP</span>
+                  </div>
                 </div>
               </div>
 
               {/* Actions */}
-              <div className="space-y-2.5 pt-4 border-t border-[#111111]/10">
-                <Button
-                  to="/contact?interest=Document%20Request:%20Revit%20BIM%20Family%20Master%20Library"
-                  variant="primary"
-                  size="sm"
-                  className="w-full justify-center"
-                  withArrow
-                >
-                  Request BIM Archive
-                </Button>
+              <div className="p-6 pt-0 space-y-2">
                 <Link
-                  to="/contact?interest=Custom%20CAD%20Consultation"
-                  className="block text-center text-xs font-mono uppercase tracking-wider font-semibold text-[#777777] hover:text-[#111111] transition-colors py-1"
+                  to="/contact?interest=Document%20Request:%20Revit%20BIM%20Family%20Master%20Library"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-5 bg-[#111111] hover:bg-[#F2B705] hover:text-[#111111] text-white text-xs font-semibold tracking-wider uppercase rounded-full transition-all duration-200 shadow-2xs group/btn cursor-pointer"
                 >
-                  Inquire Bespoke Revit Family →
+                  <span>Request Catalogue</span>
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-1" />
                 </Link>
               </div>
-            </div>
-          </div>
+            </ScrollRevealItem>
+          </ScrollRevealStagger>
         </ScrollReveal>
 
         {/* SECTION B: INTERACTIVE ARCHITECTURAL CAD WORKBENCH (Blueprint Lab) */}
@@ -461,9 +402,11 @@ export const ResourcesPage: React.FC = () => {
                     Interactive CAD Workbench // 02
                   </span>
                 </div>
-                <h2 className="text-2xl sm:text-4xl font-serif font-normal text-white tracking-tight">
-                  Door Prep & CNC Milling Schematics
-                </h2>
+                <TextReveal
+                  as="h2"
+                  text="Door Prep & CNC Milling Schematics"
+                  className="text-2xl sm:text-4xl font-serif font-normal text-white tracking-tight"
+                />
               </div>
 
               {/* Tab Selector */}
@@ -610,155 +553,6 @@ export const ResourcesPage: React.FC = () => {
           </div>
         </ScrollReveal>
 
-        {/* SECTION C: LABORATORY TEST GAUGES & ACCREDITATION MATRIX */}
-        <ScrollReveal as="section">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="w-2 h-2 rounded-full bg-[#F2B705]" />
-            <span className="text-[11px] font-mono uppercase tracking-[0.25em] font-semibold text-[#F2B705]">
-              Verified Performance // 03
-            </span>
-          </div>
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
-            <div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#111111] tracking-tight">
-                Laboratory Assays & Certifications
-              </h2>
-              <p className="text-xs sm:text-sm text-[#666666] font-light mt-1 max-w-xl">
-                Independent laboratory test assays demonstrating cycle endurance, salt spray corrosion immunity, and fire integrity.
-              </p>
-            </div>
-            <span className="text-xs font-mono text-[#777777]">
-              INDEPENDENT LAB TESTED
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Meter 1: EN 1906 */}
-            <div className="bg-white border border-[#111111]/12 rounded-2xl p-6 shadow-xs space-y-4 hover:border-[#111111]/30 transition-all flex flex-col justify-between">
-              <div className="space-y-3">
-                <div className="flex items-center justify-between pb-3 border-b border-[#111111]/10">
-                  <span className="text-xs font-mono font-bold text-[#F2B705]">EN 1906:2012</span>
-                  <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 bg-[#FAF9F6] border border-[#111111]/10 rounded text-[#111111]">
-                    GRADE 4
-                  </span>
-                </div>
-                <h3 className="text-lg font-serif font-normal text-[#111111]">
-                  200,000 Cycle Longevity
-                </h3>
-                <p className="text-xs text-[#666666] font-light leading-relaxed">
-                  Continuous mechanized actuation with 1,000N axial tensile load with zero lever play and zero spring deflection.
-                </p>
-              </div>
-
-              {/* Visual Meter Bar */}
-              <div className="space-y-1.5 pt-2 border-t border-[#111111]/8">
-                <div className="flex items-center justify-between text-[10px] font-mono">
-                  <span className="text-[#777777]">ACTUATION TEST</span>
-                  <span className="text-[#F2B705] font-bold">100% PASS</span>
-                </div>
-                <div className="h-1.5 w-full bg-[#111111]/10 rounded-full overflow-hidden">
-                  <div className="h-full bg-[#F2B705] rounded-full w-full" />
-                </div>
-                <span className="text-[9px] font-mono text-[#888888] block text-right">
-                  200,000 / 200,000 Cycles
-                </span>
-              </div>
-            </div>
-
-            {/* Meter 2: ASTM B117 */}
-            <div className="bg-white border border-[#111111]/12 rounded-2xl p-6 shadow-xs space-y-4 hover:border-[#111111]/30 transition-all flex flex-col justify-between">
-              <div className="space-y-3">
-                <div className="flex items-center justify-between pb-3 border-b border-[#111111]/10">
-                  <span className="text-xs font-mono font-bold text-[#F2B705]">ASTM B117</span>
-                  <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 bg-[#FAF9F6] border border-[#111111]/10 rounded text-[#111111]">
-                    500H SALT FOG
-                  </span>
-                </div>
-                <h3 className="text-lg font-serif font-normal text-[#111111]">
-                  Marine Salt Spray Immunity
-                </h3>
-                <p className="text-xs text-[#666666] font-light leading-relaxed">
-                  500+ hours in 5% neutral salt spray chamber at 35°C without red rust, blister, or atomic PVD degradation.
-                </p>
-              </div>
-
-              <div className="space-y-1.5 pt-2 border-t border-[#111111]/8">
-                <div className="flex items-center justify-between text-[10px] font-mono">
-                  <span className="text-[#777777]">CHAMBER EXPOSURE</span>
-                  <span className="text-[#F2B705] font-bold">500H+ PASS</span>
-                </div>
-                <div className="h-1.5 w-full bg-[#111111]/10 rounded-full overflow-hidden">
-                  <div className="h-full bg-[#F2B705] rounded-full w-full" />
-                </div>
-                <span className="text-[9px] font-mono text-[#888888] block text-right">
-                  Grade 5 (Zero Pitting)
-                </span>
-              </div>
-            </div>
-
-            {/* Meter 3: EN 1634-1 */}
-            <div className="bg-white border border-[#111111]/12 rounded-2xl p-6 shadow-xs space-y-4 hover:border-[#111111]/30 transition-all flex flex-col justify-between">
-              <div className="space-y-3">
-                <div className="flex items-center justify-between pb-3 border-b border-[#111111]/10">
-                  <span className="text-xs font-mono font-bold text-[#F2B705]">EN 1634-1</span>
-                  <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 bg-[#FAF9F6] border border-[#111111]/10 rounded text-[#111111]">
-                    FD60 / FD120
-                  </span>
-                </div>
-                <h3 className="text-lg font-serif font-normal text-[#111111]">
-                  Fire Door Assembly Integrity
-                </h3>
-                <p className="text-xs text-[#666666] font-light leading-relaxed">
-                  60-minute and 120-minute positive pressure fire test for timber, steel, and composite architectural fire door leaves.
-                </p>
-              </div>
-
-              <div className="space-y-1.5 pt-2 border-t border-[#111111]/8">
-                <div className="flex items-center justify-between text-[10px] font-mono">
-                  <span className="text-[#777777]">FIRE CONTAINMENT</span>
-                  <span className="text-[#F2B705] font-bold">120 MIN PASS</span>
-                </div>
-                <div className="h-1.5 w-full bg-[#111111]/10 rounded-full overflow-hidden">
-                  <div className="h-full bg-[#F2B705] rounded-full w-full" />
-                </div>
-                <span className="text-[9px] font-mono text-[#888888] block text-right">
-                  Integrity & Thermal Insulation
-                </span>
-              </div>
-            </div>
-
-            {/* Meter 4: RoHS & REACH */}
-            <div className="bg-white border border-[#111111]/12 rounded-2xl p-6 shadow-xs space-y-4 hover:border-[#111111]/30 transition-all flex flex-col justify-between">
-              <div className="space-y-3">
-                <div className="flex items-center justify-between pb-3 border-b border-[#111111]/10">
-                  <span className="text-xs font-mono font-bold text-[#F2B705]">RoHS / REACH</span>
-                  <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 bg-[#FAF9F6] border border-[#111111]/10 rounded text-[#111111]">
-                    VIRGIN ALLOY
-                  </span>
-                </div>
-                <h3 className="text-lg font-serif font-normal text-[#111111]">
-                  Zero Toxic Smelting Shortcuts
-                </h3>
-                <p className="text-xs text-[#666666] font-light leading-relaxed">
-                  Virgin brass billet formulation strictly compliant with EU chemical directive. Zero lead leaching, zero hazardous cadmium.
-                </p>
-              </div>
-
-              <div className="space-y-1.5 pt-2 border-t border-[#111111]/8">
-                <div className="flex items-center justify-between text-[10px] font-mono">
-                  <span className="text-[#777777]">LEAD THRESHOLD</span>
-                  <span className="text-[#F2B705] font-bold">&lt; 0.1% COMPLIANT</span>
-                </div>
-                <div className="h-1.5 w-full bg-[#111111]/10 rounded-full overflow-hidden">
-                  <div className="h-full bg-[#F2B705] rounded-full w-full" />
-                </div>
-                <span className="text-[9px] font-mono text-[#888888] block text-right">
-                  100% Recyclable Metallurgy
-                </span>
-              </div>
-            </div>
-          </div>
-        </ScrollReveal>
 
         {/* SECTION D: SPECIFICATION TAKE-OFF STUDIO BANNER */}
         <ScrollReveal as="section" className="bg-gradient-to-r from-[#1A1A1A] via-[#141414] to-[#0D0D0D] text-white rounded-3xl p-8 sm:p-12 border border-white/10 shadow-xl relative overflow-hidden">
@@ -770,9 +564,11 @@ export const ResourcesPage: React.FC = () => {
                   Studio Concierge Service // 04
                 </span>
               </div>
-              <h3 className="text-2xl sm:text-4xl font-serif font-normal text-white tracking-tight">
-                Have a Project Door Schedule or Floor Plan?
-              </h3>
+              <TextReveal
+                as="h3"
+                text="Have a Project Door Schedule or Floor Plan?"
+                className="text-2xl sm:text-4xl font-serif font-normal text-white tracking-tight"
+              />
               <p className="text-xs sm:text-sm text-gray-300 font-light leading-relaxed">
                 Send your schedule spreadsheet (Excel), floor plans (DWG/PDF), or door elevations. Our in-house architectural specification desk generates a complete door-by-door hardware specification takeoff within 48 hours.
               </p>
@@ -830,9 +626,11 @@ export const ResourcesPage: React.FC = () => {
           </div>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
             <div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#111111] tracking-tight">
-                Technical Documentation Gallery
-              </h2>
+              <TextReveal
+                as="h2"
+                text="Technical Documentation Gallery"
+                className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#111111] tracking-tight"
+              />
               <p className="text-xs sm:text-sm text-[#666666] font-light mt-1 max-w-xl">
                 Drag the hanging line or swipe through suspended photographic plates of our master catalogues, CAD cutouts, and metallurgy dossiers.
               </p>

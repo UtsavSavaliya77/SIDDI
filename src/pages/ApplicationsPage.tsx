@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { EnquiryCTA } from '../components/common/EnquiryCTA';
-import { ScrollReveal } from '../components/common/ScrollReveal';
+import { ScrollReveal, TextReveal } from '../components/common/ScrollReveal';
 import { APPLICATION_AREAS } from '../data/products';
 import { Scroll01, type Scroll01Item } from '../components/ui/scroll-01';
 
@@ -130,9 +130,11 @@ export const ApplicationsPage: React.FC = () => {
                   Spatial Typologies
                 </span>
               </div>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-white tracking-tight mb-2">
-                Applications & Environments
-              </h1>
+              <TextReveal
+                as="h1"
+                text="Applications & Environments"
+                className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-white tracking-tight mb-2"
+              />
               <p className="text-xs sm:text-sm text-gray-300 font-sans leading-relaxed">
                 Hardware engineered to respond to the specific functional, acoustic, and environmental demands of each interior space.
               </p>

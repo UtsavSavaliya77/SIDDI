@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1130" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FAF9F5"/>
+      <stop offset="50%" stop-color="#F4EFE6"/>
+      <stop offset="100%" stop-color="#EDE6DA"/>
+    </linearGradient>
+    <linearGradient id="goldBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="25%" stop-color="#FFF2B2"/>
+      <stop offset="50%" stop-color="#AA7C11"/>
+      <stop offset="75%" stop-color="#F5D77F"/>
+      <stop offset="100%" stop-color="#8C650A"/>
+    </linearGradient>
+    <linearGradient id="sealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5D77F"/>
+      <stop offset="40%" stop-color="#D4AF37"/>
+      <stop offset="70%" stop-color="#AA7C11"/>
+      <stop offset="100%" stop-color="#664604"/>
+    </linearGradient>
+    <filter id="dropShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-opacity="0.15"/>
+    </filter>
+    <pattern id="guillochePattern" width="60" height="60" patternUnits="userSpaceOnUse">
+      <circle cx="30" cy="30" r="28" fill="none" stroke="#D4AF37" stroke-width="0.3" stroke-opacity="0.25"/>
+      <circle cx="30" cy="30" r="18" fill="none" stroke="#AA7C11" stroke-width="0.25" stroke-opacity="0.2"/>
+      <circle cx="30" cy="30" r="8" fill="none" stroke="#8C650A" stroke-width="0.2" stroke-opacity="0.15"/>
+    </pattern>
+  </defs>
+
+  <!-- Parchment Sheet Base -->
+  <rect width="800" height="1130" fill="url(#bgGrad)"/>
+  <rect width="800" height="1130" fill="url(#guillochePattern)" opacity="0.35"/>
+
+  <!-- Outer Heavy Border -->
+  <rect x="30" y="30" width="740" height="1070" fill="none" stroke="url(#goldBorder)" stroke-width="6"/>
+  <rect x="42" y="42" width="716" height="1046" fill="none" stroke="#2A251D" stroke-width="1.5"/>
+  <rect x="50" y="50" width="700" height="1030" fill="none" stroke="url(#goldBorder)" stroke-width="1" stroke-dasharray="4, 4"/>
+
+  <!-- Corner Flourish Brackets -->
+  <g stroke="url(#goldBorder)" stroke-width="3" fill="none">
+    <path d="M 35 75 L 35 35 L 75 35"/>
+    <path d="M 765 75 L 765 35 L 725 35"/>
+    <path d="M 35 1055 L 35 1095 L 75 1095"/>
+    <path d="M 765 1055 L 765 1095 L 725 1095"/>
+  </g>
+
+  <!-- Authority Header -->
+  <text x="400" y="110" text-anchor="middle" font-family="serif" font-size="13" letter-spacing="5" fill="#6E5D46" font-weight="600">WARRINGTONFIRE GLOBAL • WARRINGTON, UNITED KINGDOM</text>
+  <line x1="220" y1="125" x2="580" y2="125" stroke="#D4AF37" stroke-width="1"/>
+  <circle cx="400" cy="125" r="4" fill="#D4AF37"/>
+
+  <!-- Title Section -->
+  <text x="400" y="195" text-anchor="middle" font-family="serif" font-size="32" letter-spacing="6" fill="#1A1814" font-weight="700">CERTIFICATE</text>
+  <text x="400" y="225" text-anchor="middle" font-family="serif" font-size="15" letter-spacing="4" fill="#8C650A" font-style="italic">OF CONFORMITY &amp; ACCREDITATION</text>
+
+  <line x1="150" y1="255" x2="650" y2="255" stroke="#D4AF37" stroke-width="0.75"/>
+
+  <!-- Recipient Context -->
+  <text x="400" y="300" text-anchor="middle" font-family="sans-serif" font-size="11" letter-spacing="3" fill="#7A6C58" font-weight="500">THIS IS TO OFFICIALLY CERTIFY THAT</text>
+  <text x="400" y="345" text-anchor="middle" font-family="serif" font-size="28" letter-spacing="2" fill="#1A1814" font-weight="bold">SIDDI ARCHITECTURAL HARDWARE</text>
+  <text x="400" y="375" text-anchor="middle" font-family="sans-serif" font-size="11" letter-spacing="2" fill="#5A4E3E">HAS SUCCESSFULLY COMPLETED RIGOROUS LABORATORY TESTING IN ACCORDANCE WITH</text>
+
+  <!-- Core Standard Box -->
+  <rect x="100" y="410" width="600" height="140" rx="6" fill="#FFFFFF" fill-opacity="0.75" stroke="url(#goldBorder)" stroke-width="1.5" filter="url(#dropShadow)"/>
+  <text x="400" y="460" text-anchor="middle" font-family="serif" font-size="26" letter-spacing="2" fill="#8C650A" font-weight="bold">EN 1634-1 / BS 476 PART 22</text>
+  <text x="400" y="495" text-anchor="middle" font-family="sans-serif" font-size="14" letter-spacing="1" fill="#2A251D" font-weight="600">120-Minute Fire Door Integrity &amp; Thermal Shield</text>
+  <text x="400" y="525" text-anchor="middle" font-family="monospace" font-size="12" letter-spacing="2" fill="#15803D" font-weight="bold">★ VERIFIED PERFORMANCE: FD120 FURNACE RATED (1,050°C) ★</text>
+
+  <!-- Statement Paragraph -->
+  <text x="400" y="600" text-anchor="middle" font-family="serif" font-size="13" fill="#4A4032">The hardware specimen met and surpassed all structural endurance, metallurgical purity,</text>
+  <text x="400" y="622" text-anchor="middle" font-family="serif" font-size="13" fill="#4A4032">and mechanical torque benchmarks stipulated under international architectural criteria.</text>
+
+  <!-- Two Column Credentials -->
+  <g transform="translate(120, 670)">
+    <rect width="250" height="80" fill="#FAF9F5" stroke="#D4AF37" stroke-width="0.75" rx="4"/>
+    <text x="20" y="30" font-family="monospace" font-size="9" fill="#8C650A" letter-spacing="1">REGISTRATION ID</text>
+    <text x="20" y="55" font-family="monospace" font-size="13" font-weight="bold" fill="#1A1814">CERT-UK-FD120-9104</text>
+  </g>
+  <g transform="translate(430, 670)">
+    <rect width="250" height="80" fill="#FAF9F5" stroke="#D4AF37" stroke-width="0.75" rx="4"/>
+    <text x="20" y="30" font-family="monospace" font-size="9" fill="#8C650A" letter-spacing="1">AUDIT DATE &amp; VALIDITY</text>
+    <text x="20" y="55" font-family="monospace" font-size="13" font-weight="bold" fill="#1A1814">08 NOV 2025 — NOV 2030</text>
+  </g>
+
+  <!-- Signatures Section -->
+  <g transform="translate(140, 830)">
+    <path d="M 10 35 Q 40 5 70 30 T 130 20 T 170 35" fill="none" stroke="#1E3A8A" stroke-width="2"/>
+    <line x1="0" y1="45" x2="200" y2="45" stroke="#2A251D" stroke-width="1"/>
+    <text x="100" y="65" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1A1814">DIRECTOR OF TESTING</text>
+    <text x="100" y="80" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6E5D46">Warringtonfire Global</text>
+  </g>
+
+  <g transform="translate(460, 830)">
+    <path d="M 10 30 Q 30 10 60 25 T 120 15 T 180 30" fill="none" stroke="#1E3A8A" stroke-width="2"/>
+    <line x1="0" y1="45" x2="200" y2="45" stroke="#2A251D" stroke-width="1"/>
+    <text x="100" y="65" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1A1814">LEAD METALLURGICAL AUDITOR</text>
+    <text x="100" y="80" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6E5D46">Accreditation Board</text>
+  </g>
+
+  <!-- Gold Embossed Foil Seal &amp; Ribbons (Center Bottom) -->
+  <g transform="translate(400, 960)">
+    <!-- Ribbon Tails -->
+    <path d="M -25 20 L -35 85 L -10 65 L 0 85 L 10 65 L 35 85 L 25 20 Z" fill="#991B1B"/>
+    
+    <!-- Outer Star/Serrated Foil Seal -->
+    <circle cx="0" cy="0" r="52" fill="url(#sealGrad)" filter="url(#dropShadow)"/>
+    <circle cx="0" cy="0" r="46" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="2, 2"/>
+    <circle cx="0" cy="0" r="42" fill="url(#sealGrad)" stroke="#AA7C11" stroke-width="1"/>
+    
+    <text x="0" y="-18" text-anchor="middle" font-family="serif" font-size="8" letter-spacing="2" fill="#FFFFFF" font-weight="bold">OFFICIAL SEAL</text>
+    <text x="0" y="2" text-anchor="middle" font-family="serif" font-size="12" letter-spacing="1" fill="#FFFFFF" font-weight="bold">★ SIDDI ★</text>
+    <text x="0" y="18" text-anchor="middle" font-family="serif" font-size="7" letter-spacing="1.5" fill="#FFFFFF">ACCREDITED</text>
+    <text x="0" y="28" text-anchor="middle" font-family="monospace" font-size="6" fill="#FFFFFF">2026-2031</text>
+  </g>
+
+  <!-- Security Microtext Footer -->
+  <text x="400" y="1075" text-anchor="middle" font-family="monospace" font-size="8" letter-spacing="2" fill="#9C8E7D">DOCUMENT VALIDATED IN GLOBAL REGISTRY • TAMPER-EVIDENT ARCHIVAL RECORD</text>
+</svg>

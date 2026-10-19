@@ -20,40 +20,36 @@ export interface ElegantCarouselProps {
 
 const DEFAULT_SLIDES: SlideData[] = [
   {
-    title: 'Venetian Dusk',
-    subtitle: 'Autumn / Winter Collection',
+    title: 'Solid Forged Brass',
+    subtitle: 'Hot-Forged Architecture',
     description:
-      'Where ancient architecture meets the dying light — a palette drawn from terracotta, aged stone, and the shimmering canals of Venice at twilight.',
+      'Forged at 750°C from pure virgin brass billet stock with precision knurling for authoritative acoustic heft.',
     accent: '#C4956A',
-    imageUrl:
-      'https://cdn.21st.dev/assets/mirror/b6/b68a402619b8c34687ef1af3beec97970523a2d551951a6e7f9bfc6440311a50.jpg',
+    imageUrl: '/brass-door-handle.jpg',
   },
   {
-    title: 'Nordic Silence',
-    subtitle: 'Spring / Summer Collection',
+    title: 'Precision Leversets',
+    subtitle: 'Silent Mortise Mechanics',
     description:
-      'Inspired by the vast stillness of Scandinavian fjords — clean lines, muted tones, and the quiet power of unadorned beauty.',
+      'Dual high-tensile return springs and magnetic detents delivering whisper-quiet < 18 dB acoustic operation.',
     accent: '#8BA7B8',
-    imageUrl:
-      'https://cdn.21st.dev/assets/mirror/fd/fd105945b31cb78c4f7c4f51e59eeb2f5ae6b2e5ef3a3146414cc9e2ca41b7a9.jpg',
+    imageUrl: '/Handles.jpg',
   },
   {
-    title: 'Kyoto Garden',
-    subtitle: 'Resort Collection',
+    title: 'Architectural Turn Knobs',
+    subtitle: 'Monolithic CNC Turning',
     description:
-      'Moss-covered pathways and paper lanterns — an ode to the meditative elegance of Japanese garden design and its timeless restraint.',
+      'Turned on 5-axis Swiss lathes with diamond knurling for flawless tactile grip in executive environments.',
     accent: '#7A9E7E',
-    imageUrl:
-      'https://cdn.21st.dev/assets/mirror/a0/a0e389c10d2dd8dbcb6c68172c9c50923af819005697cd698a696cc7425e198f.jpg',
+    imageUrl: '/Knobs.jpg',
   },
   {
-    title: 'Saharan Gold',
-    subtitle: 'Capsule Collection',
+    title: 'Sanitary Master Kit',
+    subtitle: 'Marine AISI 316 Plating',
     description:
-      'The desert reveals its secrets at dawn — liquid gold spilling across endless dunes, textures carved by centuries of wind and time.',
+      'Titanium PVD high-vacuum deposition ensuring zero tarnishing in coastal salt fog and master ensuites.',
     accent: '#D4A955',
-    imageUrl:
-      'https://cdn.21st.dev/assets/mirror/b6/b6b48f0e66744f53a7f879246e8191d5d2733b3226a5d6d45cc19a6bf2af4d29.jpg',
+    imageUrl: '/bathroom-accessory-kit.jpg',
   },
 ];
 

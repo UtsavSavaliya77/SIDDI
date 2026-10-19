@@ -109,7 +109,7 @@ export const SpatialEnvironmentsCoverflow: React.FC = () => {
           type="button"
           onClick={prevSlide}
           aria-label="Previous Environment"
-          className="absolute left-2 sm:left-4 lg:left-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#111111]/90 text-white flex items-center justify-center shadow-xl hover:bg-[#F2B705] hover:text-black hover:scale-105 transition-all duration-300 cursor-pointer backdrop-blur-md"
+          className="absolute left-2 sm:left-4 lg:left-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-[11px] bg-[#111111]/90 text-white flex items-center justify-center shadow-xl hover:bg-[#F2B705] hover:text-black hover:scale-105 transition-all duration-300 cursor-pointer backdrop-blur-md"
         >
           <CaretLeft className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
@@ -119,7 +119,7 @@ export const SpatialEnvironmentsCoverflow: React.FC = () => {
           type="button"
           onClick={nextSlide}
           aria-label="Next Environment"
-          className="absolute right-2 sm:right-4 lg:right-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#111111]/90 text-white flex items-center justify-center shadow-xl hover:bg-[#F2B705] hover:text-black hover:scale-105 transition-all duration-300 cursor-pointer backdrop-blur-md"
+          className="absolute right-2 sm:right-4 lg:right-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-[11px] bg-[#111111]/90 text-white flex items-center justify-center shadow-xl hover:bg-[#F2B705] hover:text-black hover:scale-105 transition-all duration-300 cursor-pointer backdrop-blur-md"
         >
           <CaretRight className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
