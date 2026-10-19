@@ -1,43 +1,40 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 
 export const PageLoader: React.FC = () => {
   const location = useLocation();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [progress, setProgress] = useState(25);
-  const prevPathRef = useRef(location.pathname + location.search);
 
   useEffect(() => {
-    const currentPath = location.pathname + location.search;
+    // Reset and start loader on initial load and every route change
+    setIsLoading(true);
+    setProgress(25);
 
-    // Trigger on every route/page change
-    if (prevPathRef.current !== currentPath) {
-      prevPathRef.current = currentPath;
+    // Guaranteed progression timeline (25% -> 65% -> 85% -> 100%)
+    const t1 = setTimeout(() => setProgress(65), 250);
+    const t2 = setTimeout(() => setProgress(85), 550);
+    const t3 = setTimeout(() => setProgress(100), 850);
 
-      // Start loader immediately with solid background & initial 25%
-      setIsLoading(true);
-      setProgress(25);
+    // Theatrical curtain rise exit
+    const t4 = setTimeout(() => {
+      setIsLoading(false);
+    }, 1150);
 
-      // Smooth progression stepping through 25 -> 65 -> 85 -> 100
-      const t1 = setTimeout(() => setProgress(65), 320);
-      const t2 = setTimeout(() => setProgress(85), 680);
-      const t3 = setTimeout(() => setProgress(100), 1020);
+    // Guaranteed failsafe so loader can NEVER get stuck on any device
+    const failsafe = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
 
-      // Smooth exit after completing 100%
-      const t4 = setTimeout(() => {
-        setIsLoading(false);
-        setProgress(25);
-      }, 1380);
-
-      return () => {
-        clearTimeout(t1);
-        clearTimeout(t2);
-        clearTimeout(t3);
-        clearTimeout(t4);
-      };
-    }
-  }, [location.pathname, location.search]);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+      clearTimeout(t4);
+      clearTimeout(failsafe);
+    };
+  }, [location.pathname]);
 
   return (
     <AnimatePresence>
