@@ -338,7 +338,7 @@ export function Component({ logoSrc = "/siddi-logo.png", onNavigate }: KineticNa
               onMouseEnter={handleMouseEnterProduct}
               onMouseLeave={handleMouseLeaveProduct}
             >
-              <div className="max-w-7xl mx-auto px-6 md:px-12 py-9">
+              <div className="w-full px-4 sm:px-6 md:px-10 lg:px-16 py-9">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
                   
                   {/* Column 1: Editorial Showcase (3 of 12 cols) */}

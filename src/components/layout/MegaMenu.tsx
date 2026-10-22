@@ -16,7 +16,7 @@ export const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
       className="absolute top-full left-0 w-full bg-[#111111] text-white border-b border-white/10 shadow-2xl transition-all duration-300 z-50 animate-fadeIn"
       onMouseLeave={onClose}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-10">
+      <div className="w-full px-4 sm:px-6 md:px-10 lg:px-16 py-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           
           {/* Left: Overview Column */}

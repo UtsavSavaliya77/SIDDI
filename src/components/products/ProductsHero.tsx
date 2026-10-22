@@ -21,34 +21,28 @@ export const ProductsHero: React.FC<ProductsHeroProps> = ({
   }, []);
 
   return (
-    <section className="bg-[#111111] text-white pt-28 md:pt-36 pb-8 md:pb-10 border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <section className="bg-[#F4F3EF] text-[#171719] pt-28 md:pt-36 pb-8 md:pb-10 border-b border-black/10">
+      <div className="w-full px-4 sm:px-6 md:px-10 lg:px-16">
         {/* Breadcrumb Navigation */}
         <div className="mb-4">
           <Breadcrumbs 
             items={[{ label: 'Product Catalogue' }]} 
-            className="text-gray-400 text-xs [&_a]:text-gray-400 [&_a:hover]:text-[#F2B705] [&_span]:text-[#F2B705]" 
+            className="text-gray-600 text-xs [&_a]:text-gray-600 [&_a:hover]:text-[#805C00] [&_span]:text-[#805C00]" 
           />
         </div>
 
         {/* Compact Split: Page Name on Left, Proper Crisp Image on Right (Zero Overlay) */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-2">
           <div className="max-w-2xl">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="w-2 h-2 rounded-full bg-[#F2B705]" />
-              <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#F2B705] font-semibold">
-                Hardware Catalogue
-              </span>
-            </div>
             <TextReveal
               as="h1"
               text="Product Catalogue"
-              className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-white tracking-tight mb-2"
+              className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#171719] tracking-tight mb-2"
             />
-            <p className="text-xs sm:text-sm text-gray-300 font-sans leading-relaxed">
+            <p className="text-xs sm:text-sm text-gray-600 font-sans leading-relaxed">
               Precision door furniture, security locks, and luxury bathroom fittings forged in solid brass and 304 stainless steel.
             </p>
-            <div className="mt-3 text-xs text-gray-400 font-mono">
+            <div className="mt-3 text-xs text-gray-600 font-mono">
               <span>SHOWING </span>
               <span className="text-[#F2B705] font-semibold">{totalCount}</span>
               <span> ARCHITECTURAL MODELS</span>
@@ -57,7 +51,7 @@ export const ProductsHero: React.FC<ProductsHeroProps> = ({
 
           {/* Right Side Proper Image (Full opacity, zero overlay, smooth scale animation) */}
           <div className="w-full sm:w-80 md:w-96 shrink-0">
-            <div className="relative aspect-[16/9] rounded-xl overflow-hidden border border-white/15 bg-black/60 shadow-xl">
+            <div className="relative aspect-[16/9] rounded-xl overflow-hidden border border-black/15 bg-white shadow-xl">
               <img
                 src="/Handles.jpg"
                 alt="SIDDI Product Catalogue Hardware"
@@ -65,9 +59,6 @@ export const ProductsHero: React.FC<ProductsHeroProps> = ({
                   isExpanded ? 'scale-100' : 'scale-115'
                 }`}
               />
-              <div className="absolute bottom-2 left-2 bg-[#111111]/90 px-2.5 py-1 rounded text-[10px] font-mono text-[#F2B705] uppercase tracking-wider border border-white/10">
-                Solid Brass Collection
-              </div>
             </div>
           </div>
         </div>

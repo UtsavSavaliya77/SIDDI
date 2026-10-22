@@ -12,7 +12,6 @@ interface SectionHeadingProps {
 }
 
 export const SectionHeading: React.FC<SectionHeadingProps> = ({
-  eyebrow,
   title,
   description,
   align = 'left',
@@ -26,26 +25,6 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
     return (
       <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16 border-b pb-8 ${isDark ? 'border-white/10' : 'border-[#111111]/10'} ${className}`}>
         <div className="lg:col-span-7">
-          {eyebrow && (
-            <motion.div
-              initial={shouldReduceMotion ? {} : { opacity: 0, x: -16 }}
-              whileInView={shouldReduceMotion ? {} : { opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 'some', margin: '0px 0px 60px 0px' }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="flex items-center gap-3 mb-3"
-            >
-              <motion.span
-                initial={shouldReduceMotion ? {} : { width: 0 }}
-                whileInView={shouldReduceMotion ? {} : { width: 24 }}
-                viewport={{ once: true, amount: 'some', margin: '0px 0px 60px 0px' }}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="h-[1.5px] bg-[#F2B705] block"
-              />
-              <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#F2B705]">
-                {eyebrow}
-              </span>
-            </motion.div>
-          )}
           <TextReveal
             as="h2"
             text={title}
@@ -71,35 +50,6 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
 
   return (
     <div className={`mb-14 ${align === 'center' ? 'text-center max-w-3xl mx-auto' : 'max-w-3xl'} ${className}`}>
-      {eyebrow && (
-        <motion.div
-          initial={shouldReduceMotion ? {} : { opacity: 0, y: 10 }}
-          whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 'some', margin: '0px 0px 60px 0px' }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className={`flex items-center gap-3 mb-3 ${align === 'center' ? 'justify-center' : ''}`}
-        >
-          <motion.span
-            initial={shouldReduceMotion ? {} : { width: 0 }}
-            whileInView={shouldReduceMotion ? {} : { width: 20 }}
-            viewport={{ once: true, amount: 'some', margin: '0px 0px 60px 0px' }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="h-[1.5px] bg-[#F2B705] block"
-          />
-          <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#F2B705]">
-            {eyebrow}
-          </span>
-          {align === 'center' && (
-            <motion.span
-              initial={shouldReduceMotion ? {} : { width: 0 }}
-              whileInView={shouldReduceMotion ? {} : { width: 20 }}
-              viewport={{ once: true, amount: 'some', margin: '0px 0px 60px 0px' }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="h-[1.5px] bg-[#F2B705] block"
-            />
-          )}
-        </motion.div>
-      )}
       <TextReveal
         as="h2"
         text={title}

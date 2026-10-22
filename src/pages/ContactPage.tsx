@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { EnquiryCTA } from '../components/common/EnquiryCTA';
 import { ScrollReveal, TextReveal, ScrollRevealStagger, ScrollRevealItem } from '../components/common/ScrollReveal';
-import { Button } from '../components/common/Button';
+import { Button, RollLabel } from '../components/common/Button';
 import {
   CheckCircle,
   Buildings,
@@ -170,13 +170,13 @@ export const ContactPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#FAF9F6]">
       {/* 1. COMPACT ARCHITECTURAL HERO SECTION */}
-      <section className="bg-[#111111] text-white pt-28 md:pt-36 pb-8 md:pb-10 border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <section className="page-hero bg-[#F4F3EF] text-[#171719] border-b border-black/10">
+        <div className="w-full px-4 sm:px-6 md:px-10 lg:px-16">
           {/* Breadcrumb Navigation */}
           <div className="mb-4">
             <Breadcrumbs
               items={[{ label: 'Trade Consultation & Contact' }]}
-              className="text-gray-400 text-xs [&_a]:text-gray-400 [&_a:hover]:text-[#F2B705] [&_span]:text-[#F2B705]"
+              className="text-gray-600 text-xs [&_a]:text-gray-600 [&_a:hover]:text-[#805C00] [&_span]:text-[#805C00]"
             />
           </div>
 
@@ -185,19 +185,19 @@ export const ContactPage: React.FC = () => {
             <div className="max-w-2xl">
               <div className="flex items-center gap-2 mb-2">
                 <span className="w-2 h-2 rounded-full bg-[#F2B705]" />
-                <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#F2B705] font-semibold">
+                <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#805C00] font-semibold">
                   Engineering Concierge & Takeoff Desk
                 </span>
               </div>
               <TextReveal
                 as="h1"
                 text="Consultation & Specification"
-                className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-white tracking-tight mb-2"
+                className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#171719] tracking-tight mb-2"
               />
-              <p className="text-xs sm:text-sm text-gray-300 font-sans leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#5B5B61] font-sans leading-relaxed">
                 Direct engineering collaboration for architects, interior design practices, developers, and wholesale dealers. Submit your door schedules, request bespoke physical sample boxes, or arrange project consultation.
               </p>
-              <div className="mt-3 text-xs text-gray-400 font-mono">
+              <div className="mt-3 text-xs text-gray-600 font-mono">
                 <span>DESK RESPONSE: </span>
                 <span className="text-[#F2B705] font-semibold">24–48 HOURS</span>
                 <span> • DOOR SCHEDULES: PDF / DWG / EXCEL • SAMPLE COURIER DISPATCH</span>
@@ -206,7 +206,7 @@ export const ContactPage: React.FC = () => {
 
             {/* Right Side Framed Visual with Smooth Zoom */}
             <div className="w-full sm:w-80 md:w-96 shrink-0">
-              <div className="relative aspect-[16/9] rounded-xl overflow-hidden border border-white/15 bg-black/60 shadow-xl">
+                <div className="relative aspect-[16/9] rounded-xl overflow-hidden border border-black/15 bg-white shadow-xl">
                 <img
                   src="/brass-door-handle.jpg"
                   alt="SIDDI Architectural Consultation and Technical Takeoff"
@@ -226,7 +226,7 @@ export const ContactPage: React.FC = () => {
 
       {/* 2. ARCHITECTURAL COMMITMENT & STANDARDS HUD BAR */}
       <ScrollReveal as="section" className="bg-white border-b border-[#111111]/10">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 py-6">
+        <div className="w-full px-4 sm:px-6 md:px-10 lg:px-16 py-6">
           <ScrollRevealStagger className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8" staggerDelay={0.08} once={true}>
             <ScrollRevealItem className="flex items-start gap-3.5">
               <div className="w-9 h-9 rounded-lg bg-[#FAF9F6] border border-[#111111]/10 flex items-center justify-center shrink-0 text-[#F2B705]">
@@ -288,7 +288,7 @@ export const ContactPage: React.FC = () => {
       </ScrollReveal>
 
       {/* 3. MAIN INTAKE & TRADE DESK SECTION */}
-      <ScrollReveal className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-16">
+      <ScrollReveal className="w-full px-4 sm:px-6 md:px-10 lg:px-16 py-12 md:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
 
           {/* Left Column: Proper Clean Form */}
@@ -383,7 +383,7 @@ export const ContactPage: React.FC = () => {
                           onClick={() => selectEnquiryType(tab.id)}
                           className={`py-2.5 px-3 text-xs font-medium rounded-lg border text-center transition-all cursor-pointer ${
                             isActive
-                              ? 'bg-[#111111] text-white border-[#111111] shadow-xs'
+                              ? 'bg-[#F2B418] text-[#171719] border-[#946B00] shadow-xs'
                               : 'bg-[#FAF9F6] text-[#666666] border-[#111111]/15 hover:border-[#111111] hover:text-[#111111]'
                           }`}
                         >
@@ -556,9 +556,9 @@ export const ContactPage: React.FC = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#111111] hover:bg-[#F2B705] hover:text-[#111111] text-white text-xs font-semibold uppercase tracking-wider rounded-[11px] transition-colors cursor-pointer disabled:opacity-50"
+                    className="roll-action inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#F2B418] hover:bg-[#FFC83A] text-[#171719] text-xs font-semibold uppercase tracking-wider rounded-[11px] transition-colors cursor-pointer disabled:opacity-50"
                   >
-                    <span>{isSubmitting ? 'Validating...' : 'Submit Inquiry'}</span>
+                    <RollLabel>{isSubmitting ? 'Validating...' : 'Submit Inquiry'}</RollLabel>
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
@@ -570,20 +570,20 @@ export const ContactPage: React.FC = () => {
           <div className="lg:col-span-4 space-y-5">
 
             {/* Curated Sample Box (Minimal Text) */}
-            <div className="p-6 bg-[#111111] text-white rounded-2xl relative overflow-hidden shadow-sm">
+            <div className="p-6 bg-white text-[#171719] border border-black/10 rounded-2xl relative overflow-hidden shadow-sm">
               <div className="flex items-center justify-between mb-3">
                 <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#F2B705] font-semibold">
                   Sample Box
                 </span>
-                <span className="text-[10px] font-mono px-2 py-0.5 bg-white/10 rounded text-gray-300">
+                <span className="text-[10px] font-mono px-2 py-0.5 bg-[#F4F3EF] rounded text-gray-600">
                   48h Dispatch
                 </span>
               </div>
 
-              <h3 className="text-xl font-serif font-normal text-white mb-1.5">
+              <h3 className="text-xl font-serif font-normal text-[#171719] mb-1.5">
                 Physical Finish Box
               </h3>
-              <p className="text-xs text-gray-400 font-light mb-4">
+              <p className="text-xs text-gray-600 font-light mb-4">
                 Curated solid brass finish coupons &amp; sample lever for qualified studios.
               </p>
 
@@ -593,9 +593,9 @@ export const ContactPage: React.FC = () => {
                   selectEnquiryType('sample-request');
                   window.scrollTo({ top: 350, behavior: 'smooth' });
                 }}
-                className="w-full inline-flex items-center justify-center gap-1.5 py-3.5 px-6 bg-white/10 hover:bg-[#F2B705] hover:text-[#111111] text-white rounded-[11px] text-xs font-medium transition-colors cursor-pointer"
+                className="roll-action w-full inline-flex items-center justify-center gap-1.5 py-3.5 px-6 bg-[#F4F3EF] hover:bg-[#F2B418] hover:text-[#171719] text-[#171719] rounded-[11px] text-xs font-medium transition-colors cursor-pointer"
               >
-                <span>Request Sample Set</span>
+                <RollLabel>Request Sample Set</RollLabel>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
@@ -659,7 +659,7 @@ export const ContactPage: React.FC = () => {
 
       {/* 4. SPECIFICATION JOURNEY: 3-STEP ARCHITECTURAL PROCESS */}
       <ScrollReveal as="section" className="bg-white border-y border-[#111111]/10 py-16 md:py-20">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="w-full px-4 sm:px-6 md:px-10 lg:px-16">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#F2B705] font-semibold block mb-2">
               Workflow Standard
@@ -710,7 +710,7 @@ export const ContactPage: React.FC = () => {
 
       {/* 5. ARCHITECTURAL FREQUENTLY ASKED QUESTIONS (BOUNCY ACCORDION) */}
       <ScrollReveal as="section" className="py-16 md:py-24">
-        <div className="max-w-4xl mx-auto px-6 md:px-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-10 lg:px-16">
           <div className="text-center mb-12">
             <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#F2B705] font-semibold block mb-2">
               Trade Clarifications

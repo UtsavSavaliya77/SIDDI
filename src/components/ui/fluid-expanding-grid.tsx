@@ -115,7 +115,7 @@ export function FluidExpandingGrid({
 
   return (
     <div className={cn("w-full not-prose", className)}>
-      <div className={cn("w-full max-w-7xl mx-auto", containerClassName)}>
+      <div className={cn("w-full w-full", containerClassName)}>
 
         {/* 1. MOBILE VIEW (< md): DIRECT ALL 4 CARDS STACKED IN 1 COLUMN */}
         <div className="grid grid-cols-1 gap-4 md:hidden w-full">

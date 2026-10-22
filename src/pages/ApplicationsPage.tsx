@@ -1,178 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from '@phosphor-icons/react';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { EnquiryCTA } from '../components/common/EnquiryCTA';
-import { ScrollReveal, TextReveal } from '../components/common/ScrollReveal';
-import { APPLICATION_AREAS } from '../data/products';
-import { Scroll01, type Scroll01Item } from '../components/ui/scroll-01';
+import { Meta } from '../components/common/Meta';
+import { RollLabel } from '../components/common/Button';
 
-interface SpatialMeta {
-  code: string;
-  environmentTag: string;
-  specs: { label: string; value: string }[];
-  acousticOrDurability: string;
-}
+const applications = [
+  { title: 'Bathrooms', copy: 'Explore bathroom fittings and accessories for residential and project spaces.', image: '/bathroom-kit.jpg', categories: 'Bathroom accessories · Towel rails · Hooks' },
+  { title: 'Interior doors', copy: 'Browse door handles, knobs, and related hardware for interior doors.', image: '/Handles.jpg', categories: 'Door handles & knobs · Door hardware' },
+  { title: 'Hospitality projects', copy: 'Review the catalogue and confirm product suitability and quantities for your project.', image: '/brass-door-handle.jpg', categories: 'Door hardware · Bathroom accessories' },
+  { title: 'Commercial interiors', copy: 'Coordinate hardware selections with the project schedule and intended application.', image: '/Handle.jpg', categories: 'Architectural hardware · Door handles' },
+  { title: 'Renovation & joinery', copy: 'Compare available styles and finishes when updating doors, cabinetry, or fittings.', image: '/Knobs.jpg', categories: 'Cabinet hardware · Bathroom fittings' },
+];
 
-const SPATIAL_METADATA: Record<string, SpatialMeta> = {
-  'residential-bathrooms': {
-    code: 'TYP-WET-01',
-    environmentTag: 'High-Humidity & Marine Zones',
-    specs: [
-      { label: 'Surface Armour', value: 'Multi-Layer Titanium PVD' },
-      { label: 'Substrate', value: 'Solid Forged Brass CuZn39Pb3' },
-      { label: 'Mounting Chassis', value: 'Concealed Dual-Lug Anti-Spin' },
-      { label: 'Moisture Seal', value: 'Neoprene & Silicone Gaskets' },
-    ],
-    acousticOrDurability: 'Impervious to saline air, steam, and cleaning solvents',
-  },
-  'master-suites-doors': {
-    code: 'TYP-PASS-02',
-    environmentTag: 'Acoustic & Private Suites',
-    specs: [
-      { label: 'Latch Mechanism', value: 'Silent Magnetic Detent (No Click)' },
-      { label: 'Hinge Standard', value: 'Concealed 3D Multi-Axis Flush' },
-      { label: 'Return Spring', value: 'Dual Torsion High-Tensile Cassette' },
-      { label: 'Rose Profile', value: '4mm Ultra-Low Rosette' },
-    ],
-    acousticOrDurability: 'Zero frame-strike friction for whisper-quiet passage',
-  },
-  'hospitality-hotels': {
-    code: 'TYP-HOSP-03',
-    environmentTag: 'High-Turnover Luxury Contract',
-    specs: [
-      { label: 'Cycle Durability', value: 'EN 1906 Grade 4 (200k+ Cycles)' },
-      { label: 'Security Standard', value: 'Euro-Profile Cylinders' },
-      { label: 'Fixings', value: 'Through-Bolt Anti-Tamper Sleeves' },
-      { label: 'Finish Durability', value: '2,400 HV Vickers Hardness' },
-    ],
-    acousticOrDurability: 'Heavy commercial duty tested for extreme guest turnover',
-  },
-  'commercial-interiors': {
-    code: 'TYP-COMM-04',
-    environmentTag: 'Executive & Glass Partition Suites',
-    specs: [
-      { label: 'Pivot Rating', value: '160kg Heavy Leaf Capacity' },
-      { label: 'Hold-Open', value: 'Hydraulic 90° Detent Control' },
-      { label: 'Door Compatibility', value: 'Timber, Aluminium & 12mm Glass' },
-      { label: 'Joinery Pulls', value: 'Recessed Flush Edge Profiles' },
-    ],
-    acousticOrDurability: 'Oversized entrance statement with smooth hydraulic closing',
-  },
-  'bespoke-renovations': {
-    code: 'TYP-MILL-05',
-    environmentTag: 'Custom Joinery & Heritage Millwork',
-    specs: [
-      { label: 'Finish Consistency', value: '100% Metallic Suite Harmony' },
-      { label: 'Center Spacing', value: 'Standard Architectural Pitch' },
-      { label: 'Bespoke Milled', value: 'CNC Beveled & Knurled Options' },
-      { label: 'Documentation', value: 'Parametric LOD 400 BIM Ready' },
-    ],
-    acousticOrDurability: 'Unifies door, vanity, and cabinet hardware under one finish tone',
-  },
-};
-
-export const ApplicationsPage: React.FC = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsExpanded(true);
-    }, 100);
-    return () => clearTimeout(timer);
-  }, []);
-
-  const scrollItems: Scroll01Item[] = APPLICATION_AREAS.map((app, index) => {
-    const meta = SPATIAL_METADATA[app.id] || {
-      code: `TYP-SPEC-0${index + 1}`,
-      environmentTag: 'Architectural Typology',
-      specs: [
-        { label: 'Surface Metallurgy', value: 'Solid Forged Brass CuZn39Pb3' },
-        { label: 'Surface Treatment', value: 'Titanium High-Vacuum PVD' },
-        { label: 'Mounting Chassis', value: 'Concealed Anti-Tamper Fixing' },
-        { label: 'Durability Standard', value: 'EN 1906 Commercial Certified' },
-      ],
-      acousticOrDurability: 'Calibrated for enduring tactile performance and flawless mechanical integrity',
-    };
-
-    return {
-      title: app.title,
-      subtitle: app.subtitle,
-      description: app.description,
-      media: app.image,
-      code: meta.code,
-      environmentTag: meta.environmentTag,
-      specs: meta.specs,
-      categoryLinks: app.relatedCategorySlugs.map((slug) => ({
-        slug,
-        name: slug.replace(/-/g, ' '),
-      })),
-    };
-  });
-
-  return (
-    <div className="min-h-screen bg-[#FAF9F6]">
-      {/* 1. COMPACT ARCHITECTURAL HERO SECTION (Product Page Style) */}
-      <section className="bg-[#111111] text-white pt-28 md:pt-36 pb-8 md:pb-10 border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          {/* Breadcrumb Navigation */}
-          <div className="mb-4">
-            <Breadcrumbs
-              items={[{ label: 'Applications & Environments' }]}
-              className="text-gray-400 text-xs [&_a]:text-gray-400 [&_a:hover]:text-[#F2B705] [&_span]:text-[#F2B705]"
-            />
+export const ApplicationsPage: React.FC = () => (
+  <main className="min-h-screen bg-[#F4F3EF] text-[#171719]">
+    <Meta title="Applications — SIDDI Architectural Hardware" description="Browse architectural hardware applications for bathrooms, interior doors, hospitality, and commercial projects." />
+    <section className="page-hero w-full px-4 sm:px-6 md:px-10 lg:px-16 border-b border-black/10">
+      <Breadcrumbs items={[{ label: 'Applications' }]} className="mb-8 text-gray-400 [&_span]:text-[#F2B705]" />
+      <h1 className="text-4xl font-semibold tracking-tight sm:text-6xl">Hardware by space and project.</h1>
+      <p className="mt-5 max-w-2xl text-base leading-7 text-[#5B5B61]">Explore common settings for SIDDI architectural hardware. Product suitability, dimensions, and availability should be confirmed for each project.</p>
+    </section>
+    <section className="w-full px-4 py-12 sm:px-6 sm:py-16 md:px-10 lg:px-16 lg:py-20">
+      <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+        {applications.map((item) => <article key={item.title} className="overflow-hidden rounded-lg border border-black/10 bg-white">
+          <div className="aspect-[16/9] bg-[#EBEAE5]"><img src={item.image} alt="" className="h-full w-full object-cover" loading="lazy" /></div>
+          <div className="p-5 sm:p-6">
+            <h2 className="mt-3 text-xl font-semibold">{item.title}</h2>
+            <p className="mt-3 min-h-12 text-sm leading-6 text-[#5B5B61]">{item.copy}</p>
+            <p className="mt-5 border-t border-black/10 pt-4 text-xs leading-5 text-[#66666D]">Explore: {item.categories}</p>
+            <Link to="/catalogue" className="roll-action mt-5 inline-flex items-center gap-2 text-sm font-semibold hover:text-[#F2B705]"><RollLabel>Browse catalogue</RollLabel><ArrowRight size={16} /></Link>
           </div>
-
-          {/* Compact Split: Page Title & Meta on Left, Proper Crisp Image on Right (Zero Overlay) */}
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-2">
-            <div className="max-w-2xl">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="w-2 h-2 rounded-full bg-[#F2B705]" />
-                <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#F2B705] font-semibold">
-                  Spatial Typologies
-                </span>
-              </div>
-              <TextReveal
-                as="h1"
-                text="Applications & Environments"
-                className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-white tracking-tight mb-2"
-              />
-              <p className="text-xs sm:text-sm text-gray-300 font-sans leading-relaxed">
-                Hardware engineered to respond to the specific functional, acoustic, and environmental demands of each interior space.
-              </p>
-              <div className="mt-3 text-xs text-gray-400 font-mono">
-                <span>EXPLORING </span>
-                <span className="text-[#F2B705] font-semibold">05</span>
-                <span> ARCHITECTURAL ENVIRONMENTS</span>
-              </div>
-            </div>
-
-            {/* Right Side Proper Image (Full opacity, zero overlay, smooth scale animation) */}
-            <div className="w-full sm:w-80 md:w-96 shrink-0">
-              <div className="relative aspect-[16/9] rounded-xl overflow-hidden border border-white/15 bg-black/60 shadow-xl">
-                <img
-                  src="/bathroom-kit.jpg"
-                  alt="SIDDI Architectural Spatial Hardware"
-                  className={`w-full h-full object-cover object-center transition-transform duration-[1400ms] ease-[cubic-bezier(0.25,1,0.35,1)] will-change-transform ${
-                    isExpanded ? 'scale-100' : 'scale-115'
-                  }`}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. SPATIAL STICKY SCROLL SECTION (Scroll01 Integration) */}
-      <ScrollReveal className="max-w-7xl mx-auto px-6 md:px-12 py-12 sm:py-20">
-        <Scroll01 items={scrollItems} />
-      </ScrollReveal>
-
-      {/* Applications Enquiry CTA */}
-      <EnquiryCTA
-        title="Planning an Architectural Interior Project?"
-        description="Share your floor plans or joinery elevations with our team for comprehensive hardware scheduling and finish matching."
-      />
-    </div>
-  );
-};
-
-
+        </article>)}
+      </div>
+    </section>
+    <EnquiryCTA title="Planning a project?" description="Share your schedule and discuss product selection with the SIDDI trade desk." buttonText="Send a door schedule" />
+  </main>
+);

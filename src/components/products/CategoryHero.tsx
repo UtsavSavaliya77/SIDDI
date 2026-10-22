@@ -20,7 +20,6 @@ const categoryImageMap: Record<string, string> = {
 
 export const CategoryHero: React.FC<CategoryHeroProps> = ({
   category,
-  categoryIndex,
   totalProducts,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -35,8 +34,8 @@ export const CategoryHero: React.FC<CategoryHeroProps> = ({
   }, [category.slug]);
 
   return (
-    <section className="bg-[#111111] text-white pt-28 md:pt-36 pb-8 md:pb-10 border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <section className="bg-[#F4F3EF] text-[#171719] pt-28 md:pt-36 pb-8 md:pb-10 border-b border-black/10">
+      <div className="w-full px-4 sm:px-6 md:px-10 lg:px-16">
         {/* Breadcrumbs Navigation */}
         <div className="mb-4">
           <Breadcrumbs
@@ -44,28 +43,22 @@ export const CategoryHero: React.FC<CategoryHeroProps> = ({
               { label: 'Products', to: '/products' },
               { label: category.title }
             ]}
-            className="text-gray-400 text-xs [&_a]:text-gray-400 [&_a:hover]:text-[#F2B705] [&_span]:text-[#F2B705]"
+            className="text-gray-600 text-xs [&_a]:text-gray-600 [&_a:hover]:text-[#805C00] [&_span]:text-[#805C00]"
           />
         </div>
 
         {/* Compact Split: Page Name on Left, Proper Crisp Image on Right (Zero Overlay) */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-2">
           <div className="max-w-2xl">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="w-2 h-2 rounded-full bg-[#F2B705]" />
-              <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#F2B705] font-semibold">
-                Collection 0{categoryIndex}
-              </span>
-            </div>
             <TextReveal
               as="h1"
               text={category.title}
-              className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-white tracking-tight mb-2"
+              className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#171719] tracking-tight mb-2"
             />
-            <p className="text-xs sm:text-sm text-gray-300 font-sans leading-relaxed max-w-xl">
+            <p className="text-xs sm:text-sm text-gray-600 font-sans leading-relaxed max-w-xl">
               {category.subtitle}
             </p>
-            <div className="mt-3 text-xs text-gray-400 font-mono">
+            <div className="mt-3 text-xs text-gray-600 font-mono">
               <span>AVAILABLE MODELS: </span>
               <span className="text-[#F2B705] font-semibold">0{totalProducts}</span>
             </div>
@@ -73,7 +66,7 @@ export const CategoryHero: React.FC<CategoryHeroProps> = ({
 
           {/* Right Side Proper Image (Full opacity, zero overlay, smooth scale animation) */}
           <div className="w-full sm:w-80 md:w-96 shrink-0">
-            <div className="relative aspect-[16/9] rounded-xl overflow-hidden border border-white/15 bg-black/60 shadow-xl">
+            <div className="relative aspect-[16/9] rounded-xl overflow-hidden border border-black/15 bg-white shadow-xl">
               <img
                 src={displayImage}
                 alt={category.title}
@@ -81,9 +74,6 @@ export const CategoryHero: React.FC<CategoryHeroProps> = ({
                   isExpanded ? 'scale-100' : 'scale-115'
                 }`}
               />
-              <div className="absolute bottom-2 left-2 bg-[#111111]/90 px-2.5 py-1 rounded text-[10px] font-mono text-[#F2B705] uppercase tracking-wider border border-white/10">
-                0{totalProducts} Verified Models
-              </div>
             </div>
           </div>
         </div>

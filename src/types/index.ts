@@ -22,7 +22,11 @@ export interface Product {
   applications: string[];
   finishes: ProductFinish[];
   images: string[];
+  imagesByFinish: Record<string, string>;
+  photoNeeded: string;
   specifications: ProductSpecification[];
+  specs: Record<string, string>;
+  downloads: { label: string; format: string; size?: string; url?: string }[];
   features: string[];
   dimensions?: string;
   isDemonstrationItem: boolean;

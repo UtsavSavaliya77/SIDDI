@@ -7,6 +7,7 @@ import { CATEGORIES } from '../data/categories';
 import { DEMO_PRODUCTS } from '../data/products';
 import { ArrowRight } from '@phosphor-icons/react';
 import { ScrollReveal, TextReveal, ScrollRevealStagger, ScrollRevealItem } from '../components/common/ScrollReveal';
+import { Meta } from '../components/common/Meta';
 
 export const ProductCategoryPage: React.FC = () => {
   const { category: categorySlug } = useParams<{ category: string }>();
@@ -34,6 +35,10 @@ export const ProductCategoryPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#FAF9F6]">
+      <Meta
+        title={`${currentCategory.title} — SIDDI Architectural Hardware`}
+        description={currentCategory.description || `${currentCategory.title} architectural hardware specification.`}
+      />
       {/* Category Architectural Hero */}
       <CategoryHero
         category={currentCategory}
@@ -42,7 +47,7 @@ export const ProductCategoryPage: React.FC = () => {
       />
 
       {/* Main Category Body */}
-      <div id="specifications-grid" className="max-w-7xl mx-auto px-6 md:px-12 pt-10 pb-24">
+      <div id="specifications-grid" className="w-full px-4 sm:px-6 md:px-10 lg:px-16 pt-10 pb-24">
 
         {/* Product Grid */}
         <ScrollReveal className="mb-16">

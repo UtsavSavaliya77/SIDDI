@@ -16,6 +16,7 @@ interface Select2MultiDropdownProps {
   selectedIds: string[];
   onChange: (selectedIds: string[]) => void;
   icon?: React.ReactNode;
+  theme?: 'light' | 'dark';
 }
 
 export const Select2MultiDropdown: React.FC<Select2MultiDropdownProps> = ({
@@ -25,7 +26,9 @@ export const Select2MultiDropdown: React.FC<Select2MultiDropdownProps> = ({
   selectedIds,
   onChange,
   icon,
+  theme = 'light',
 }) => {
+  const darkThemeClass = theme === 'dark' ? ' select2-multi-dropdown--dark' : '';
   const [isOpen, setIsOpen] = useState(false);
   const [searchFilter, setSearchFilter] = useState('');
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -78,7 +81,7 @@ export const Select2MultiDropdown: React.FC<Select2MultiDropdownProps> = ({
   const selectedOptions = options.filter((opt) => selectedIds.includes(opt.id));
 
   return (
-    <div className="relative space-y-2" ref={dropdownRef}>
+    <div className={`relative space-y-2 select2-multi-dropdown${darkThemeClass}`} ref={dropdownRef}>
       {/* Label & Active Count Badge */}
       <div className="flex items-center justify-between">
         <label className="flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-widest text-[#777777]">
@@ -86,7 +89,7 @@ export const Select2MultiDropdown: React.FC<Select2MultiDropdownProps> = ({
           <span>{label}</span>
         </label>
         {selectedIds.length > 0 && (
-          <span className="text-[10px] font-mono px-2 py-0.5 bg-[#111111] text-[#F2B705] font-semibold rounded-xs">
+          <span className="text-[10px] font-mono px-2 py-0.5 bg-[#EFEDE6] text-[#805C00] font-semibold rounded-xs">
             {selectedIds.length} selected
           </span>
         )}
@@ -122,11 +125,11 @@ export const Select2MultiDropdown: React.FC<Select2MultiDropdownProps> = ({
             selectedOptions.map((opt) => (
               <span
                 key={opt.id}
-                className="inline-flex items-center gap-1.5 pl-2 pr-1.5 py-0.5 bg-[#111111] text-white text-[11px] font-medium rounded-xs shadow-2xs shrink-0 max-w-full"
+                className="inline-flex items-center gap-1.5 pl-2 pr-1.5 py-0.5 bg-[#EFEDE6] text-[#171719] text-[11px] font-medium rounded-xs shadow-2xs shrink-0 max-w-full"
               >
                 {opt.colorHex && (
                   <span
-                    className="w-2.5 h-2.5 rounded-full border border-white/40 shrink-0"
+                    className="w-2.5 h-2.5 rounded-full border border-black/20 shrink-0"
                     style={{ backgroundColor: opt.colorHex }}
                   />
                 )}
@@ -144,7 +147,7 @@ export const Select2MultiDropdown: React.FC<Select2MultiDropdownProps> = ({
                       toggleOption(opt.id);
                     }
                   }}
-                  className="p-0.5 text-neutral-400 hover:text-[#F2B705] hover:bg-white/10 rounded-xs transition-colors cursor-pointer"
+                  className="p-0.5 text-neutral-500 hover:text-[#805C00] hover:bg-black/5 rounded-xs transition-colors cursor-pointer"
                   aria-label={`Remove ${opt.label}`}
                 >
                   <X className="w-3 h-3" />
@@ -261,7 +264,7 @@ export const Select2MultiDropdown: React.FC<Select2MultiDropdownProps> = ({
                       <div
                         className={`w-4 h-4 rounded-xs border flex items-center justify-center shrink-0 transition-all ${
                           isSelected
-                            ? 'bg-[#111111] border-[#111111] text-[#F2B705]'
+                            ? 'bg-[#F2B418] border-[#946B00] text-[#171719]'
                             : 'bg-white border-[#111111]/30 hover:border-[#111111]'
                         }`}
                       >
@@ -285,7 +288,7 @@ export const Select2MultiDropdown: React.FC<Select2MultiDropdownProps> = ({
                       <span
                         className={`text-[10px] font-mono px-1.5 py-0.5 shrink-0 ${
                           isSelected
-                            ? 'bg-[#111111] text-[#F2B705] font-semibold'
+                            ? 'bg-[#EFEDE6] text-[#805C00] font-semibold'
                             : 'bg-[#111111]/5 text-[#777777]'
                         }`}
                       >
@@ -306,7 +309,7 @@ export const Select2MultiDropdown: React.FC<Select2MultiDropdownProps> = ({
             <button
               type="button"
               onClick={() => setIsOpen(false)}
-              className="px-3 py-1 bg-[#111111] text-white hover:bg-[#F2B705] hover:text-[#111111] text-[11px] font-mono uppercase tracking-wider font-semibold transition-colors cursor-pointer"
+              className="px-3 py-1 bg-[#F2B418] text-[#171719] hover:bg-[#FFC83A] text-[11px] font-mono uppercase tracking-wider font-semibold transition-colors cursor-pointer"
             >
               Done
             </button>

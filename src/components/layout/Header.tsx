@@ -1,6 +1,98 @@
-import React from 'react';
-import { Component as SterlingGateKineticNavigation } from '../ui/sterling-gate-kinetic-navigation';
+import React, { useEffect, useRef, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { List, X } from '@phosphor-icons/react';
+import { Button } from '../common/Button';
+import { pauseLenis, resumeLenis } from '../../lib/motion';
+
+const navLinks = [
+  { label: 'Products', path: '/products' },
+  { label: 'Applications', path: '/applications' },
+  { label: 'Trade desk', path: '/trade-desk' },
+  { label: 'Resources', path: '/resources' },
+  { label: 'About', path: '/about' },
+];
 
 export const Header: React.FC = () => {
-  return <SterlingGateKineticNavigation />;
+  const [isVisible, setIsVisible] = useState(true);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const lastScrollY = useRef(0);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const current = window.scrollY;
+      if (current <= 200 || current < lastScrollY.current) setIsVisible(true);
+      else if (current > lastScrollY.current) setIsVisible(false);
+      lastScrollY.current = current;
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    resumeLenis();
+  }, [location.pathname]);
+
+  const toggleMenu = () => {
+    if (mobileMenuOpen) resumeLenis();
+    else pauseLenis();
+    setMobileMenuOpen((open) => !open);
+  };
+
+  const closeMenu = () => {
+    setMobileMenuOpen(false);
+    resumeLenis();
+  };
+
+  return (
+    <>
+      <header className={`site-header${isVisible ? '' : ' site-header--hidden'}`}>
+        <div className="site-header__inner spec-container">
+          <Link to="/" className="site-header__brand" aria-label="SIDDI home">
+            <img src="/siddi-logo.png" alt="SIDDI" width="1774" height="887" />
+          </Link>
+          <nav className="site-header__nav" aria-label="Main navigation">
+            {navLinks.map(({ label, path }) => (
+              <Link
+                key={path}
+                to={path}
+                aria-current={location.pathname.startsWith(path) ? 'page' : undefined}
+                className="spec-link mono-label"
+              >
+                {label}
+              </Link>
+            ))}
+          </nav>
+          <Button to="/trade-desk" variant="primary" className="site-header__cta">
+            Request a quote
+          </Button>
+          <button
+            type="button"
+            className="site-header__menu"
+            onClick={toggleMenu}
+            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
+          >
+            {mobileMenuOpen ? <X size={20} weight="regular" /> : <List size={20} weight="regular" />}
+          </button>
+        </div>
+      </header>
+      {mobileMenuOpen && (
+        <div className="mobile-navigation" id="mobile-navigation">
+          <nav aria-label="Mobile navigation">
+            {navLinks.map(({ label, path }) => (
+              <Link key={path} to={path} onClick={closeMenu} aria-current={location.pathname.startsWith(path) ? 'page' : undefined}>
+                {label}
+              </Link>
+            ))}
+          </nav>
+          <Button to="/trade-desk" variant="primary" className="mobile-navigation__cta" onClick={closeMenu}>
+            Request a quote
+          </Button>
+        </div>
+      )}
+    </>
+  );
 };

@@ -1,0 +1,801 @@
+{
+  "finishes": [
+    {
+      "id": "matte-black",
+      "name": "Matte black",
+      "hex": "#1E1E22"
+    },
+    {
+      "id": "brushed-brass",
+      "name": "Brushed brass",
+      "hex": "#F2B418"
+    },
+    {
+      "id": "satin-steel",
+      "name": "Satin steel",
+      "hex": "#A4A4AA"
+    },
+    {
+      "id": "polished-chrome",
+      "name": "Polished chrome",
+      "hex": "#F1F0EC"
+    },
+    {
+      "id": "gunmetal",
+      "name": "Gunmetal",
+      "hex": "#5B5B61"
+    },
+    {
+      "id": "antique-bronze",
+      "name": "Antique bronze",
+      "hex": "#2D2D33"
+    }
+  ],
+  "products": [
+    {
+      "id": "siddi-dh-101",
+      "slug": "verona-architectural-lever-handle",
+      "name": "Verona Architectural Lever Handle",
+      "series": "Verona Series",
+      "category": "Door Handles & Knobs",
+      "categorySlug": "door-handles-knobs",
+      "shortDescription": "Door furniture for architectural hardware schedules.",
+      "description": "Demonstration catalogue entry. Confirm product dimensions, materials, finish options and performance with the trade desk before specification.",
+      "applications": [],
+      "finishes": [
+        {
+          "id": "matte-black",
+          "name": "Matte black",
+          "hex": "#1E1E22"
+        },
+        {
+          "id": "brushed-brass",
+          "name": "Brushed brass",
+          "hex": "#F2B418"
+        },
+        {
+          "id": "satin-steel",
+          "name": "Satin steel",
+          "hex": "#A4A4AA"
+        },
+        {
+          "id": "gunmetal",
+          "name": "Gunmetal",
+          "hex": "#5B5B61"
+        }
+      ],
+      "images": [
+        "/brass-door-handle.jpg"
+      ],
+      "imagesByFinish": {
+        "brushed-brass": "/brass-door-handle.jpg"
+      },
+      "photoNeeded": "Photograph the Verona Architectural Lever Handle as a 4:5 elevation on #121316. Include a profile macro, an in-situ view, and a top-down finish view.",
+      "specifications": [],
+      "features": [],
+      "downloads": [],
+      "specs": {},
+      "isDemonstrationItem": true,
+      "featured": true
+    },
+    {
+      "id": "siddi-dh-102",
+      "slug": "kyoto-minimalist-round-lever",
+      "name": "Kyoto Minimalist Round Lever",
+      "series": "Kyoto Series",
+      "category": "Door Handles & Knobs",
+      "categorySlug": "door-handles-knobs",
+      "shortDescription": "Door furniture for architectural hardware schedules.",
+      "description": "Demonstration catalogue entry. Confirm product dimensions, materials, finish options and performance with the trade desk before specification.",
+      "applications": [],
+      "finishes": [
+        {
+          "id": "matte-black",
+          "name": "Matte black",
+          "hex": "#1E1E22"
+        },
+        {
+          "id": "brushed-brass",
+          "name": "Brushed brass",
+          "hex": "#F2B418"
+        },
+        {
+          "id": "polished-chrome",
+          "name": "Polished chrome",
+          "hex": "#F1F0EC"
+        }
+      ],
+      "images": [],
+      "imagesByFinish": {},
+      "photoNeeded": "Photograph the Kyoto Minimalist Round Lever as a 4:5 elevation on #121316. Include a profile macro, an in-situ view, and a top-down finish view.",
+      "specifications": [],
+      "features": [],
+      "downloads": [],
+      "specs": {},
+      "isDemonstrationItem": true,
+      "featured": true
+    },
+    {
+      "id": "siddi-dh-103",
+      "slug": "modena-entry-pull-handle",
+      "name": "Modena Entrance Pull Handle (600mm)",
+      "series": "Modena Series",
+      "category": "Door Handles & Knobs",
+      "categorySlug": "door-handles-knobs",
+      "shortDescription": "Door furniture for architectural hardware schedules.",
+      "description": "Demonstration catalogue entry. Confirm product dimensions, materials, finish options and performance with the trade desk before specification.",
+      "applications": [],
+      "finishes": [
+        {
+          "id": "matte-black",
+          "name": "Matte black",
+          "hex": "#1E1E22"
+        },
+        {
+          "id": "brushed-brass",
+          "name": "Brushed brass",
+          "hex": "#F2B418"
+        },
+        {
+          "id": "satin-steel",
+          "name": "Satin steel",
+          "hex": "#A4A4AA"
+        }
+      ],
+      "images": [],
+      "imagesByFinish": {},
+      "photoNeeded": "Photograph the Modena Entrance Pull Handle (600mm) as a 4:5 elevation on #121316. Include a profile macro, an in-situ view, and a top-down finish view.",
+      "specifications": [],
+      "features": [],
+      "downloads": [],
+      "specs": {},
+      "isDemonstrationItem": true,
+      "featured": false
+    },
+    {
+      "id": "siddi-dh-104",
+      "slug": "astrid-knurled-mortise-knob",
+      "name": "Astrid Knurled Mortise Knob",
+      "series": "Astrid Series",
+      "category": "Door Handles & Knobs",
+      "categorySlug": "door-handles-knobs",
+      "shortDescription": "Door furniture for architectural hardware schedules.",
+      "description": "Demonstration catalogue entry. Confirm product dimensions, materials, finish options and performance with the trade desk before specification.",
+      "applications": [],
+      "finishes": [
+        {
+          "id": "matte-black",
+          "name": "Matte black",
+          "hex": "#1E1E22"
+        },
+        {
+          "id": "brushed-brass",
+          "name": "Brushed brass",
+          "hex": "#F2B418"
+        },
+        {
+          "id": "gunmetal",
+          "name": "Gunmetal",
+          "hex": "#5B5B61"
+        }
+      ],
+      "images": [],
+      "imagesByFinish": {},
+      "photoNeeded": "Photograph the Astrid Knurled Mortise Knob as a 4:5 elevation on #121316. Include a profile macro, an in-situ view, and a top-down finish view.",
+      "specifications": [],
+      "features": [],
+      "downloads": [],
+      "specs": {},
+      "isDemonstrationItem": true,
+      "featured": true
+    },
+    {
+      "id": "siddi-dh-201",
+      "slug": "silent-magnetic-mortise-lockset",
+      "name": "Silent Magnetic Mortise Lockset",
+      "series": "SilentTech Series",
+      "category": "Door Hardware & Accessories",
+      "categorySlug": "door-hardware-accessories",
+      "shortDescription": "Door control and locking components for coordinated schedules.",
+      "description": "Demonstration catalogue entry. Confirm product dimensions, materials, finish options and performance with the trade desk before specification.",
+      "applications": [],
+      "finishes": [
+        {
+          "id": "matte-black",
+          "name": "Matte black",
+          "hex": "#1E1E22"
+        },
+        {
+          "id": "brushed-brass",
+          "name": "Brushed brass",
+          "hex": "#F2B418"
+        },
+        {
+          "id": "satin-steel",
+          "name": "Satin steel",
+          "hex": "#A4A4AA"
+        }
+      ],
+      "images": [],
+      "imagesByFinish": {},
+      "photoNeeded": "Photograph the Silent Magnetic Mortise Lockset as a 4:5 elevation on #121316. Include a profile macro, an in-situ view, and a top-down finish view.",
+      "specifications": [],
+      "features": [],
+      "downloads": [],
+      "specs": {},
+      "isDemonstrationItem": true,
+      "featured": true
+    },
+    {
+      "id": "siddi-dh-202",
+      "slug": "concealed-3d-adjustable-hinge",
+      "name": "Concealed 3D Adjustable Architectural Hinge",
+      "series": "Axis Series",
+      "category": "Door Hardware & Accessories",
+      "categorySlug": "door-hardware-accessories",
+      "shortDescription": "Door control and locking components for coordinated schedules.",
+      "description": "Demonstration catalogue entry. Confirm product dimensions, materials, finish options and performance with the trade desk before specification.",
+      "applications": [],
+      "finishes": [
+        {
+          "id": "matte-black",
+          "name": "Matte black",
+          "hex": "#1E1E22"
+        },
+        {
+          "id": "satin-steel",
+          "name": "Satin steel",
+          "hex": "#A4A4AA"
+        },
+        {
+          "id": "gunmetal",
+          "name": "Gunmetal",
+          "hex": "#5B5B61"
+        }
+      ],
+      "images": [],
+      "imagesByFinish": {},
+      "photoNeeded": "Photograph the Concealed 3D Adjustable Architectural Hinge as a 4:5 elevation on #121316. Include a profile macro, an in-situ view, and a top-down finish view.",
+      "specifications": [],
+      "features": [],
+      "downloads": [],
+      "specs": {},
+      "isDemonstrationItem": true,
+      "featured": false
+    },
+    {
+      "id": "siddi-dh-203",
+      "slug": "flush-floor-magnetic-door-stop",
+      "name": "Flush Floor Magnetic Concealed Door Stop",
+      "series": "Axis Series",
+      "category": "Door Hardware & Accessories",
+      "categorySlug": "door-hardware-accessories",
+      "shortDescription": "Door control and locking components for coordinated schedules.",
+      "description": "Demonstration catalogue entry. Confirm product dimensions, materials, finish options and performance with the trade desk before specification.",
+      "applications": [],
+      "finishes": [
+        {
+          "id": "matte-black",
+          "name": "Matte black",
+          "hex": "#1E1E22"
+        },
+        {
+          "id": "brushed-brass",
+          "name": "Brushed brass",
+          "hex": "#F2B418"
+        },
+        {
+          "id": "satin-steel",
+          "name": "Satin steel",
+          "hex": "#A4A4AA"
+        },
+        {
+          "id": "polished-chrome",
+          "name": "Polished chrome",
+          "hex": "#F1F0EC"
+        }
+      ],
+      "images": [],
+      "imagesByFinish": {},
+      "photoNeeded": "Photograph the Flush Floor Magnetic Concealed Door Stop as a 4:5 elevation on #121316. Include a profile macro, an in-situ view, and a top-down finish view.",
+      "specifications": [],
+      "features": [],
+      "downloads": [],
+      "specs": {},
+      "isDemonstrationItem": true,
+      "featured": false
+    },
+    {
+      "id": "siddi-ba-301",
+      "slug": "nordic-wall-mounted-soap-dispenser",
+      "name": "Nordic Wall-Mounted Liquid Soap Dispenser",
+      "series": "Nordic Bath Series",
+      "category": "Bathroom Accessories",
+      "categorySlug": "bathroom-accessories",
+      "shortDescription": "Bathroom fittings for coordinated room schedules.",
+      "description": "Demonstration catalogue entry. Confirm product dimensions, materials, finish options and performance with the trade desk before specification.",
+      "applications": [],
+      "finishes": [
+        {
+          "id": "matte-black",
+          "name": "Matte black",
+          "hex": "#1E1E22"
+        },
+        {
+          "id": "brushed-brass",
+          "name": "Brushed brass",
+          "hex": "#F2B418"
+        },
+        {
+          "id": "satin-steel",
+          "name": "Satin steel",
+          "hex": "#A4A4AA"
+        },
+        {
+          "id": "polished-chrome",
+          "name": "Polished chrome",
+          "hex": "#F1F0EC"
+        }
+      ],
+      "images": [],
+      "imagesByFinish": {},
+      "photoNeeded": "Photograph the Nordic Wall-Mounted Liquid Soap Dispenser as a 4:5 elevation on #121316. Include a profile macro, an in-situ view, and a top-down finish view.",
+      "specifications": [],
+      "features": [],
+      "downloads": [],
+      "specs": {},
+      "isDemonstrationItem": true,
+      "featured": true
+    },
+    {
+      "id": "siddi-ba-302",
+      "slug": "solis-toilet-paper-holder-shelf",
+      "name": "Solis Toilet Paper Holder with Integrated Phone Shelf",
+      "series": "Solis Series",
+      "category": "Bathroom Accessories",
+      "categorySlug": "bathroom-accessories",
+      "shortDescription": "Bathroom fittings for coordinated room schedules.",
+      "description": "Demonstration catalogue entry. Confirm product dimensions, materials, finish options and performance with the trade desk before specification.",
+      "applications": [],
+      "finishes": [
+        {
+          "id": "matte-black",
+          "name": "Matte black",
+          "hex": "#1E1E22"
+        },
+        {
+          "id": "brushed-brass",
+          "name": "Brushed brass",
+          "hex": "#F2B418"
+        },
+        {
+          "id": "satin-steel",
+          "name": "Satin steel",
+          "hex": "#A4A4AA"
+        }
+      ],
+      "images": [],
+      "imagesByFinish": {},
+      "photoNeeded": "Photograph the Solis Toilet Paper Holder with Integrated Phone Shelf as a 4:5 elevation on #121316. Include a profile macro, an in-situ view, and a top-down finish view.",
+      "specifications": [],
+      "features": [],
+      "downloads": [],
+      "specs": {},
+      "isDemonstrationItem": true,
+      "featured": true
+    },
+    {
+      "id": "siddi-ba-303",
+      "slug": "vertex-shower-corner-caddy",
+      "name": "Vertex Architectural Shower Corner Caddy",
+      "series": "Vertex Series",
+      "category": "Bathroom Accessories",
+      "categorySlug": "bathroom-accessories",
+      "shortDescription": "Bathroom fittings for coordinated room schedules.",
+      "description": "Demonstration catalogue entry. Confirm product dimensions, materials, finish options and performance with the trade desk before specification.",
+      "applications": [],
+      "finishes": [
+        {
+          "id": "matte-black",
+          "name": "Matte black",
+          "hex": "#1E1E22"
+        },
+        {
+          "id": "brushed-brass",
+          "name": "Brushed brass",
+          "hex": "#F2B418"
+        },
+        {
+          "id": "satin-steel",
+          "name": "Satin steel",
+          "hex": "#A4A4AA"
+        }
+      ],
+      "images": [],
+      "imagesByFinish": {},
+      "photoNeeded": "Photograph the Vertex Architectural Shower Corner Caddy as a 4:5 elevation on #121316. Include a profile macro, an in-situ view, and a top-down finish view.",
+      "specifications": [],
+      "features": [],
+      "downloads": [],
+      "specs": {},
+      "isDemonstrationItem": true,
+      "featured": false
+    },
+    {
+      "id": "siddi-tr-401",
+      "slug": "linea-single-towel-rail-600",
+      "name": "Linea Architectural Single Towel Rail (600mm)",
+      "series": "Linea Series",
+      "category": "Towel Rails & Holders",
+      "categorySlug": "towel-rails-holders",
+      "shortDescription": "Towel rails and holders for bathroom schedules.",
+      "description": "Demonstration catalogue entry. Confirm product dimensions, materials, finish options and performance with the trade desk before specification.",
+      "applications": [],
+      "finishes": [
+        {
+          "id": "matte-black",
+          "name": "Matte black",
+          "hex": "#1E1E22"
+        },
+        {
+          "id": "brushed-brass",
+          "name": "Brushed brass",
+          "hex": "#F2B418"
+        },
+        {
+          "id": "satin-steel",
+          "name": "Satin steel",
+          "hex": "#A4A4AA"
+        },
+        {
+          "id": "polished-chrome",
+          "name": "Polished chrome",
+          "hex": "#F1F0EC"
+        },
+        {
+          "id": "gunmetal",
+          "name": "Gunmetal",
+          "hex": "#5B5B61"
+        }
+      ],
+      "images": [],
+      "imagesByFinish": {},
+      "photoNeeded": "Photograph the Linea Architectural Single Towel Rail (600mm) as a 4:5 elevation on #121316. Include a profile macro, an in-situ view, and a top-down finish view.",
+      "specifications": [],
+      "features": [],
+      "downloads": [],
+      "specs": {},
+      "isDemonstrationItem": true,
+      "featured": true
+    },
+    {
+      "id": "siddi-tr-402",
+      "slug": "linea-double-towel-rail-800",
+      "name": "Linea Dual Tier Towel Rail (800mm)",
+      "series": "Linea Series",
+      "category": "Towel Rails & Holders",
+      "categorySlug": "towel-rails-holders",
+      "shortDescription": "Towel rails and holders for bathroom schedules.",
+      "description": "Demonstration catalogue entry. Confirm product dimensions, materials, finish options and performance with the trade desk before specification.",
+      "applications": [],
+      "finishes": [
+        {
+          "id": "matte-black",
+          "name": "Matte black",
+          "hex": "#1E1E22"
+        },
+        {
+          "id": "brushed-brass",
+          "name": "Brushed brass",
+          "hex": "#F2B418"
+        },
+        {
+          "id": "satin-steel",
+          "name": "Satin steel",
+          "hex": "#A4A4AA"
+        }
+      ],
+      "images": [],
+      "imagesByFinish": {},
+      "photoNeeded": "Photograph the Linea Dual Tier Towel Rail (800mm) as a 4:5 elevation on #121316. Include a profile macro, an in-situ view, and a top-down finish view.",
+      "specifications": [],
+      "features": [],
+      "downloads": [],
+      "specs": {},
+      "isDemonstrationItem": true,
+      "featured": false
+    },
+    {
+      "id": "siddi-tr-403",
+      "slug": "aero-cylindrical-towel-ring",
+      "name": "Aero Minimalist Towel Ring",
+      "series": "Aero Series",
+      "category": "Towel Rails & Holders",
+      "categorySlug": "towel-rails-holders",
+      "shortDescription": "Towel rails and holders for bathroom schedules.",
+      "description": "Demonstration catalogue entry. Confirm product dimensions, materials, finish options and performance with the trade desk before specification.",
+      "applications": [],
+      "finishes": [
+        {
+          "id": "matte-black",
+          "name": "Matte black",
+          "hex": "#1E1E22"
+        },
+        {
+          "id": "brushed-brass",
+          "name": "Brushed brass",
+          "hex": "#F2B418"
+        },
+        {
+          "id": "satin-steel",
+          "name": "Satin steel",
+          "hex": "#A4A4AA"
+        },
+        {
+          "id": "polished-chrome",
+          "name": "Polished chrome",
+          "hex": "#F1F0EC"
+        }
+      ],
+      "images": [],
+      "imagesByFinish": {},
+      "photoNeeded": "Photograph the Aero Minimalist Towel Ring as a 4:5 elevation on #121316. Include a profile macro, an in-situ view, and a top-down finish view.",
+      "specifications": [],
+      "features": [],
+      "downloads": [],
+      "specs": {},
+      "isDemonstrationItem": true,
+      "featured": false
+    },
+    {
+      "id": "siddi-hk-501",
+      "slug": "pillar-architectural-robe-hook",
+      "name": "Pillar Cylindrical Single Robe Hook",
+      "series": "Pillar Series",
+      "category": "Hooks, Robe Hooks & Utility",
+      "categorySlug": "hooks-utility",
+      "shortDescription": "Utility hooks for coordinated bathroom schedules.",
+      "description": "Demonstration catalogue entry. Confirm product dimensions, materials, finish options and performance with the trade desk before specification.",
+      "applications": [],
+      "finishes": [
+        {
+          "id": "matte-black",
+          "name": "Matte black",
+          "hex": "#1E1E22"
+        },
+        {
+          "id": "brushed-brass",
+          "name": "Brushed brass",
+          "hex": "#F2B418"
+        },
+        {
+          "id": "satin-steel",
+          "name": "Satin steel",
+          "hex": "#A4A4AA"
+        },
+        {
+          "id": "polished-chrome",
+          "name": "Polished chrome",
+          "hex": "#F1F0EC"
+        },
+        {
+          "id": "gunmetal",
+          "name": "Gunmetal",
+          "hex": "#5B5B61"
+        }
+      ],
+      "images": [],
+      "imagesByFinish": {},
+      "photoNeeded": "Photograph the Pillar Cylindrical Single Robe Hook as a 4:5 elevation on #121316. Include a profile macro, an in-situ view, and a top-down finish view.",
+      "specifications": [],
+      "features": [],
+      "downloads": [],
+      "specs": {},
+      "isDemonstrationItem": true,
+      "featured": true
+    },
+    {
+      "id": "siddi-hk-502",
+      "slug": "prism-double-robe-hook",
+      "name": "Prism Architectural Dual Coat & Robe Hook",
+      "series": "Prism Series",
+      "category": "Hooks, Robe Hooks & Utility",
+      "categorySlug": "hooks-utility",
+      "shortDescription": "Utility hooks for coordinated bathroom schedules.",
+      "description": "Demonstration catalogue entry. Confirm product dimensions, materials, finish options and performance with the trade desk before specification.",
+      "applications": [],
+      "finishes": [
+        {
+          "id": "matte-black",
+          "name": "Matte black",
+          "hex": "#1E1E22"
+        },
+        {
+          "id": "brushed-brass",
+          "name": "Brushed brass",
+          "hex": "#F2B418"
+        },
+        {
+          "id": "satin-steel",
+          "name": "Satin steel",
+          "hex": "#A4A4AA"
+        }
+      ],
+      "images": [],
+      "imagesByFinish": {},
+      "photoNeeded": "Photograph the Prism Architectural Dual Coat & Robe Hook as a 4:5 elevation on #121316. Include a profile macro, an in-situ view, and a top-down finish view.",
+      "specifications": [],
+      "features": [],
+      "downloads": [],
+      "specs": {},
+      "isDemonstrationItem": true,
+      "featured": false
+    },
+    {
+      "id": "siddi-ah-601",
+      "slug": "bauhaus-cabinet-edge-pull",
+      "name": "Bauhaus Continuous Cabinet Edge Pull (200mm)",
+      "series": "Bauhaus Series",
+      "category": "Architectural Hardware",
+      "categorySlug": "architectural-hardware",
+      "shortDescription": "Architectural fittings for door and joinery schedules.",
+      "description": "Demonstration catalogue entry. Confirm product dimensions, materials, finish options and performance with the trade desk before specification.",
+      "applications": [],
+      "finishes": [
+        {
+          "id": "matte-black",
+          "name": "Matte black",
+          "hex": "#1E1E22"
+        },
+        {
+          "id": "brushed-brass",
+          "name": "Brushed brass",
+          "hex": "#F2B418"
+        },
+        {
+          "id": "satin-steel",
+          "name": "Satin steel",
+          "hex": "#A4A4AA"
+        },
+        {
+          "id": "gunmetal",
+          "name": "Gunmetal",
+          "hex": "#5B5B61"
+        }
+      ],
+      "images": [],
+      "imagesByFinish": {},
+      "photoNeeded": "Photograph the Bauhaus Continuous Cabinet Edge Pull (200mm) as a 4:5 elevation on #121316. Include a profile macro, an in-situ view, and a top-down finish view.",
+      "specifications": [],
+      "features": [],
+      "downloads": [],
+      "specs": {},
+      "isDemonstrationItem": true,
+      "featured": true
+    },
+    {
+      "id": "siddi-ah-602",
+      "slug": "heavy-duty-pivot-door-hinge-system",
+      "name": "Heavy-Duty Floor Spring Pivot Hinge System",
+      "series": "Axis Series",
+      "category": "Architectural Hardware",
+      "categorySlug": "architectural-hardware",
+      "shortDescription": "Architectural fittings for door and joinery schedules.",
+      "description": "Demonstration catalogue entry. Confirm product dimensions, materials, finish options and performance with the trade desk before specification.",
+      "applications": [],
+      "finishes": [
+        {
+          "id": "matte-black",
+          "name": "Matte black",
+          "hex": "#1E1E22"
+        },
+        {
+          "id": "satin-steel",
+          "name": "Satin steel",
+          "hex": "#A4A4AA"
+        }
+      ],
+      "images": [],
+      "imagesByFinish": {},
+      "photoNeeded": "Photograph the Heavy-Duty Floor Spring Pivot Hinge System as a 4:5 elevation on #121316. Include a profile macro, an in-situ view, and a top-down finish view.",
+      "specifications": [],
+      "features": [],
+      "downloads": [],
+      "specs": {},
+      "isDemonstrationItem": true,
+      "featured": false
+    }
+  ],
+  "applications": [
+    {
+      "id": "residential-bathrooms",
+      "slug": "residential-bathrooms",
+      "title": "Luxury Residential Bathrooms & Ensuites",
+      "subtitle": "Where tactile precision meets daily ritual and serene moisture-resistant resilience",
+      "description": "Bathroom environments demand the highest standard of metallurgy. High humidity, temperature swings, and chemical cleaning agents cause lesser hardware to pit and peel. SIDDI bathroom accessories and towel rails are engineered with multi-layer PVD plating over solid forged brass and marine grade 316 stainless steel, ensuring spotless performance across years of daily use.",
+      "image": "/bathroom-kit.jpg",
+      "relatedCategorySlugs": [
+        "bathroom-accessories",
+        "towel-rails-holders",
+        "hooks-utility"
+      ],
+      "hardwareHighlights": [
+        "Concealed anti-spin towel bars rated for daily use",
+        "Solid brass wall mounts with moisture-tight silicone gaskets",
+        "Matching matte black, brushed brass, and polished chrome finishes across all fittings"
+      ]
+    },
+    {
+      "id": "master-suites-doors",
+      "slug": "master-suites-doors",
+      "title": "Bedrooms & Interior Passage Doors",
+      "subtitle": "Whisper-quiet acoustic performance, weighted hand-feel, and flush architectural aesthetics",
+      "description": "Internal doors are the primary tactile transition points in any home. SIDDI lever handles and magnetic mortise locks eliminate harsh latch clicks and vibration, creating seamless, silent acoustic transitions between bedrooms, dressing rooms, and private studies.",
+      "image": "/Handles.jpg",
+      "relatedCategorySlugs": [
+        "door-handles-knobs",
+        "door-hardware-accessories"
+      ],
+      "hardwareHighlights": [
+        "Silent magnetic latches that engage without frame strike friction",
+        "Concealed 3D adjustable hinges for completely flush door leaves",
+        "Ergonomic solid lever sets with dual torsion return springs"
+      ]
+    },
+    {
+      "id": "hospitality-hotels",
+      "slug": "hospitality-hotels",
+      "title": "Boutique Hotels & High-End Hospitality",
+      "subtitle": "Cycle-tested durability calibrated to withstand rigorous guest turnover while maintaining five-star elegance",
+      "description": "Hotels require hardware that combines architectural design purity with extreme mechanical longevity. From entrance pivot pulls to heavy-use robe hooks and card-key compatible mortise locksets, SIDDI hardware is tested across hundreds of thousands of cycles to exceed commercial contract standards.",
+      "image": "/brass-door-handle.jpg",
+      "relatedCategorySlugs": [
+        "door-handles-knobs",
+        "door-hardware-accessories",
+        "bathroom-accessories",
+        "towel-rails-holders"
+      ],
+      "hardwareHighlights": [
+        "High-traffic EN 1906 Grade 4 mechanical endurance",
+        "Corrosion and scratch-resistant PVD physical vapor deposition finishes",
+        "Tamper-resistant concealed fixings with proprietary key access"
+      ]
+    },
+    {
+      "id": "commercial-interiors",
+      "slug": "commercial-interiors",
+      "title": "Executive Offices & Commercial Workspaces",
+      "subtitle": "Crisp architectural lines, ADA/accessible compliance, and robust security integration",
+      "description": "Corporate headquarters and creative agency studios demand hardware that communicates professionalism and intentionality. SIDDI provides oversized entrance pulls, heavy-duty floor pivots, and minimalist cabinet hardware tailored for conference rooms, executive suites, and acoustic glass partitions.",
+      "image": "/Handle.jpg",
+      "relatedCategorySlugs": [
+        "architectural-hardware",
+        "door-handles-knobs",
+        "door-hardware-accessories"
+      ],
+      "hardwareHighlights": [
+        "Back-to-back pull handles for full-height architectural pivot doors",
+        "Hydraulic floor spring controls with 90-degree hold-open functionality",
+        "Recessed edge pulls for streamlined executive storage millwork"
+      ]
+    },
+    {
+      "id": "bespoke-renovations",
+      "slug": "bespoke-renovations",
+      "title": "Architectural Renovations & Custom Millwork",
+      "subtitle": "Unifying hardware finishes across custom joinery, custom vanities, and existing heritage or modern doors",
+      "description": "Great renovation projects hinge on cohesive finishing touches. Designers frequently face mismatched metallic tones across suppliers. SIDDI solves this with coordinated finish suites across door handles, cabinet pulls, bathroom hooks, and accessories.",
+      "image": "/Knobs.jpg",
+      "relatedCategorySlugs": [
+        "architectural-hardware",
+        "hooks-utility",
+        "bathroom-accessories"
+      ],
+      "hardwareHighlights": [
+        "Identical metallic finish matching across door and joinery elements",
+        "Standardized hole center spacing for easy replacement upgrades",
+        "Comprehensive technical specification sheets for joinery shop drawings"
+      ]
+    }
+  ]
+}

@@ -2,12 +2,17 @@ import React from 'react';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { ScrollReveal } from '../components/common/ScrollReveal';
+import { Meta } from '../components/common/Meta';
 import { Link } from 'react-router-dom';
 
 export const PrivacyPage: React.FC = () => {
   return (
     <div className="min-h-screen pt-28 md:pt-36 bg-[#FAF9F6]">
-      <div className="max-w-4xl mx-auto px-6 md:px-12 pb-24">
+      <Meta
+        title="Privacy Policy — SIDDI Architectural Hardware"
+        description="Data governance and client privacy policies for trade inquiries, door schedule submissions, and sample requests."
+      />
+      <div className="w-full px-4 sm:px-6 md:px-10 lg:px-16 pb-24">
         
         {/* Breadcrumb Navigation */}
         <Breadcrumbs items={[{ label: 'Privacy Policy' }]} className="mb-8" />
