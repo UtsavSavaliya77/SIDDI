@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Check, ArrowRight, BookOpen, Stack, Palette, Cube, Sparkle } from '@phosphor-icons/react';
+import { Check, ArrowRight, BookOpen, Stack, Palette } from '@phosphor-icons/react';
 
 export interface FinishItem {
   id: string;
